@@ -1,0 +1,56 @@
+# Editors #
+## Visual Studio Code ##
+### Workspace Folder ###
+.vscode/*
+
+### Exceptions ###
+!.vscode/extensions.json
+!.vscode/launch.json
+!.vscode/tasks.json
+
+## Eclipse ##
+bin/
+.settings/
+.classpath
+.project
+*.launch
+
+## IDEA ##
+out/
+*.ipr
+*.iws
+*.iml
+.idea/
+
+## Vim ##
+### Swap Files ###
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]s[a-rt-v][a-z]
+[._]ss[a-gi-z]
+[._]sw[a-p]
+
+### Session ###
+Session.vim
+Sessionx.vim
+
+### Temporary Files ###
+.netrwhist
+*~
+
+### Auto-generated tag files ###
+tags
+
+### Persistent undo ###
+[._]*.un~
+
+# Logs #
+*.log*
+
+# Artifacts #
+## Gradle ##
+build/
+.gradle/
+
+# Files from Forge MDK #
+forge*changelog.txt
