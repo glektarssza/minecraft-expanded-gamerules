@@ -52,5 +52,8 @@ tags
 build/
 .gradle/
 
+## Debugging ##
+run/
+
 # Files from Forge MDK #
 forge*changelog.txt
