@@ -4,6 +4,7 @@
         "github.vscode-pull-request-github",
         "vscjava.vscode-gradle",
         "redhat.java",
-        "vscjava.vscode-java-dependency"
+        "vscjava.vscode-java-dependency",
+        "vscjava.vscode-java-debug"
     ]
 }
