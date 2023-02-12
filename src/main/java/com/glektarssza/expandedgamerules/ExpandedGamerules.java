@@ -4,7 +4,7 @@ import net.minecraftforge.fml.common.Mod;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-@Mod("expandedgamerules")
+@Mod(ExpandedGamerules.MOD_ID)
 public class ExpandedGamerules {
     /**
      * The ID of the mod.
