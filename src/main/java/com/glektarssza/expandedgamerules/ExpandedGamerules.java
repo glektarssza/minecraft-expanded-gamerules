@@ -4,6 +4,8 @@ import net.minecraftforge.fml.common.Mod;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.glektarssza.expandedgamerules.GameruleRegistry;
+
 /**
  * The root mod class.
  */
@@ -20,11 +22,21 @@ public class ExpandedGamerules {
     public static final Logger LOGGER = LogManager.getLogger();
 
     /**
+     * The registry of gamerules.
+     */
+    public static final GameruleRegistry GAMERULE_REGISTRY = new GameruleRegistry();
+
+    /**
      * Create a new instance.
      */
     public ExpandedGamerules() {
-        // TODO: Load config
-        // TODO: Load gamerule registry
-        // TODO: Set up connections to event bus
+        registerGamerules();
+    }
+
+    /**
+     * Register this mod's gamerules.
+     */
+    public void registerGamerules() {
+        // TODO
     }
 }
