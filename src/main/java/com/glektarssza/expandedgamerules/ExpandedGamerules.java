@@ -14,7 +14,7 @@ public class ExpandedGamerules {
     /**
      * The logger to use for the mod.
      */
-    private static final Logger LOGGER = LogManager.getLogger();
+    public static final Logger LOGGER = LogManager.getLogger();
 
     public ExpandedGamerules() {
         // TODO: Load config
