@@ -1,0 +1,10 @@
+{
+    "recommendations": [
+        "github.remotehub",
+        "github.vscode-pull-request-github",
+        "vscjava.vscode-gradle",
+        "redhat.java",
+        "vscjava.vscode-maven",
+        "vscjava.vscode-java-dependency"
+    ]
+}
