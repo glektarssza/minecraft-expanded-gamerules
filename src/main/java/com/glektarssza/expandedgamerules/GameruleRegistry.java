@@ -2,6 +2,7 @@ package com.glektarssza.expandedgamerules;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 import net.minecraft.world.GameRules;
 import net.minecraft.world.GameRules.BooleanValue;
@@ -65,17 +66,19 @@ public class GameruleRegistry {
      * @param world The world to check the gamerule in.
      * @param id    The ID of the gamerule to check.
      *
-     * @return `true` if the gamerule is enabled, `false` otherwise.
+     * @return The enabled state of the gamerule if it exists, an empty optional
+     *         otherwise.
      */
-    public boolean isGameruleEnabled(World world, String id) {
+    @SuppressWarnings("unchecked")
+    public Optional<Boolean> isGameruleEnabled(World world, String id) {
         if (!hasGamerule(id)) {
-            return false;
+            return Optional.empty();
         }
         RuleKey<?> ruleKey = gamerules.get(id);
         if (!(ruleKey.getClass().getTypeParameters()[0] instanceof BooleanValue)) {
-            return false;
+            return Optional.empty();
         }
-        return world.getGameRules().getBoolean((RuleKey<BooleanValue>) gamerules.get(id));
+        return Optional.of(world.getGameRules().getBoolean((RuleKey<BooleanValue>) gamerules.get(id)));
     }
 
     /**
@@ -84,38 +87,60 @@ public class GameruleRegistry {
      * @param world The world to check the gamerule in.
      * @param id    The ID of the gamerule to check.
      *
-     * @return `true` if the gamerule is enabled, `false` otherwise.
+     * @return The enabled state of the gamerule if it exists, an empty optional
+     *         otherwise.
      */
-    public boolean isGameruleEnabled(IWorld world, String id) {
+    @SuppressWarnings("unchecked")
+    public Optional<Boolean> isGameruleEnabled(IWorld world, String id) {
         if (!hasGamerule(id)) {
-            return false;
+            return Optional.empty();
         }
         RuleKey<?> ruleKey = gamerules.get(id);
         if (!(ruleKey.getClass().getTypeParameters()[0] instanceof BooleanValue)) {
-            return false;
+            return Optional.empty();
         }
-        return ((World) world).getGameRules().getBoolean((RuleKey<BooleanValue>) gamerules.get(id));
+        return Optional.of(((World) world).getGameRules().getBoolean((RuleKey<BooleanValue>) gamerules.get(id)));
     }
 
-    public int getGameruleValue(World world, String id) {
+    /**
+     * Get the value of the gamerule with the given ID.
+     *
+     * @param world The world to check the gamerule in.
+     * @param id    The ID of the gamerule to get the value for.
+     *
+     * @return The value of the gamerule if it exists, an empty optional
+     *         otherwise.
+     */
+    @SuppressWarnings("unchecked")
+    public Optional<Integer> getGameruleValue(World world, String id) {
         if (!hasGamerule(id)) {
-            return 0;
+            return Optional.empty();
         }
         RuleKey<?> ruleKey = gamerules.get(id);
         if (!(ruleKey.getClass().getTypeParameters()[0] instanceof IntegerValue)) {
-            return 0;
+            return Optional.empty();
         }
-        return world.getGameRules().getInt((RuleKey<IntegerValue>) gamerules.get(id));
+        return Optional.of(world.getGameRules().getInt((RuleKey<IntegerValue>) gamerules.get(id)));
     }
 
-    public int getGameruleValue(IWorld world, String id) {
+    /**
+     * Get the value of the gamerule with the given ID.
+     *
+     * @param world The world to check the gamerule in.
+     * @param id    The ID of the gamerule to get the value for.
+     *
+     * @return The value of the gamerule if it exists, an empty optional
+     *         otherwise.
+     */
+    @SuppressWarnings("unchecked")
+    public Optional<Integer> getGameruleValue(IWorld world, String id) {
         if (!hasGamerule(id)) {
-            return 0;
+            return Optional.empty();
         }
         RuleKey<?> ruleKey = gamerules.get(id);
         if (!(ruleKey.getClass().getTypeParameters()[0] instanceof IntegerValue)) {
-            return 0;
+            return Optional.empty();
         }
-        return ((World) world).getGameRules().getInt((RuleKey<IntegerValue>) gamerules.get(id));
+        return Optional.of(((World) world).getGameRules().getInt((RuleKey<IntegerValue>) gamerules.get(id)));
     }
 }
