@@ -4,6 +4,8 @@ import net.minecraftforge.fml.common.Mod;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.glektarssza.expandedgamerules.gamerules.DisableTargetingPlayersGamerule;
+
 /**
  * The root mod class.
  */
@@ -35,6 +37,6 @@ public class ExpandedGamerules {
      * Register this mod's gamerules.
      */
     public void registerGamerules() {
-        // TODO
+        new DisableTargetingPlayersGamerule().register(GAMERULE_REGISTRY);
     }
 }
