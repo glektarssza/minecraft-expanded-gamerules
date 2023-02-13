@@ -4,8 +4,6 @@ import net.minecraftforge.fml.common.Mod;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.glektarssza.expandedgamerules.GameruleRegistry;
-
 /**
  * The root mod class.
  */

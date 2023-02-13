@@ -9,7 +9,6 @@ import net.minecraft.world.GameRules.BooleanValue;
 import net.minecraft.world.GameRules.Category;
 import net.minecraft.world.GameRules.IntegerValue;
 import net.minecraft.world.GameRules.RuleKey;
-import net.minecraft.world.GameRules.RuleType;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 
