@@ -8,8 +8,8 @@
       "mainClass": "net.minecraftforge.userdev.LaunchTesting",
       "projectName": "minecraft-expanded-gamerules",
       "cwd": "${workspaceFolder}\\run",
-      "vmArgs": "-Dforge.logging.console.level\u003ddebug -Dforge.logging.markers\u003dREGISTRIES -XX:+IgnoreUnrecognizedVMOptions --add-exports\u003djava.base/sun.security.util\u003dALL-UNNAMED --add-exports\u003djdk.naming.dns/com.sun.jndi.dns\u003djava.naming --add-opens\u003djava.base/java.util.jar\u003dALL-UNNAMED -XX:HeapDumpPath\u003dMojangTricksIntelDriversForPerformance_javaw.exe_minecraft.exe.heapdump \"-Dos.name\u003dWindows 10\" -Dos.version\u003d10.0",
-      "args": "",
+      "vmArgs": "-Dforge.logging.console.level\u003ddebug -Dforge.logging.markers\u003dREGISTRIES -Dnet.minecraftforge.gradle.GradleStart.srg.srg-mcp\u003dC:\\Users\\roblo\\repositories\\github\\glektarssza\\minecraft-expanded-gamerules\\build\\createSrgToMcp\\output.srg -Dmixin.env.remapRefMap\u003dtrue -Dmixin.env.refMapRemappingFile\u003dC:\\Users\\roblo\\repositories\\github\\glektarssza\\minecraft-expanded-gamerules\\build\\createSrgToMcp\\output.srg -Dmixin.debug.verbose\u003dtrue -Dmixin.debug.export\u003dtrue -XX:+IgnoreUnrecognizedVMOptions --add-exports\u003djava.base/sun.security.util\u003dALL-UNNAMED --add-exports\u003djdk.naming.dns/com.sun.jndi.dns\u003djava.naming --add-opens\u003djava.base/java.util.jar\u003dALL-UNNAMED -XX:HeapDumpPath\u003dMojangTricksIntelDriversForPerformance_javaw.exe_minecraft.exe.heapdump \"-Dos.name\u003dWindows 10\" -Dos.version\u003d10.0",
+      "args": "--mixin.config mixins.expandedgamerules.json",
       "env": {
         "MOD_CLASSES": "expandedgamerules%%${workspaceFolder}\\bin\\main;expandedgamerules%%${workspaceFolder}\\bin\\main",
         "MCP_MAPPINGS": "official_1.16.5",
@@ -30,8 +30,8 @@
       "mainClass": "net.minecraftforge.userdev.LaunchTesting",
       "projectName": "minecraft-expanded-gamerules",
       "cwd": "${workspaceFolder}\\run",
-      "vmArgs": "-Dforge.logging.console.level\u003ddebug -Dforge.logging.markers\u003dREGISTRIES -XX:+IgnoreUnrecognizedVMOptions --add-exports\u003djava.base/sun.security.util\u003dALL-UNNAMED --add-exports\u003djdk.naming.dns/com.sun.jndi.dns\u003djava.naming --add-opens\u003djava.base/java.util.jar\u003dALL-UNNAMED",
-      "args": "--mod expandedgamerules --all --output C:\\Users\\roblo\\repositories\\github\\glektarssza\\minecraft-expanded-gamerules\\src\\generated\\resources --existing C:\\Users\\roblo\\repositories\\github\\glektarssza\\minecraft-expanded-gamerules\\src\\main\\resources",
+      "vmArgs": "-Dforge.logging.console.level\u003ddebug -Dforge.logging.markers\u003dREGISTRIES -Dnet.minecraftforge.gradle.GradleStart.srg.srg-mcp\u003dC:\\Users\\roblo\\repositories\\github\\glektarssza\\minecraft-expanded-gamerules\\build\\createSrgToMcp\\output.srg -Dmixin.env.remapRefMap\u003dtrue -Dmixin.env.refMapRemappingFile\u003dC:\\Users\\roblo\\repositories\\github\\glektarssza\\minecraft-expanded-gamerules\\build\\createSrgToMcp\\output.srg -Dmixin.debug.verbose\u003dtrue -Dmixin.debug.export\u003dtrue -XX:+IgnoreUnrecognizedVMOptions --add-exports\u003djava.base/sun.security.util\u003dALL-UNNAMED --add-exports\u003djdk.naming.dns/com.sun.jndi.dns\u003djava.naming --add-opens\u003djava.base/java.util.jar\u003dALL-UNNAMED",
+      "args": "--mod expandedgamerules --all --output C:\\Users\\roblo\\repositories\\github\\glektarssza\\minecraft-expanded-gamerules\\src\\generated\\resources --existing C:\\Users\\roblo\\repositories\\github\\glektarssza\\minecraft-expanded-gamerules\\src\\main\\resources --mixin.config mixins.expandedgamerules.json",
       "env": {
         "MOD_CLASSES": "expandedgamerules%%${workspaceFolder}\\bin\\main;expandedgamerules%%${workspaceFolder}\\bin\\main",
         "MCP_MAPPINGS": "official_1.16.5",
@@ -51,8 +51,8 @@
       "mainClass": "net.minecraftforge.userdev.LaunchTesting",
       "projectName": "minecraft-expanded-gamerules",
       "cwd": "${workspaceFolder}\\run",
-      "vmArgs": "-Dforge.logging.console.level\u003ddebug -Dforge.logging.markers\u003dREGISTRIES -XX:+IgnoreUnrecognizedVMOptions --add-exports\u003djava.base/sun.security.util\u003dALL-UNNAMED --add-exports\u003djdk.naming.dns/com.sun.jndi.dns\u003djava.naming --add-opens\u003djava.base/java.util.jar\u003dALL-UNNAMED",
-      "args": "",
+      "vmArgs": "-Dforge.logging.console.level\u003ddebug -Dforge.logging.markers\u003dREGISTRIES -Dnet.minecraftforge.gradle.GradleStart.srg.srg-mcp\u003dC:\\Users\\roblo\\repositories\\github\\glektarssza\\minecraft-expanded-gamerules\\build\\createSrgToMcp\\output.srg -Dmixin.env.remapRefMap\u003dtrue -Dmixin.env.refMapRemappingFile\u003dC:\\Users\\roblo\\repositories\\github\\glektarssza\\minecraft-expanded-gamerules\\build\\createSrgToMcp\\output.srg -Dmixin.debug.verbose\u003dtrue -Dmixin.debug.export\u003dtrue -XX:+IgnoreUnrecognizedVMOptions --add-exports\u003djava.base/sun.security.util\u003dALL-UNNAMED --add-exports\u003djdk.naming.dns/com.sun.jndi.dns\u003djava.naming --add-opens\u003djava.base/java.util.jar\u003dALL-UNNAMED",
+      "args": "--mixin.config mixins.expandedgamerules.json",
       "env": {
         "MOD_CLASSES": "expandedgamerules%%${workspaceFolder}\\bin\\main;expandedgamerules%%${workspaceFolder}\\bin\\main",
         "MCP_MAPPINGS": "official_1.16.5",
