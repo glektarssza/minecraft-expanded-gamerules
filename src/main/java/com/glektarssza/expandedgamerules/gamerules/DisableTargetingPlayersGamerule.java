@@ -9,6 +9,7 @@ import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.ai.brain.Brain;
 import net.minecraft.entity.ai.brain.memory.MemoryModuleType;
 import net.minecraft.entity.monster.HoglinEntity;
+import net.minecraft.entity.monster.piglin.PiglinBruteEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.world.GameRules.Category;
 import net.minecraftforge.common.MinecraftForge;
@@ -94,11 +95,6 @@ public class DisableTargetingPlayersGamerule {
             brain.eraseMemory(MemoryModuleType.NEAREST_TARGETABLE_PLAYER_NOT_WEARING_GOLD);
         }
         mob.setTarget(null);
-        // -- Mark Hoglins as pacified to prevent them from spamming the aggression
-        // -- sound
-        if (mob instanceof HoglinEntity) {
-            brain.setMemory(MemoryModuleType.PACIFIED, true);
-        }
     }
 
     /**
@@ -141,12 +137,15 @@ public class DisableTargetingPlayersGamerule {
             brain.eraseMemory(MemoryModuleType.NEAREST_TARGETABLE_PLAYER_NOT_WEARING_GOLD);
         }
         mob.setTarget(null);
-        // -- Mark Hoglins as pacified to prevent them from spamming the aggression
-        // -- sound
-        if (mob instanceof HoglinEntity) {
-            brain.setMemory(MemoryModuleType.PACIFIED, true);
-        }
-        // TODO: Figure out a way to prevent Piglin Brutes from spamming their
-        // TODO: aggression sound/animation
+        // -- Hoglins and Piglin Brutes behave differently. Hoglins will
+        // -- randomly target players as part of their idle behavior. This
+        // -- causes them to spam the aggression sound as the targeting and
+        // -- sound effect happen this code runs. To prevent this we use a mixin
+        // -- to prevent the targeting from happening. See HoglinTasksMixin.java
+        // -- for the implementation.
+        // -- Piglin Brutes also target the player as part of their AI routines.
+        // -- This causes them to spam the aggression sound/animation as well.
+        // -- To prevent this we also use a mixin to prevent the targeting from
+        // -- happening. See PiglinBruteTasksMixin.java for the implementation.
     }
 }
