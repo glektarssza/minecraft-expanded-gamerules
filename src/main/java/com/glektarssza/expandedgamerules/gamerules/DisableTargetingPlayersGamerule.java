@@ -68,13 +68,15 @@ public class DisableTargetingPlayersGamerule {
             return;
         }
         MobEntity mob = (MobEntity) entity;
+        Brain<?> brain = mob.getBrain();
         LivingEntity target = event.getTarget();
+        LivingEntity attackTarget = brain.getMemory(MemoryModuleType.ATTACK_TARGET).orElse(null);
         // -- Target is not a player or is a fake player
-        if (!(target instanceof PlayerEntity) || target instanceof FakePlayer) {
+        if (!(target instanceof PlayerEntity) || target instanceof FakePlayer
+                && (!(attackTarget instanceof PlayerEntity) || attackTarget instanceof FakePlayer)) {
             return;
         }
         // -- Reset the mob's target
-        Brain<?> brain = mob.getBrain();
         if (brain.hasMemoryValue(MemoryModuleType.ATTACK_TARGET)) {
             brain.eraseMemory(MemoryModuleType.ATTACK_TARGET);
         }
@@ -105,12 +107,14 @@ public class DisableTargetingPlayersGamerule {
             return;
         }
         MobEntity mob = (MobEntity) entity;
+        Brain<?> brain = mob.getBrain();
         LivingEntity target = mob.getTarget();
+        LivingEntity attackTarget = brain.getMemory(MemoryModuleType.ATTACK_TARGET).orElse(null);
         // -- Target is not a player or is a fake player
-        if (!(target instanceof PlayerEntity) || target instanceof FakePlayer) {
+        if ((!(target instanceof PlayerEntity) || target instanceof FakePlayer)
+                && (!(attackTarget instanceof PlayerEntity) || attackTarget instanceof FakePlayer)) {
             return;
         }
-        Brain<?> brain = mob.getBrain();
         // -- Reset the mob's target
         if (brain.hasMemoryValue(MemoryModuleType.ATTACK_TARGET)) {
             brain.eraseMemory(MemoryModuleType.ATTACK_TARGET);
