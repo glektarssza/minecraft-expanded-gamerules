@@ -1,7 +1,5 @@
 package com.glektarssza.expandedgamerules.gamerules;
 
-import java.util.Optional;
-
 import com.glektarssza.expandedgamerules.ExpandedGamerules;
 import com.glektarssza.expandedgamerules.GameruleRegistry;
 
@@ -77,13 +75,20 @@ public class DisableTargetingPlayersGamerule {
         }
         // -- Reset the mob's target
         Brain<?> brain = mob.getBrain();
-        brain.setMemory(MemoryModuleType.ATTACK_TARGET, Optional.empty());
-        brain.setMemory(MemoryModuleType.ANGRY_AT, Optional.empty());
-        brain.setMemory(MemoryModuleType.UNIVERSAL_ANGER, Optional.empty());
+        if (brain.hasMemoryValue(MemoryModuleType.ATTACK_TARGET)) {
+            brain.eraseMemory(MemoryModuleType.ATTACK_TARGET);
+        }
+        if (brain.hasMemoryValue(MemoryModuleType.ANGRY_AT)) {
+            brain.eraseMemory(MemoryModuleType.ANGRY_AT);
+        }
+        if (brain.hasMemoryValue(MemoryModuleType.UNIVERSAL_ANGER)) {
+            brain.eraseMemory(MemoryModuleType.UNIVERSAL_ANGER);
+        }
         if (brain.hasMemoryValue(MemoryModuleType.NEAREST_TARGETABLE_PLAYER_NOT_WEARING_GOLD)) {
-            brain.setMemory(MemoryModuleType.NEAREST_TARGETABLE_PLAYER_NOT_WEARING_GOLD, Optional.empty());
+            brain.eraseMemory(MemoryModuleType.NEAREST_TARGETABLE_PLAYER_NOT_WEARING_GOLD);
         }
         mob.setTarget(null);
+        mob.setAggressive(false);
     }
 
     /**
@@ -106,14 +111,21 @@ public class DisableTargetingPlayersGamerule {
         if (!(target instanceof PlayerEntity) || target instanceof FakePlayer) {
             return;
         }
-        // -- Reset the mob's target
         Brain<?> brain = mob.getBrain();
-        brain.setMemory(MemoryModuleType.ATTACK_TARGET, Optional.empty());
-        brain.setMemory(MemoryModuleType.ANGRY_AT, Optional.empty());
-        brain.setMemory(MemoryModuleType.UNIVERSAL_ANGER, Optional.empty());
+        // -- Reset the mob's target
+        if (brain.hasMemoryValue(MemoryModuleType.ATTACK_TARGET)) {
+            brain.eraseMemory(MemoryModuleType.ATTACK_TARGET);
+        }
+        if (brain.hasMemoryValue(MemoryModuleType.ANGRY_AT)) {
+            brain.eraseMemory(MemoryModuleType.ANGRY_AT);
+        }
+        if (brain.hasMemoryValue(MemoryModuleType.UNIVERSAL_ANGER)) {
+            brain.eraseMemory(MemoryModuleType.UNIVERSAL_ANGER);
+        }
         if (brain.hasMemoryValue(MemoryModuleType.NEAREST_TARGETABLE_PLAYER_NOT_WEARING_GOLD)) {
-            brain.setMemory(MemoryModuleType.NEAREST_TARGETABLE_PLAYER_NOT_WEARING_GOLD, Optional.empty());
+            brain.eraseMemory(MemoryModuleType.NEAREST_TARGETABLE_PLAYER_NOT_WEARING_GOLD);
         }
         mob.setTarget(null);
+        mob.setAggressive(false);
     }
 }
