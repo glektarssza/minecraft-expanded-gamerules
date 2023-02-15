@@ -1,0 +1,4 @@
+{
+    "gamerule.disableTargetingPlayers": "Disable targeting players",
+    "gamerule.disableTargetingPlayers.tooltip": "Prevent mobs from targeting players for any reason."
+}
