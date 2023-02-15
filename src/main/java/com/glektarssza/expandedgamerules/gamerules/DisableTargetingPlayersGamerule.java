@@ -69,10 +69,6 @@ public class DisableTargetingPlayersGamerule {
         if (!(entity instanceof MobEntity)) {
             return;
         }
-        // -- Don't handle Hoglins/Piglin Brutes here, we do that in mixins
-        if (entity instanceof HoglinEntity || entity instanceof PiglinBruteEntity) {
-            return;
-        }
         MobEntity mob = (MobEntity) entity;
         Brain<?> brain = mob.getBrain();
         LivingEntity target = event.getTarget();
@@ -113,10 +109,6 @@ public class DisableTargetingPlayersGamerule {
         }
         // -- Entity is not a mob
         if (!(entity instanceof MobEntity)) {
-            return;
-        }
-        // -- Don't handle Hoglins/Piglin Brutes here, we do that in mixins
-        if (entity instanceof HoglinEntity || entity instanceof PiglinBruteEntity) {
             return;
         }
         MobEntity mob = (MobEntity) entity;
