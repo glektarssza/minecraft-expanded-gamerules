@@ -5,16 +5,17 @@ import java.util.Optional;
 import com.glektarssza.expandedgamerules.ExpandedGamerules;
 import com.glektarssza.expandedgamerules.GameruleRegistry;
 
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.Mob;
-import net.minecraft.world.entity.ai.memory.MemoryModuleType;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.level.GameRules.Category;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.MobEntity;
+import net.minecraft.entity.ai.brain.Brain;
+import net.minecraft.entity.ai.brain.memory.MemoryModuleType;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.world.GameRules.Category;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.FakePlayer;
-import net.minecraftforge.event.entity.living.LivingChangeTargetEvent;
-import net.minecraftforge.event.entity.living.LivingEvent.LivingTickEvent;
+import net.minecraftforge.event.entity.living.LivingSetAttackTargetEvent;
+import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 /**
@@ -58,22 +59,61 @@ public class DisableTargetingPlayersGamerule {
      * target.
      */
     @SubscribeEvent
-    public void onLivingChangeTarget(LivingChangeTargetEvent event) {
+    public void onLivingSetAttackTarget(LivingSetAttackTargetEvent event) {
         Entity entity = event.getEntity();
         // -- Gamerule is not enabled, do nothing
         if (ExpandedGamerules.GAMERULE_REGISTRY.isGameruleEnabled(entity.level, ID).orElse(false)) {
             return;
         }
         // -- Entity is not a mob
-        if (!(entity instanceof Mob)) {
+        if (!(entity instanceof MobEntity)) {
             return;
         }
-        LivingEntity target = event.getNewTarget();
+        MobEntity mob = (MobEntity) entity;
+        LivingEntity target = event.getTarget();
         // -- Target is not a player or is a fake player
-        if (!(target instanceof Player) || target instanceof FakePlayer) {
+        if (!(target instanceof PlayerEntity) || target instanceof FakePlayer) {
             return;
         }
-        // -- Cancel the event, do not permit target change
-        event.setCanceled(true);
+        // -- Reset the mob's target
+        Brain<?> brain = mob.getBrain();
+        brain.setMemory(MemoryModuleType.ATTACK_TARGET, Optional.empty());
+        brain.setMemory(MemoryModuleType.ANGRY_AT, Optional.empty());
+        brain.setMemory(MemoryModuleType.UNIVERSAL_ANGER, Optional.empty());
+        if (brain.hasMemoryValue(MemoryModuleType.NEAREST_TARGETABLE_PLAYER_NOT_WEARING_GOLD)) {
+            brain.setMemory(MemoryModuleType.NEAREST_TARGETABLE_PLAYER_NOT_WEARING_GOLD, Optional.empty());
+        }
+        mob.setTarget(null);
+    }
+
+    /**
+     * Handle the event that is fired when a living entity updates.
+     */
+    @SubscribeEvent
+    public void onLivingUpdate(LivingUpdateEvent event) {
+        Entity entity = event.getEntity();
+        // -- Gamerule is not enabled, do nothing
+        if (ExpandedGamerules.GAMERULE_REGISTRY.isGameruleEnabled(entity.level, ID).orElse(false)) {
+            return;
+        }
+        // -- Entity is not a mob
+        if (!(entity instanceof MobEntity)) {
+            return;
+        }
+        MobEntity mob = (MobEntity) entity;
+        LivingEntity target = mob.getTarget();
+        // -- Target is not a player or is a fake player
+        if (!(target instanceof PlayerEntity) || target instanceof FakePlayer) {
+            return;
+        }
+        // -- Reset the mob's target
+        Brain<?> brain = mob.getBrain();
+        brain.setMemory(MemoryModuleType.ATTACK_TARGET, Optional.empty());
+        brain.setMemory(MemoryModuleType.ANGRY_AT, Optional.empty());
+        brain.setMemory(MemoryModuleType.UNIVERSAL_ANGER, Optional.empty());
+        if (brain.hasMemoryValue(MemoryModuleType.NEAREST_TARGETABLE_PLAYER_NOT_WEARING_GOLD)) {
+            brain.setMemory(MemoryModuleType.NEAREST_TARGETABLE_PLAYER_NOT_WEARING_GOLD, Optional.empty());
+        }
+        mob.setTarget(null);
     }
 }

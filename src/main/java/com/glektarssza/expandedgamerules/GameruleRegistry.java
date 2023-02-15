@@ -4,19 +4,19 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
-import net.minecraft.world.level.GameRules;
-import net.minecraft.world.level.GameRules.BooleanValue;
-import net.minecraft.world.level.GameRules.Category;
-import net.minecraft.world.level.GameRules.IntegerValue;
-import net.minecraft.world.level.GameRules.Key;
-import net.minecraftforge.common.extensions.IForgeLevel;
-import net.minecraft.world.level.Level;
+import net.minecraft.world.GameRules;
+import net.minecraft.world.GameRules.BooleanValue;
+import net.minecraft.world.GameRules.Category;
+import net.minecraft.world.GameRules.IntegerValue;
+import net.minecraft.world.GameRules.RuleKey;
+import net.minecraft.world.World;
+import net.minecraft.world.IWorld;
 
 public class GameruleRegistry {
     /**
      * A map of all registered gamerules to their IDs.
      */
-    private final Map<String, Key<?>> gamerules;
+    private final Map<String, RuleKey<?>> gamerules;
 
     /**
      * Create a new instance.
@@ -32,7 +32,7 @@ public class GameruleRegistry {
      * @param defaultValue Whether the gamerule is enabled by default.
      */
     public void registerGamerule(String id, Category category, boolean defaultValue) {
-        Key<BooleanValue> rule = GameRules.register(id, category, BooleanValue.create(defaultValue));
+        RuleKey<BooleanValue> rule = GameRules.register(id, category, BooleanValue.create(defaultValue));
         gamerules.put(id, rule);
     }
 
@@ -43,7 +43,7 @@ public class GameruleRegistry {
      * @param defaultValue The default value of the gamerule.
      */
     public void registerGamerule(String id, Category category, int defaultValue) {
-        Key<IntegerValue> rule = GameRules.register(id, category, IntegerValue.create(defaultValue));
+        RuleKey<IntegerValue> rule = GameRules.register(id, category, IntegerValue.create(defaultValue));
         gamerules.put(id, rule);
     }
 
@@ -69,15 +69,15 @@ public class GameruleRegistry {
      *         otherwise.
      */
     @SuppressWarnings("unchecked")
-    public Optional<Boolean> isGameruleEnabled(Level level, String id) {
+    public Optional<Boolean> isGameruleEnabled(World world, String id) {
         if (!hasGamerule(id)) {
             return Optional.empty();
         }
-        Key<?> ruleKey = gamerules.get(id);
+        RuleKey<?> ruleKey = gamerules.get(id);
         if (!(ruleKey.getClass().getTypeParameters()[0] instanceof BooleanValue)) {
             return Optional.empty();
         }
-        return Optional.of(level.getGameRules().getBoolean((Key<BooleanValue>) gamerules.get(id)));
+        return Optional.of(world.getGameRules().getBoolean((RuleKey<BooleanValue>) gamerules.get(id)));
     }
 
     /**
@@ -90,15 +90,15 @@ public class GameruleRegistry {
      *         otherwise.
      */
     @SuppressWarnings("unchecked")
-    public Optional<Boolean> isGameruleEnabled(IForgeLevel level, String id) {
+    public Optional<Boolean> isGameruleEnabled(IWorld world, String id) {
         if (!hasGamerule(id)) {
             return Optional.empty();
         }
-        Key<?> ruleKey = gamerules.get(id);
+        RuleKey<?> ruleKey = gamerules.get(id);
         if (!(ruleKey.getClass().getTypeParameters()[0] instanceof BooleanValue)) {
             return Optional.empty();
         }
-        return Optional.of(((Level) level).getGameRules().getBoolean((Key<BooleanValue>) gamerules.get(id)));
+        return Optional.of(((World) world).getGameRules().getBoolean((RuleKey<BooleanValue>) gamerules.get(id)));
     }
 
     /**
@@ -111,15 +111,15 @@ public class GameruleRegistry {
      *         otherwise.
      */
     @SuppressWarnings("unchecked")
-    public Optional<Integer> getGameruleValue(Level level, String id) {
+    public Optional<Integer> getGameruleValue(World world, String id) {
         if (!hasGamerule(id)) {
             return Optional.empty();
         }
-        Key<?> ruleKey = gamerules.get(id);
+        RuleKey<?> ruleKey = gamerules.get(id);
         if (!(ruleKey.getClass().getTypeParameters()[0] instanceof IntegerValue)) {
             return Optional.empty();
         }
-        return Optional.of(level.getGameRules().getInt((Key<IntegerValue>) gamerules.get(id)));
+        return Optional.of(world.getGameRules().getInt((RuleKey<IntegerValue>) gamerules.get(id)));
     }
 
     /**
@@ -132,14 +132,14 @@ public class GameruleRegistry {
      *         otherwise.
      */
     @SuppressWarnings("unchecked")
-    public Optional<Integer> getGameruleValue(IForgeLevel level, String id) {
+    public Optional<Integer> getGameruleValue(IWorld world, String id) {
         if (!hasGamerule(id)) {
             return Optional.empty();
         }
-        Key<?> ruleKey = gamerules.get(id);
+        RuleKey<?> ruleKey = gamerules.get(id);
         if (!(ruleKey.getClass().getTypeParameters()[0] instanceof IntegerValue)) {
             return Optional.empty();
         }
-        return Optional.of(((Level) level).getGameRules().getInt((Key<IntegerValue>) gamerules.get(id)));
+        return Optional.of(((World) world).getGameRules().getInt((RuleKey<IntegerValue>) gamerules.get(id)));
     }
 }
