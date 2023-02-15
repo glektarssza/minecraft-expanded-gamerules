@@ -88,7 +88,6 @@ public class DisableTargetingPlayersGamerule {
             brain.eraseMemory(MemoryModuleType.NEAREST_TARGETABLE_PLAYER_NOT_WEARING_GOLD);
         }
         mob.setTarget(null);
-        mob.setAggressive(false);
     }
 
     /**
@@ -126,6 +125,5 @@ public class DisableTargetingPlayersGamerule {
             brain.eraseMemory(MemoryModuleType.NEAREST_TARGETABLE_PLAYER_NOT_WEARING_GOLD);
         }
         mob.setTarget(null);
-        mob.setAggressive(false);
     }
 }
