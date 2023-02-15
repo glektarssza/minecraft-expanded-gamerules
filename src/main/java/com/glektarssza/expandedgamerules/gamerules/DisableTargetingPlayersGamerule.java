@@ -8,6 +8,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.ai.brain.Brain;
 import net.minecraft.entity.ai.brain.memory.MemoryModuleType;
+import net.minecraft.entity.monster.HoglinEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.world.GameRules.Category;
 import net.minecraftforge.common.MinecraftForge;
@@ -70,7 +71,10 @@ public class DisableTargetingPlayersGamerule {
         MobEntity mob = (MobEntity) entity;
         Brain<?> brain = mob.getBrain();
         LivingEntity target = event.getTarget();
-        LivingEntity attackTarget = brain.getMemory(MemoryModuleType.ATTACK_TARGET).orElse(null);
+        LivingEntity attackTarget = null;
+        if (brain.hasMemoryValue(MemoryModuleType.ATTACK_TARGET)) {
+            attackTarget = brain.getMemory(MemoryModuleType.ATTACK_TARGET).orElse(null);
+        }
         // -- Target is not a player or is a fake player
         if (!(target instanceof PlayerEntity) || target instanceof FakePlayer
                 && (!(attackTarget instanceof PlayerEntity) || attackTarget instanceof FakePlayer)) {
@@ -90,6 +94,11 @@ public class DisableTargetingPlayersGamerule {
             brain.eraseMemory(MemoryModuleType.NEAREST_TARGETABLE_PLAYER_NOT_WEARING_GOLD);
         }
         mob.setTarget(null);
+        // -- Mark Hoglins as pacified to prevent them from spamming the aggression
+        // -- sound
+        if (mob instanceof HoglinEntity) {
+            brain.setMemory(MemoryModuleType.PACIFIED, true);
+        }
     }
 
     /**
@@ -109,7 +118,10 @@ public class DisableTargetingPlayersGamerule {
         MobEntity mob = (MobEntity) entity;
         Brain<?> brain = mob.getBrain();
         LivingEntity target = mob.getTarget();
-        LivingEntity attackTarget = brain.getMemory(MemoryModuleType.ATTACK_TARGET).orElse(null);
+        LivingEntity attackTarget = null;
+        if (brain.hasMemoryValue(MemoryModuleType.ATTACK_TARGET)) {
+            attackTarget = brain.getMemory(MemoryModuleType.ATTACK_TARGET).orElse(null);
+        }
         // -- Target is not a player or is a fake player
         if ((!(target instanceof PlayerEntity) || target instanceof FakePlayer)
                 && (!(attackTarget instanceof PlayerEntity) || attackTarget instanceof FakePlayer)) {
@@ -129,5 +141,12 @@ public class DisableTargetingPlayersGamerule {
             brain.eraseMemory(MemoryModuleType.NEAREST_TARGETABLE_PLAYER_NOT_WEARING_GOLD);
         }
         mob.setTarget(null);
+        // -- Mark Hoglins as pacified to prevent them from spamming the aggression
+        // -- sound
+        if (mob instanceof HoglinEntity) {
+            brain.setMemory(MemoryModuleType.PACIFIED, true);
+        }
+        // TODO: Figure out a way to prevent Piglin Brutes from spamming their
+        // TODO: aggression sound/animation
     }
 }
