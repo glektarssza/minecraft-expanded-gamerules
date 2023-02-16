@@ -11,26 +11,26 @@ import com.glektarssza.expandedgamerules.ExpandedGamerules;
 import com.glektarssza.expandedgamerules.utils.MobUtils;
 import com.google.common.collect.ImmutableList;
 
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.ai.brain.Brain;
-import net.minecraft.entity.ai.brain.memory.MemoryModuleType;
-import net.minecraft.entity.ai.brain.schedule.Activity;
-import net.minecraft.entity.monster.HoglinEntity;
-import net.minecraft.entity.monster.HoglinTasks;
-import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.Brain;
+import net.minecraft.world.entity.ai.memory.MemoryModuleType;
+import net.minecraft.world.entity.schedule.Activity;
+import net.minecraft.world.entity.monster.hoglin.Hoglin;
+import net.minecraft.world.entity.monster.hoglin.HoglinAi;
+import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.common.util.FakePlayer;
 
-@Mixin(HoglinTasks.class)
-public class HoglinTasksMixin {
+@Mixin(HoglinAi.class)
+public class HoglinAiMixin {
     @Inject(method = "updateActivity", at = @At("HEAD"), cancellable = false)
-    private static void updateActivity(HoglinEntity entity, CallbackInfo info) {
-        Brain<HoglinEntity> brain = entity.getBrain();
+    private static void updateActivity(Hoglin entity, CallbackInfo info) {
+        Brain<Hoglin> brain = entity.getBrain();
         Activity activityBefore = brain.getActiveNonCoreActivity().orElse((Activity) null);
         brain.setActiveActivityToFirstValid(ImmutableList.of(Activity.FIGHT, Activity.AVOID, Activity.IDLE));
         Activity activityAfter = brain.getActiveNonCoreActivity().orElse((Activity) null);
         Optional<LivingEntity> target = brain.getMemory(MemoryModuleType.ATTACK_TARGET);
         boolean hasResetTarget = false;
-        if (activityAfter == Activity.FIGHT && target.isPresent() && target.get() instanceof PlayerEntity
+        if (activityAfter == Activity.FIGHT && target.isPresent() && target.get() instanceof Player
                 && !(target.get() instanceof FakePlayer) && ExpandedGamerules.GAMERULE_REGISTRY
                         .isGameruleEnabled(entity.level, "disableTargetingPlayers").orElse(false)) {
             // -- Trying to fight the player? Not allowed, lol
@@ -38,7 +38,7 @@ public class HoglinTasksMixin {
             hasResetTarget = true;
         }
         if (activityBefore != activityAfter && !hasResetTarget) {
-            HoglinTasks.getSoundForCurrentActivity(entity).ifPresent(entity::playSound);
+            HoglinAi.getSoundForCurrentActivity(entity).ifPresent(entity::playSound);
         }
     }
 }
