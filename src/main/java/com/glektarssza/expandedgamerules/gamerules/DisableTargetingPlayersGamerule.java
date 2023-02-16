@@ -37,13 +37,6 @@ public class DisableTargetingPlayersGamerule {
     public static final Category CATEGORY = Category.MOBS;
 
     /**
-     * Create a new instance.
-     */
-    public DisableTargetingPlayersGamerule() {
-        // -- Does nothing
-    }
-
-    /**
      * Register this gamerule.
      *
      * @param registry The registry to register this gamerule to.
