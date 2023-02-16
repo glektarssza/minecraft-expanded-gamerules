@@ -12,6 +12,6 @@ A Minecraft mod that adds a bunch of new gamerules for easier customization.
 
 Copyright (c) 2023 G'lek Tarssza
 
-All rights reserved.
+Licensed under the MIT License.
 
 See [LICENSE.md](LICENSE.md) for the full license.
