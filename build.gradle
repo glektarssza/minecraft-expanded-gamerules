@@ -15,7 +15,7 @@ apply plugin: 'org.spongepowered.mixin'
 
 version = "${modVersion}"
 group = "${modGroup}.${modId}"
-archivesBaseName = "${modId}"
+archivesBaseName = "${mcVersion}-${modId}"
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
