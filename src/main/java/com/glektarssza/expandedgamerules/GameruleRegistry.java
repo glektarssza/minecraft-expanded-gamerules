@@ -14,15 +14,26 @@ import net.minecraft.world.level.Level;
 
 public class GameruleRegistry {
     /**
+     * Possible data types of a gamerule.
+     */
+    private enum RuleDataType {
+        BOOLEAN,
+        INTEGER
+    }
+
+    /**
      * A map of all registered gamerules to their IDs.
      */
     private final Map<String, Key<?>> gamerules;
+
+    private final Map<String, RuleDataType> gameruleDataTypes;
 
     /**
      * Create a new instance.
      */
     public GameruleRegistry() {
         gamerules = new HashMap<>();
+        gameruleDataTypes = new HashMap<>();
     }
 
     /**
@@ -34,6 +45,7 @@ public class GameruleRegistry {
     public void registerGamerule(String id, Category category, boolean defaultValue) {
         Key<BooleanValue> rule = GameRules.register(id, category, BooleanValue.create(defaultValue));
         gamerules.put(id, rule);
+        gameruleDataTypes.put(id, RuleDataType.BOOLEAN);
     }
 
     /**
@@ -45,6 +57,7 @@ public class GameruleRegistry {
     public void registerGamerule(String id, Category category, int defaultValue) {
         Key<IntegerValue> rule = GameRules.register(id, category, IntegerValue.create(defaultValue));
         gamerules.put(id, rule);
+        gameruleDataTypes.put(id, RuleDataType.INTEGER);
     }
 
     /**
@@ -73,8 +86,7 @@ public class GameruleRegistry {
         if (!hasGamerule(id)) {
             return Optional.empty();
         }
-        Key<?> ruleKey = gamerules.get(id);
-        if (!(ruleKey.getClass().getTypeParameters()[0] instanceof BooleanValue)) {
+        if (gameruleDataTypes.get(id) != RuleDataType.BOOLEAN) {
             return Optional.empty();
         }
         return Optional.of(level.getGameRules().getBoolean((Key<BooleanValue>) gamerules.get(id)));
@@ -94,8 +106,7 @@ public class GameruleRegistry {
         if (!hasGamerule(id)) {
             return Optional.empty();
         }
-        Key<?> ruleKey = gamerules.get(id);
-        if (!(ruleKey.getClass().getTypeParameters()[0] instanceof BooleanValue)) {
+        if (gameruleDataTypes.get(id) != RuleDataType.BOOLEAN) {
             return Optional.empty();
         }
         return Optional.of(((Level) level).getGameRules().getBoolean((Key<BooleanValue>) gamerules.get(id)));
@@ -115,8 +126,7 @@ public class GameruleRegistry {
         if (!hasGamerule(id)) {
             return Optional.empty();
         }
-        Key<?> ruleKey = gamerules.get(id);
-        if (!(ruleKey.getClass().getTypeParameters()[0] instanceof IntegerValue)) {
+        if (gameruleDataTypes.get(id) != RuleDataType.INTEGER) {
             return Optional.empty();
         }
         return Optional.of(level.getGameRules().getInt((Key<IntegerValue>) gamerules.get(id)));
@@ -136,8 +146,7 @@ public class GameruleRegistry {
         if (!hasGamerule(id)) {
             return Optional.empty();
         }
-        Key<?> ruleKey = gamerules.get(id);
-        if (!(ruleKey.getClass().getTypeParameters()[0] instanceof IntegerValue)) {
+        if (gameruleDataTypes.get(id) != RuleDataType.INTEGER) {
             return Optional.empty();
         }
         return Optional.of(((Level) level).getGameRules().getInt((Key<IntegerValue>) gamerules.get(id)));

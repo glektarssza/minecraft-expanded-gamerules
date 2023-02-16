@@ -5,11 +5,13 @@ buildscript {
     }
     dependencies {
         classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
+        classpath 'org.spongepowered:mixingradle:0.7.+'
     }
 }
 apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
+apply plugin: 'org.spongepowered.mixin'
 
 version = "${modVersion}"
 group = "${modGroup}.${modId}"
@@ -62,11 +64,23 @@ sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 dependencies {
     minecraft "net.minecraftforge:forge:${mcVersion}-${forgeVersion}"
+    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
+}
+
+mixin {
+    add sourceSets.main, 'mixins.expandedgamerules.refmap.json'
+    config 'mixins.expandedgamerules.json'
+
+    debug.verbose = true
+    debug.export = true
 }
 
 jar {
     manifest {
         attributes([
+            "TweakcClass": "org.spongepowered.asm.launch.MixinTweaker",
+            "MixinConfigs": "mixins.expandedgamerules.json",
+            "FMCorePluginContainsFMLMod": "true",
             "Specification-Title": "${modName}",
             "Specification-Vendor": "${modAuthor}",
             "Specification-Version": "1",
