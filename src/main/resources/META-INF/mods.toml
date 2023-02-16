@@ -9,7 +9,7 @@ displayName="Expanded Gamerules"
 displayURL="https://github.com/glektarssza/minecraft-expanded-gamerules"
 logoFile="expandedgamerules.png"
 credits=""
-authors="G'lek Tarssza" #optional
+authors="G'lek Tarssza"
 description='''
 A Minecraft mod that adds a bunch of new gamerules for easier customization.
 '''
