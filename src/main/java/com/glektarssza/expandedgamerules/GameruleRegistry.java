@@ -14,15 +14,26 @@ import net.minecraft.world.IWorld;
 
 public class GameruleRegistry {
     /**
+     * Possible data types of a gamerule.
+     */
+    private enum RuleDataType {
+        BOOLEAN,
+        INTEGER
+    }
+
+    /**
      * A map of all registered gamerules to their IDs.
      */
     private final Map<String, RuleKey<?>> gamerules;
+
+    private final Map<String, RuleDataType> gameruleDataTypes;
 
     /**
      * Create a new instance.
      */
     public GameruleRegistry() {
         gamerules = new HashMap<>();
+        gameruleDataTypes = new HashMap<>();
     }
 
     /**
@@ -34,6 +45,7 @@ public class GameruleRegistry {
     public void registerGamerule(String id, Category category, boolean defaultValue) {
         RuleKey<BooleanValue> rule = GameRules.register(id, category, BooleanValue.create(defaultValue));
         gamerules.put(id, rule);
+        gameruleDataTypes.put(id, RuleDataType.BOOLEAN);
     }
 
     /**
@@ -45,6 +57,7 @@ public class GameruleRegistry {
     public void registerGamerule(String id, Category category, int defaultValue) {
         RuleKey<IntegerValue> rule = GameRules.register(id, category, IntegerValue.create(defaultValue));
         gamerules.put(id, rule);
+        gameruleDataTypes.put(id, RuleDataType.INTEGER);
     }
 
     /**
@@ -62,7 +75,7 @@ public class GameruleRegistry {
     /**
      * Check whether the gamerule with the given ID is enabled.
      *
-     * @param level The world to check the gamerule in.
+     * @param world The world to check the gamerule in.
      * @param id    The ID of the gamerule to check.
      *
      * @return The enabled state of the gamerule if it exists, an empty optional
@@ -73,8 +86,7 @@ public class GameruleRegistry {
         if (!hasGamerule(id)) {
             return Optional.empty();
         }
-        RuleKey<?> ruleKey = gamerules.get(id);
-        if (!(ruleKey.getClass().getTypeParameters()[0] instanceof BooleanValue)) {
+        if (gameruleDataTypes.get(id) != RuleDataType.BOOLEAN) {
             return Optional.empty();
         }
         return Optional.of(world.getGameRules().getBoolean((RuleKey<BooleanValue>) gamerules.get(id)));
@@ -83,7 +95,7 @@ public class GameruleRegistry {
     /**
      * Check whether the gamerule with the given ID is enabled.
      *
-     * @param level The world to check the gamerule in.
+     * @param world The world to check the gamerule in.
      * @param id    The ID of the gamerule to check.
      *
      * @return The enabled state of the gamerule if it exists, an empty optional
@@ -94,8 +106,7 @@ public class GameruleRegistry {
         if (!hasGamerule(id)) {
             return Optional.empty();
         }
-        RuleKey<?> ruleKey = gamerules.get(id);
-        if (!(ruleKey.getClass().getTypeParameters()[0] instanceof BooleanValue)) {
+        if (gameruleDataTypes.get(id) != RuleDataType.BOOLEAN) {
             return Optional.empty();
         }
         return Optional.of(((World) world).getGameRules().getBoolean((RuleKey<BooleanValue>) gamerules.get(id)));
@@ -115,8 +126,7 @@ public class GameruleRegistry {
         if (!hasGamerule(id)) {
             return Optional.empty();
         }
-        RuleKey<?> ruleKey = gamerules.get(id);
-        if (!(ruleKey.getClass().getTypeParameters()[0] instanceof IntegerValue)) {
+        if (gameruleDataTypes.get(id) != RuleDataType.INTEGER) {
             return Optional.empty();
         }
         return Optional.of(world.getGameRules().getInt((RuleKey<IntegerValue>) gamerules.get(id)));
@@ -136,8 +146,7 @@ public class GameruleRegistry {
         if (!hasGamerule(id)) {
             return Optional.empty();
         }
-        RuleKey<?> ruleKey = gamerules.get(id);
-        if (!(ruleKey.getClass().getTypeParameters()[0] instanceof IntegerValue)) {
+        if (gameruleDataTypes.get(id) != RuleDataType.INTEGER) {
             return Optional.empty();
         }
         return Optional.of(((World) world).getGameRules().getInt((RuleKey<IntegerValue>) gamerules.get(id)));
