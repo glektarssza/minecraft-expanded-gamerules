@@ -2,13 +2,13 @@ package com.glektarssza.expandedgamerules.gamerules;
 
 import com.glektarssza.expandedgamerules.ExpandedGamerules;
 import com.glektarssza.expandedgamerules.GameruleRegistry;
-import com.glektarssza.expandedgamerules.utils.MobUtils;
 
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.Brain;
 import net.minecraft.world.entity.ai.memory.MemoryModuleType;
+import net.minecraft.world.entity.monster.hoglin.Hoglin;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.GameRules.Category;
 import net.minecraftforge.common.MinecraftForge;
@@ -68,49 +68,35 @@ public class DisableTargetingPlayersGamerule {
         if (!(entity instanceof Mob)) {
             return;
         }
-        Mob mob = (Mob) entity;
-        Brain<?> brain = mob.getBrain();
         LivingEntity target = event.getNewTarget();
-        LivingEntity attackTarget = null;
-        if (brain.hasMemoryValue(MemoryModuleType.ATTACK_TARGET)) {
-            attackTarget = brain.getMemory(MemoryModuleType.ATTACK_TARGET).orElse(null);
-        }
         // -- Target is not a player or is a fake player
-        if (!(target instanceof Player) || target instanceof FakePlayer
-                && (!(attackTarget instanceof Player) || attackTarget instanceof FakePlayer)) {
+        if (!(target instanceof Player) || target instanceof FakePlayer) {
             return;
         }
-        // -- Reset the mob's target
-        MobUtils.resetTarget(mob);
+        event.setCanceled(true);
     }
 
     /**
      * Handle the event that is fired when a living entity updates.
      */
     @SubscribeEvent
-    public void onLivingUpdate(LivingUpdateEvent event) {
+    public void OnLivingUpdateEvent(LivingUpdateEvent event) {
         Entity entity = event.getEntity();
         // -- Gamerule is not enabled, do nothing
         if (!ExpandedGamerules.GAMERULE_REGISTRY.isGameruleEnabled(entity.level, ID).orElse(false)) {
             return;
         }
         // -- Entity is not a mob
-        if (!(entity instanceof Mob)) {
+        if (!(entity instanceof Hoglin)) {
             return;
         }
-        Mob mob = (Mob) entity;
-        Brain<?> brain = mob.getBrain();
-        LivingEntity target = mob.getTarget();
-        LivingEntity attackTarget = null;
-        if (brain.hasMemoryValue(MemoryModuleType.ATTACK_TARGET)) {
-            attackTarget = brain.getMemory(MemoryModuleType.ATTACK_TARGET).orElse(null);
-        }
+        Hoglin hoglin = (Hoglin) entity;
+        Brain<Hoglin> brain = hoglin.getBrain();
+        LivingEntity target = brain.getMemory(MemoryModuleType.ATTACK_TARGET).orElse(null);
         // -- Target is not a player or is a fake player
-        if ((!(target instanceof Player) || target instanceof FakePlayer)
-                && (!(attackTarget instanceof Player) || attackTarget instanceof FakePlayer)) {
+        if (!(target instanceof Player) || target instanceof FakePlayer) {
             return;
         }
-        // -- Reset the mob's target
-        MobUtils.resetTarget(mob);
+        brain.eraseMemory(MemoryModuleType.ATTACK_TARGET);
     }
 }
