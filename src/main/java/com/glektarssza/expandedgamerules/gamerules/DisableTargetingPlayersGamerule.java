@@ -14,7 +14,7 @@ import net.minecraft.world.level.GameRules.Category;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.FakePlayer;
 import net.minecraftforge.event.entity.living.LivingChangeTargetEvent;
-import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
+import net.minecraftforge.event.entity.living.LivingEvent.LivingTickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 /**
@@ -77,10 +77,10 @@ public class DisableTargetingPlayersGamerule {
     }
 
     /**
-     * Handle the event that is fired when a living entity updates.
+     * Handle the event that is fired when a living entity ticks.
      */
     @SubscribeEvent
-    public void OnLivingUpdateEvent(LivingUpdateEvent event) {
+    public void OnLivingTickEvent(LivingTickEvent event) {
         Entity entity = event.getEntity();
         // -- Gamerule is not enabled, do nothing
         if (!ExpandedGamerules.GAMERULE_REGISTRY.isGameruleEnabled(entity.level, ID).orElse(false)) {
