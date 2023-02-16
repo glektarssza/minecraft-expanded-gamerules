@@ -8,6 +8,8 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import com.glektarssza.expandedgamerules.ExpandedGamerules;
+import com.glektarssza.expandedgamerules.utils.MobUtils;
+import com.google.common.collect.ImmutableList;
 
 import net.minecraft.entity.monster.piglin.PiglinBruteEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -20,51 +22,23 @@ import net.minecraft.entity.monster.piglin.PiglinBruteBrain;
 
 @Mixin(PiglinBruteBrain.class)
 public class PiglinBruteBrainMixin {
-    @Inject(method = "playActivitySound", at = @At("HEAD"), cancellable = true)
-    private static void playActivitySound(PiglinBruteEntity entity, CallbackInfo info) {
-        // -- Check if gamerule is enabled
-        if (!ExpandedGamerules.GAMERULE_REGISTRY.isGameruleEnabled(entity.level, "disableTargetingPlayers")
-                .orElse(false)) {
-            return;
-        }
-        Brain<PiglinBruteEntity> brain = entity.getBrain();
-        Optional<LivingEntity> target = brain.getMemory(MemoryModuleType.ATTACK_TARGET);
-        if (!target.isPresent()) {
-            return;
-        }
-        if (!(target.get() instanceof PlayerEntity) || target.get() instanceof FakePlayer) {
-            return;
-        }
-        Optional<Activity> activity = brain.getActiveNonCoreActivity();
-        if (!activity.isPresent() || activity.get() != Activity.FIGHT) {
-            return;
-        }
-        // -- PiglinBrute is targeting a player and trying to fight them!
-        // -- Don't play the sound effect!
-        info.cancel();
-    }
-
-    @Inject(method = "updateActivity", at = @At("TAIL"), cancellable = true)
+    @Inject(at = @At("HEAD"), method = "updateActivity", cancellable = true)
     private static void updateActivity(PiglinBruteEntity entity, CallbackInfo info) {
-        // -- Check if gamerule is enabled
-        if (!ExpandedGamerules.GAMERULE_REGISTRY.isGameruleEnabled(entity.level, "disableTargetingPlayers")
-                .orElse(false)) {
-            return;
-        }
         Brain<PiglinBruteEntity> brain = entity.getBrain();
+        Activity activityBefore = brain.getActiveNonCoreActivity().orElse(null);
+        brain.setActiveActivityToFirstValid(ImmutableList.of(Activity.FIGHT, Activity.IDLE));
+        Activity activityAfter = brain.getActiveNonCoreActivity().orElse(null);
         Optional<LivingEntity> target = brain.getMemory(MemoryModuleType.ATTACK_TARGET);
-        if (!target.isPresent()) {
-            return;
+        boolean hasResetTarget = false;
+        if (activityAfter == Activity.FIGHT && target.isPresent() && target.get() instanceof PlayerEntity
+                && !(target.get() instanceof FakePlayer) && ExpandedGamerules.GAMERULE_REGISTRY
+                        .isGameruleEnabled(entity.level, "disableTargetingPlayers").orElse(false)) {
+            // -- Trying to fight the player? Not allowed, lol
+            MobUtils.resetTarget(entity);
+            hasResetTarget = true;
         }
-        if (!(target.get() instanceof PlayerEntity) || target.get() instanceof FakePlayer) {
-            return;
+        if (activityBefore != activityAfter && !hasResetTarget) {
+            PiglinBruteBrain.playActivitySound(entity);
         }
-        Optional<Activity> activity = brain.getActiveNonCoreActivity();
-        if (!activity.isPresent() || activity.get() != Activity.FIGHT) {
-            return;
-        }
-        // -- Piglin Brute is targeting a player and trying to fight them!
-        // -- Don't play the animation!
-        entity.setAggressive(false);
     }
 }

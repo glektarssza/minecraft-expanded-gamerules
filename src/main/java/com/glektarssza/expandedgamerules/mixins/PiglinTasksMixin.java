@@ -15,19 +15,19 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.brain.Brain;
 import net.minecraft.entity.ai.brain.memory.MemoryModuleType;
 import net.minecraft.entity.ai.brain.schedule.Activity;
-import net.minecraft.entity.monster.HoglinEntity;
-import net.minecraft.entity.monster.HoglinTasks;
+import net.minecraft.entity.monster.piglin.PiglinEntity;
+import net.minecraft.entity.monster.piglin.PiglinTasks;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraftforge.common.util.FakePlayer;
 
-@Mixin(HoglinTasks.class)
-public class HoglinTasksMixin {
-    @Inject(method = "updateActivity", at = @At("HEAD"), cancellable = false)
-    private static void updateActivity(HoglinEntity entity, CallbackInfo info) {
-        Brain<HoglinEntity> brain = entity.getBrain();
-        Activity activityBefore = brain.getActiveNonCoreActivity().orElse((Activity) null);
-        brain.setActiveActivityToFirstValid(ImmutableList.of(Activity.FIGHT, Activity.AVOID, Activity.IDLE));
-        Activity activityAfter = brain.getActiveNonCoreActivity().orElse((Activity) null);
+@Mixin(PiglinTasks.class)
+public class PiglinTasksMixin {
+    @Inject(at = @At("HEAD"), method = "updateActivity", cancellable = true)
+    private static void updateActivity(PiglinEntity entity, CallbackInfo info) {
+        Brain<PiglinEntity> brain = entity.getBrain();
+        Activity activityBefore = brain.getActiveNonCoreActivity().orElse(null);
+        brain.setActiveActivityToFirstValid(ImmutableList.of(Activity.FIGHT, Activity.IDLE));
+        Activity activityAfter = brain.getActiveNonCoreActivity().orElse(null);
         Optional<LivingEntity> target = brain.getMemory(MemoryModuleType.ATTACK_TARGET);
         boolean hasResetTarget = false;
         if (activityAfter == Activity.FIGHT && target.isPresent() && target.get() instanceof PlayerEntity
@@ -38,7 +38,7 @@ public class HoglinTasksMixin {
             hasResetTarget = true;
         }
         if (activityBefore != activityAfter && !hasResetTarget) {
-            HoglinTasks.getSoundForCurrentActivity(entity).ifPresent(entity::playSound);
+            PiglinTasks.getSoundForCurrentActivity(entity).ifPresent(entity::playSound);
         }
     }
 }
