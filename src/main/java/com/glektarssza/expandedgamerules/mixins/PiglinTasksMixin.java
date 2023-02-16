@@ -22,7 +22,7 @@ import net.minecraftforge.common.util.FakePlayer;
 
 @Mixin(PiglinTasks.class)
 public class PiglinTasksMixin {
-    @Inject(at = @At("HEAD"), method = "updateActivity", cancellable = true)
+    @Inject(at = @At("HEAD"), method = "updateActivity", cancellable = false)
     private static void updateActivity(PiglinEntity entity, CallbackInfo info) {
         Brain<PiglinEntity> brain = entity.getBrain();
         Activity activityBefore = brain.getActiveNonCoreActivity().orElse(null);

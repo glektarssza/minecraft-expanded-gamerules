@@ -22,7 +22,7 @@ import net.minecraft.entity.monster.piglin.PiglinBruteBrain;
 
 @Mixin(PiglinBruteBrain.class)
 public class PiglinBruteBrainMixin {
-    @Inject(at = @At("HEAD"), method = "updateActivity", cancellable = true)
+    @Inject(at = @At("HEAD"), method = "updateActivity", cancellable = false)
     private static void updateActivity(PiglinBruteEntity entity, CallbackInfo info) {
         Brain<PiglinBruteEntity> brain = entity.getBrain();
         Activity activityBefore = brain.getActiveNonCoreActivity().orElse(null);
