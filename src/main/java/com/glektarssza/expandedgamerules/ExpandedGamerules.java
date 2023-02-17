@@ -4,6 +4,8 @@ import net.minecraftforge.fml.common.Mod;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.glektarssza.expandedgamerules.gamerules.DisableEndermanTeleportGamerule;
+import com.glektarssza.expandedgamerules.gamerules.DisableShulkerTeleportGamerule;
 import com.glektarssza.expandedgamerules.gamerules.DisableTargetingPlayersGamerule;
 
 /**
@@ -38,5 +40,7 @@ public class ExpandedGamerules {
      */
     public void registerGamerules() {
         new DisableTargetingPlayersGamerule().register(GAMERULE_REGISTRY);
+        new DisableEndermanTeleportGamerule().register(GAMERULE_REGISTRY);
+        new DisableShulkerTeleportGamerule().register(GAMERULE_REGISTRY);
     }
 }
