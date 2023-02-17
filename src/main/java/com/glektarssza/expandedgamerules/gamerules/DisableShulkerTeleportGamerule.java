@@ -3,11 +3,11 @@ package com.glektarssza.expandedgamerules.gamerules;
 import com.glektarssza.expandedgamerules.ExpandedGamerules;
 import com.glektarssza.expandedgamerules.GameruleRegistry;
 
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.monster.Shulker;
-import net.minecraft.world.level.GameRules.Category;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.monster.ShulkerEntity;
+import net.minecraft.world.GameRules.Category;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.entity.EntityTeleportEvent;
+import net.minecraftforge.event.entity.living.EntityTeleportEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 public class DisableShulkerTeleportGamerule {
@@ -42,7 +42,7 @@ public class DisableShulkerTeleportGamerule {
     @SubscribeEvent
     public void onEnderTeleport(EntityTeleportEvent.EnderEntity event) {
         LivingEntity entity = event.getEntityLiving();
-        if (entity instanceof Shulker
+        if (entity instanceof ShulkerEntity
                 && ExpandedGamerules.GAMERULE_REGISTRY.isGameruleEnabled(entity.level, ID).orElse(false)) {
             event.setCanceled(true);
         }
