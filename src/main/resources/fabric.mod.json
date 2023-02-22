@@ -25,7 +25,7 @@
     "accessWidener": "expandedgamerules.accesswidener",
     "depends": {
         "fabricloader": ">=0.14.11",
-        "fabric-api": "*",
+        "fabric": "*",
         "minecraft": "~1.16.5",
         "java": ">=1.8"
     }
