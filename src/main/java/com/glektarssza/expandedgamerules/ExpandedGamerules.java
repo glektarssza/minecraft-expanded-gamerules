@@ -12,6 +12,6 @@ public class ExpandedGamerules implements ModInitializer {
 
     @Override
     public void onInitialize() {
-        // TODO: Implement mod initialization
+
     }
 }

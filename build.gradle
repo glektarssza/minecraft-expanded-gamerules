@@ -6,7 +6,7 @@ plugins {
 sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
 
-archivesBaseName = "${modName}-${mcVersion}"
+archivesBaseName = "${modId}-${mcVersion}"
 version = "${modVersion}"
 group = "${modGroup}"
 
@@ -25,7 +25,7 @@ dependencies {
 	modImplementation "net.fabricmc:fabric-loader:${loaderVersion}"
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
-	modImplementation "net.fabricmc.fabric-api:fabric-api:${fabricVersion}"
+	modImplementation "net.fabricmc.fabric-api:fabric-api:${fabricAPIVersion}"
 
 	// Uncomment the following line to enable the deprecated Fabric API modules.
 	// These are included in the Fabric API production distribution and allow you to update your mod to the latest modules at a later more convenient time.
