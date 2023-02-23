@@ -2,7 +2,10 @@
     "required": true,
     "minVersion": "0.8",
     "package": "com.glektarssza.expandedgamerules.mixins",
-    "mixins": [],
+    "mixins": [
+        "HoglinBrainMixin",
+        "MobEntityMixin"
+    ],
     "client": [],
     "server": [],
     "injectors": {

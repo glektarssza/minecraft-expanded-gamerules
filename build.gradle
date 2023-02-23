@@ -6,9 +6,9 @@ plugins {
 sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
 
-archivesBaseName = "${modId}-${mcVersion}"
-version = "${modVersion}"
-group = "${modGroup}"
+archivesBaseName = "${project.modId}-${project.mcVersion}"
+version = project.modVersion
+group = project.modGroup
 
 repositories {
 	// Add repositories to retrieve artifacts from in here.
@@ -20,12 +20,12 @@ repositories {
 
 dependencies {
 	// To change the versions see the gradle.properties file
-	minecraft "com.mojang:minecraft:${mcVersion}"
-	mappings "net.fabricmc:yarn:${yarnMappingsVersion}:v2"
-	modImplementation "net.fabricmc:fabric-loader:${loaderVersion}"
+	minecraft "com.mojang:minecraft:${project.mcVersion}"
+	mappings "net.fabricmc:yarn:${project.yarnMappingsVersion}:v2"
+	modImplementation "net.fabricmc:fabric-loader:${project.loaderVersion}"
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
-	modImplementation "net.fabricmc.fabric-api:fabric-api:${fabricAPIVersion}"
+	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabricAPIVersion}"
 
 	// Uncomment the following line to enable the deprecated Fabric API modules.
 	// These are included in the Fabric API production distribution and allow you to update your mod to the latest modules at a later more convenient time.
@@ -34,10 +34,10 @@ dependencies {
 }
 
 processResources {
-	inputs.property "version", "${modVersion}"
+	inputs.property "version", project.version
 
 	filesMatching("fabric.mod.json") {
-		expand "version": "${modVersion}"
+		expand "version": project.version
 	}
 }
 

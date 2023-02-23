@@ -1,6 +1,10 @@
 package com.glektarssza.expandedgamerules.gamerules;
 
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.ai.brain.Activity;
+import net.minecraft.entity.ai.brain.Brain;
+import net.minecraft.entity.ai.brain.MemoryModuleType;
+import net.minecraft.entity.mob.HoglinEntity;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.ActionResult;
@@ -9,6 +13,7 @@ import net.minecraft.world.GameRules.Category;
 import net.minecraft.world.GameRules.Key;
 
 import com.glektarssza.expandedgamerules.events.MobChangeTargetCallback;
+import com.google.common.collect.ImmutableList;
 
 import net.fabricmc.fabric.api.gamerule.v1.GameRuleFactory;
 import net.fabricmc.fabric.api.gamerule.v1.GameRuleRegistry;
@@ -33,7 +38,6 @@ public class DisableTargetingPlayers {
         if (!mob.world.getGameRules().getBoolean(key) || !(target instanceof PlayerEntity)) {
             return ActionResult.PASS;
         }
-        // TODO: Maybe clear AI goals?
         return ActionResult.FAIL;
     }
 }

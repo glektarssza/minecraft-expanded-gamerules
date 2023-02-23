@@ -12,8 +12,8 @@ import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.util.ActionResult;
 
 @Mixin(MobEntity.class)
-public class MobChangeTargetMixin {
-    @Inject(at = @At("INVOKE"), cancellable = true)
+public class MobEntityMixin {
+    @Inject(method = "setTarget(Lnet/minecraft/entity/LivingEntity;)V", at = @At("HEAD"), cancellable = true)
     private void setTarget(final LivingEntity target, CallbackInfo info) {
         MobEntity self = (MobEntity) ((Object) this);
         ActionResult result = MobChangeTargetCallback.EVENT.invoker().changeTarget(self, target);
