@@ -1,0 +1,27 @@
+modLoader="javafml"
+loaderVersion="[43,)"
+license="MIT"
+issueTrackerURL="https://github.com/glektarssza/minecraft-expanded-gamerules/issues"
+[[mods]]
+modId="expandedgamerules"
+version="${file.jarVersion}"
+displayName="Expanded Gamerules"
+displayURL="https://github.com/glektarssza/minecraft-expanded-gamerules"
+logoFile="icon.png"
+credits="Lothrazar for the inspiration for this project."
+authors="G'lek Tarssza"
+description='''
+A Minecraft mod that adds a bunch of new gamerules for easier customization.
+'''
+[[dependencies.expandedgamerules]]
+    modId="forge"
+    mandatory=true
+    versionRange="[43,)"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.expandedgamerules]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.19.2,1.20)"
+    ordering="NONE"
+    side="BOTH"

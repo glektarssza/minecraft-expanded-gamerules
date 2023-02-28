@@ -1,0 +1,33 @@
+{
+    "schemaVersion": 1,
+    "id": "expandedgamerules",
+    "version": "${version}",
+    "name": "Expanded Gamerules",
+    "description": "A Minecraft mod that adds a bunch of new gamerules for easier customization.",
+    "authors": [
+        "G'lek Tarssza"
+    ],
+    "contact": {
+        "homepage": "https://github.com/glektarssza/minecraft-expanded-gamerules",
+        "sources": "https://github.com/glektarssza/minecraft-expanded-gamerules"
+    },
+    "license": "MIT",
+    "icon": "assets/expandedgamerules/icon.png",
+    "environment": "*",
+    "entrypoints": {
+        "main": [
+            "com.glektarssza.expandedgamerules.ExpandedGamerules"
+        ]
+    },
+    "mixins": [
+        "expandedgamerules.mixins.json"
+    ],
+    "depends": {
+        "fabricloader": ">=0.14",
+        "fabric": "*",
+        "minecraft": "1.19.x",
+        "java": ">=17"
+    }
+}
+
+  
