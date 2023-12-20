@@ -8,20 +8,6 @@
 !.vscode/launch.json
 !.vscode/tasks.json
 
-## Eclipse ##
-bin/
-.settings/
-.classpath
-.project
-*.launch
-
-## IDEA ##
-out/
-*.ipr
-*.iws
-*.iml
-.idea/
-
 ## Vim ##
 ### Swap Files ###
 [._]*.s[a-v][a-z]
@@ -46,14 +32,3 @@ tags
 
 # Logs #
 *.log*
-
-# Artifacts #
-## Gradle ##
-build/
-.gradle/
-
-## Debugging ##
-run/
-
-# Files from Forge MDK #
-forge*changelog.txt

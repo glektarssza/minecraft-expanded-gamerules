@@ -1,9 +1,0 @@
-{
-    "required": true,
-    "minVersion": "0.8.3",
-    "package": "com.glektarssza.expandedgamerules.mixins",
-    "refmap": "mixins.expandedgamerules.refmap.json",
-    "target": "@env(DEFAULT)",
-    "compatibilityLevel": "JAVA_17",
-    "mixins": []
-}
