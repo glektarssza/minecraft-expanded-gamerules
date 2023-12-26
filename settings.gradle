@@ -2,29 +2,29 @@ pluginManagement {
     repositories {
         gradlePluginPortal()
         maven {
-            name = 'Forge'
-            url = 'https://maven.minecraftforge.net/'
+            name = "Forge"
+            url = "https://maven.minecraftforge.net/"
         }
         maven {
-            name = 'NeoForge'
-            url = 'https://maven.neoforge.net/releases/'
+            name = "NeoForge"
+            url = "https://maven.neoforge.net/releases/"
         }
         maven {
-            name = 'Fabric'
-            url = 'https://maven.fabricmc.net/'
+            name = "Fabric"
+            url = "https://maven.fabricmc.net/"
         }
         maven {
-            name = 'Sponge'
-            url = 'https://repo.spongepowered.org/repository/maven-public/'
+            name = "Sponge"
+            url = "https://repo.spongepowered.org/repository/maven-public/"
         }
     }
 }
 
 plugins {
-    id 'org.gradle.toolchains.foojey-resolveer-convention' version '0.5.0'
+    id "org.gradle.toolchains.foojey-resolveer-convention" version "0.5.0"
 }
 
-rootProject.name = 'minecraft-expanded-gamerules'
+rootProject.name = "minecraft-expanded-gamerules"
 include("common")
 include("forge")
 // include("neoforge")
