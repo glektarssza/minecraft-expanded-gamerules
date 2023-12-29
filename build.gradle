@@ -59,7 +59,7 @@ subprojects {
             "mod_author": mod_author,
             "mod_id": mod_id,
             "mod_license": mod_license,
-            "description": project.mod_description,
+            "mod_description": project.mod_description,
             "neoforge_version": neoforge_version,
             "neoforge_loader_version_range": neoforge_loader_version_range,
             "mod_credits": mod_credits
