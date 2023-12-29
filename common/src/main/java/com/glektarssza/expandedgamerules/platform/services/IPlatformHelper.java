@@ -1,4 +1,4 @@
-package com.glektarssza.expandedgamerules;
+package com.glektarssza.expandedgamerules.platform.services;
 
 public interface IPlatformHelper {
     String getPlatformName();
