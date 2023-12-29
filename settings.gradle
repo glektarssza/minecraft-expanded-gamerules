@@ -27,5 +27,5 @@ plugins {
 rootProject.name = "minecraft-expanded-gamerules"
 include("common")
 include("forge")
+include("fabric")
 // include("neoforge")
-// include("fabric")
