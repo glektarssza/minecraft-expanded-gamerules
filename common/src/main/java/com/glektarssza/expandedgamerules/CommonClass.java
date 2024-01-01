@@ -1,16 +1,21 @@
 package com.glektarssza.expandedgamerules;
 
 import com.glektarssza.expandedgamerules.platform.Services;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.world.item.Items;
 
+/**
+ * Common mod code root class.
+ */
 public class CommonClass {
+    /**
+     * Initialize the common mod code.
+     */
     public static void init() {
-        Constants.LOG.info("Hello from Common init on {}! we are currently in a {} environment!",
+        Constants.LOG.info("Initializing common mod code for {}...", Constants.MOD_ID);
+        Constants.LOG.info("Currently running on {} in a {} environment",
                 Services.PLATFORM.getPlatformName(), Services.PLATFORM.getEnvironmentName());
-        Constants.LOG.info("The ID for diamonds is {}", BuiltInRegistries.ITEM.getKey(Items.DIAMOND));
-        if (Services.PLATFORM.isModLoaded("expandedgamerules")) {
-            Constants.LOG.info("Hello to expandedgamerules");
-        }
+        // TODO: Initialize rule registry
+        Constants.LOG.info("Adding built-in rules...");
+        // TODO: Add built-in rules
+        Constants.LOG.info("Common mod code for {} has been initialized", Constants.MOD_ID);
     }
 }
