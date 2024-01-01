@@ -32,3 +32,8 @@ tags
 
 # Logs #
 *.log*
+
+# Artifacts #
+## Gradle ##
+build/
+.gradle/
