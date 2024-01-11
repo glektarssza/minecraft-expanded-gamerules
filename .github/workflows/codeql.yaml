@@ -32,9 +32,18 @@ jobs:
         with:
           languages: ${{matrix.language}}
           queries: security-extended,security-and-quality
-      - id: autobuild
-        name: Autobuild
-        uses: github/codeql-action/autobuild@v2
+      - id: setup-java
+        name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+      - id: setup-gradle
+        name: Setup Gradle
+        uses: gradle/gradle-build-action@v2
+      - id: build
+        name: Build
+        run: ./gradlew build
       - id: perform-analysis
         name: Perform CodeQL analysis
         uses: github/codeql-action/analyze@v2
