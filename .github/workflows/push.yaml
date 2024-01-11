@@ -1,0 +1,31 @@
+name: Push
+on:
+  push:
+    branches:
+      - main
+    tags-ignore:
+      - '*'
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - id: checkout-repository
+        name: Checkout Reposiory
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+      - id: setup-java
+        name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+      - id: setup-gradle
+        name: Setup Gradle
+        uses: gradle/gradle-build-action@v2
+      - id: build
+        name: Build
+        run: ./gradlew build
