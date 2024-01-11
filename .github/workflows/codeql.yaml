@@ -41,14 +41,13 @@ jobs:
       - id: setup-gradle
         name: Setup Gradle
         uses: gradle/gradle-build-action@v2
-        env:
-          JAVA_HOME: ${{steps.setup-java.outputs.path}}
         with:
           gradle-version: wrapper
       - id: build
         name: Build
         env:
           JAVA_HOME: ${{steps.setup-java.outputs.path}}
+          PATH: ${{steps.setup-java.outputs.path}}/bin:${{env.PATH}}
         run: ./gradlew build
       - id: perform-analysis
         name: Perform CodeQL analysis
