@@ -1,0 +1,11 @@
+version: 2
+updates:
+  - directory: /
+    package-ecosystem: gradle
+    labels:
+      - Dependency
+    schedule:
+      interval: weekly
+      day: wednesday
+      time: "12:00"
+      timezone: Canada/Mountain
