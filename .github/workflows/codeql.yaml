@@ -43,11 +43,14 @@ jobs:
         uses: gradle/gradle-build-action@v2
         with:
           gradle-version: wrapper
+      - id: determine-path
+        name: Determine PATH
+        run: echo "path=$PATH" >> "$GITHUB_OUTPUT"
       - id: build
         name: Build
         env:
           JAVA_HOME: ${{steps.setup-java.outputs.path}}
-          PATH: ${{steps.setup-java.outputs.path}}/bin:${{env.PATH}}
+          PATH: ${{steps.setup-java.outputs.path}}/bin:${{steps.determine-path.outputs.path}}
         run: ./gradlew build
       - id: perform-analysis
         name: Perform CodeQL analysis
