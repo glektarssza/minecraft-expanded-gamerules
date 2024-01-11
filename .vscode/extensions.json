@@ -1,10 +1,11 @@
 {
     "recommendations": [
-        "github.remotehub",
-        "github.vscode-pull-request-github",
         "vscjava.vscode-gradle",
         "redhat.java",
         "vscjava.vscode-java-dependency",
-        "vscjava.vscode-java-debug"
+        "vscjava.vscode-java-debug",
+        "github.remotehub",
+        "github.vscode-pull-request-github",
+        "github.vscode-github-actions"
     ]
 }
