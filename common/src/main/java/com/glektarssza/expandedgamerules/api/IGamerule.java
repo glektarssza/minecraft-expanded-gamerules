@@ -1,71 +1,43 @@
 package com.glektarssza.expandedgamerules.api;
 
-import net.minecraft.resources.ResourceLocation;
-
 /**
- * An interface which represents a gamerule.
+ * An interface for gamerules.
  */
-public interface IGamerule<T> {
+public interface IGamerule {
     /**
-     * Get the resource location of the gamerule.
+     * Get the human-readable, unlocalized name of the instance.
      *
-     * @returns The resource location of the gamerule.
-     */
-    public ResourceLocation getResourceLocation();
-
-    /**
-     * Get the name of the gamerule.
-     *
-     * @returns The name of the gamerule.
+     * @returns The human-readable, unlocalized name of the instance.
      */
     public String getName();
 
     /**
-     * Get the localized name of the gamerule.
+     * Get the human-readable name of the instance, localized to the client's
+     * language.
      *
-     * @returns The localized name of the gamerule.
+     * @returns The human-readable name of the instance, localized to the
+     *          client's language if possible, otherwise the unlocalized name.
      */
-    public String getLocalizedName();
+    public default String getLocalizedName() {
+        return getName();
+    }
 
     /**
-     * Get the description of the gamerule.
+     * Get the human-readable, unlocalized description of the instance.
      *
-     * @returns The description of the gamerule.
+     * @returns The human-readable, unlocalized description of the instance.
      */
     public String getDescription();
 
     /**
-     * Get the localized description of the gamerule.
+     * Get the human-readable description of the instance, localized to the
+     * client's language.
      *
-     * @returns The localized description of the gamerule.
+     * @returns The human-readable description of the instance, localized to
+     *          the client's language if possible, otherwise the unlocalized
+     *          description.
      */
-    public String getLocalizedDescription();
-
-    /**
-     * Get the type of the gamerule.
-     *
-     * @returns The type of the gamerule.
-     */
-    public GameruleType getType();
-
-    /**
-     * Get the default value of the gamerule.
-     *
-     * @returns The default value of the gamerule.
-     */
-    public T getDefaultValue();
-
-    /**
-     * Get the current value of the gamerule.
-     *
-     * @returns The current value of the gamerule.
-     */
-    public T getValue();
-
-    /**
-     * Set the current value of the gamerule.
-     *
-     * @param value The new value of the gamerule.
-     */
-    public void setValue(T value);
+    public default String getLocalizedDescription() {
+        return getDescription();
+    }
 }
