@@ -1,5 +1,7 @@
 package com.glektarssza.expandedgamerules.platform;
 
+import javax.annotation.Nonnull;
+
 import com.glektarssza.expandedgamerules.api.ICallback;
 import com.glektarssza.expandedgamerules.api.IGamerule;
 import com.glektarssza.expandedgamerules.platform.services.IPlatformHelper;
@@ -39,7 +41,7 @@ public class FabricPlatformHelper implements IPlatformHelper {
      * @return Whether the named mod is loaded.
      */
     @Override
-    public boolean isModLoaded(String modId) {
+    public boolean isModLoaded(@Nonnull String modId) {
         return FabricLoader.getInstance().isModLoaded(modId);
     }
 
@@ -57,7 +59,7 @@ public class FabricPlatformHelper implements IPlatformHelper {
      * Initialize the gamerule registry.
      */
     @Override
-    public void initializeGameruleRegistry(ICallback callback) {
+    public void initializeGameruleRegistry(@Nonnull ICallback callback) {
         gameruleRegistry = FabricRegistryBuilder
                 .<IGamerule>createSimple(
                         ResourceKey.createRegistryKey(new ResourceLocation("expandedgamerules", "gamerules")))
@@ -67,20 +69,33 @@ public class FabricPlatformHelper implements IPlatformHelper {
     }
 
     @Override
-    public void registerGamerule(ResourceLocation id, IGamerule gamerule) throws IllegalArgumentException {
+    public void registerGamerule(@Nonnull ResourceLocation id,
+            @Nonnull IGamerule gamerule) throws IllegalArgumentException {
         if (gameruleRegistry.containsKey(id)) {
             throw new IllegalArgumentException("A gamerule is already registered with the given ID");
         }
-        gameruleRegistry.register(ResourceKey.create(gameruleRegistry.key(), id), gamerule, Lifecycle.experimental());
+        var lc = Lifecycle.experimental();
+        if (lc == null) {
+            throw new NullPointerException();
+        }
+        var regKey = gameruleRegistry.key();
+        if (regKey == null) {
+            throw new NullPointerException();
+        }
+        var key = ResourceKey.create(regKey, id);
+        if (key == null) {
+            throw new NullPointerException();
+        }
+        gameruleRegistry.register(key, gamerule, lc);
     }
 
     @Override
-    public boolean hasGamerule(ResourceLocation id) {
+    public boolean hasGamerule(@Nonnull ResourceLocation id) {
         return gameruleRegistry.containsKey(id);
     }
 
     @Override
-    public IGamerule getGamerule(ResourceLocation id) {
+    public IGamerule getGamerule(@Nonnull ResourceLocation id) {
         return gameruleRegistry.get(id);
     }
 }

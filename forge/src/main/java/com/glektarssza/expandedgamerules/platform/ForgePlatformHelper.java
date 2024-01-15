@@ -1,5 +1,7 @@
 package com.glektarssza.expandedgamerules.platform;
 
+import javax.annotation.Nonnull;
+
 import com.glektarssza.expandedgamerules.api.ICallback;
 import com.glektarssza.expandedgamerules.api.IGamerule;
 import com.glektarssza.expandedgamerules.platform.services.IPlatformHelper;
@@ -39,7 +41,7 @@ public class ForgePlatformHelper implements IPlatformHelper {
      * @return Whether the named mod is loaded.
      */
     @Override
-    public boolean isModLoaded(String modId) {
+    public boolean isModLoaded(@Nonnull String modId) {
         return ModList.get().isLoaded(modId);
     }
 
@@ -57,7 +59,7 @@ public class ForgePlatformHelper implements IPlatformHelper {
      * Initialize the gamerule registry.
      */
     @Override
-    public void initializeGameruleRegistry(ICallback callback) {
+    public void initializeGameruleRegistry(@Nonnull ICallback callback) {
         var builder = RegistryBuilder.<IGamerule>of(new ResourceLocation("expandedgamerules", "gamerules"));
         MinecraftForge.EVENT_BUS.addListener((NewRegistryEvent event) -> {
             event.create(builder, (registry) -> {
@@ -68,7 +70,8 @@ public class ForgePlatformHelper implements IPlatformHelper {
     }
 
     @Override
-    public void registerGamerule(ResourceLocation id, IGamerule gamerule) throws IllegalArgumentException {
+    public void registerGamerule(@Nonnull ResourceLocation id,
+            @Nonnull IGamerule gamerule) throws IllegalArgumentException {
         if (gameruleRegistry.containsKey(id)) {
             throw new IllegalArgumentException("A gamerule is already registered with the given ID");
         }
@@ -76,12 +79,12 @@ public class ForgePlatformHelper implements IPlatformHelper {
     }
 
     @Override
-    public boolean hasGamerule(ResourceLocation id) {
+    public boolean hasGamerule(@Nonnull ResourceLocation id) {
         return gameruleRegistry.containsKey(id);
     }
 
     @Override
-    public IGamerule getGamerule(ResourceLocation id) {
+    public IGamerule getGamerule(@Nonnull ResourceLocation id) {
         return gameruleRegistry.getValue(id);
     }
 }
