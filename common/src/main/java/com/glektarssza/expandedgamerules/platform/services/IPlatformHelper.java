@@ -46,6 +46,8 @@ public interface IPlatformHelper {
 
     /**
      * Initialize the gamerule registry.
+     *
+     * @param callback The method to call once the registry is initialized.
      */
     public void initializeGameruleRegistry(@Nonnull ICallback callback);
 
