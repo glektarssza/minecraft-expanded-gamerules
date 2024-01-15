@@ -20,9 +20,16 @@ public class CommonClass {
                 Services.PLATFORM.getPlatformName(), Services.PLATFORM.getEnvironmentName());
         Services.PLATFORM.initializeGameruleRegistry(() -> {
             Constants.LOG.info("Adding built-in rules...");
-            // TODO: Add built-in rules
+            registerBuiltinRules();
             Constants.LOG.info("Common mod code for {} has been initialized", Constants.MOD_ID);
         });
+    }
+
+    /**
+     * Register the built-in gamerules.
+     */
+    public static void registerBuiltinRules() {
+        // TODO
     }
 
     /**
