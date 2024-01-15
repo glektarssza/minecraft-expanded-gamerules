@@ -1,5 +1,7 @@
 package com.glektarssza.expandedgamerules.api;
 
+import javax.annotation.Nonnull;
+
 /**
  * An interface for gamerules.
  */
@@ -9,6 +11,7 @@ public interface IGamerule {
      *
      * @returns The human-readable, unlocalized name of the instance.
      */
+    @Nonnull
     public String getName();
 
     /**
@@ -18,6 +21,7 @@ public interface IGamerule {
      * @returns The human-readable name of the instance, localized to the
      *          client's language if possible, otherwise the unlocalized name.
      */
+    @Nonnull
     public default String getLocalizedName() {
         return getName();
     }
@@ -27,6 +31,7 @@ public interface IGamerule {
      *
      * @returns The human-readable, unlocalized description of the instance.
      */
+    @Nonnull
     public String getDescription();
 
     /**
@@ -37,6 +42,7 @@ public interface IGamerule {
      *          the client's language if possible, otherwise the unlocalized
      *          description.
      */
+    @Nonnull
     public default String getLocalizedDescription() {
         return getDescription();
     }

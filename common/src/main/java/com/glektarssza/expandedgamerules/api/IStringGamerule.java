@@ -1,5 +1,7 @@
 package com.glektarssza.expandedgamerules.api;
 
+import javax.annotation.Nonnull;
+
 /**
  * An interface for gamerules that have a string value.
  */
@@ -9,6 +11,7 @@ public interface IStringGamerule {
      *
      * @returns The value of the instance.
      */
+    @Nonnull
     public String getValue();
 
     /**
@@ -16,6 +19,7 @@ public interface IStringGamerule {
      *
      * @returns The default value of the instance.
      */
+    @Nonnull
     public default String getDefaultValue() {
         return "";
     }
