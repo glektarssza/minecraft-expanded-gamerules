@@ -17,7 +17,7 @@ public class Services {
     /**
      * Load a platform-specific service implementation.
      *
-     * @param T     The type of service to load.
+     * @param <T>   The type of service to load.
      * @param clazz The service class to load the platform-specific
      *              implementation for.
      *
