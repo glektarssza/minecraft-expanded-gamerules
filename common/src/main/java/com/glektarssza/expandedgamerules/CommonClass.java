@@ -1,5 +1,7 @@
 package com.glektarssza.expandedgamerules;
 
+import javax.annotation.Nonnull;
+
 import com.glektarssza.expandedgamerules.api.IGamerule;
 import com.glektarssza.expandedgamerules.platform.Services;
 
@@ -32,7 +34,8 @@ public class CommonClass {
      * @throws IllegalArgumentException If a gamerule is already registered with
      *                                  the given ID.
      */
-    public void registerGamerule(ResourceLocation id, IGamerule gamerule) throws IllegalArgumentException {
+    public void registerGamerule(@Nonnull ResourceLocation id,
+            @Nonnull IGamerule gamerule) throws IllegalArgumentException {
         Services.PLATFORM.registerGamerule(id, gamerule);
     }
 
@@ -43,7 +46,7 @@ public class CommonClass {
      *
      * @returns Whether a gamerule is registered with the given ID.
      */
-    public boolean hasGamerule(ResourceLocation id) {
+    public boolean hasGamerule(@Nonnull ResourceLocation id) {
         return Services.PLATFORM.hasGamerule(id);
     }
 
@@ -54,7 +57,7 @@ public class CommonClass {
      *
      * @returns The gamerule registered with the given ID.
      */
-    public IGamerule getGamerule(ResourceLocation id) {
+    public IGamerule getGamerule(@Nonnull ResourceLocation id) {
         return Services.PLATFORM.getGamerule(id);
     }
 }
