@@ -4,7 +4,9 @@
     "package": "${mod_group}.${mod_id}.mixin",
     "refmap": "${mod_id}.refmap.json",
     "compatibilityLevel": "JAVA_17",
-    "mixins": [],
+    "mixins": [
+        "LivingEntityMixin"
+    ],
     "client": [],
     "server": [],
     "injectors": {
