@@ -34,7 +34,7 @@ public class CommonClass {
      * @throws IllegalArgumentException If a gamerule is already registered with
      *                                  the given ID.
      */
-    public void registerGamerule(@Nonnull ResourceLocation id,
+    public static void registerGamerule(@Nonnull ResourceLocation id,
             @Nonnull IGamerule gamerule) throws IllegalArgumentException {
         Services.PLATFORM.registerGamerule(id, gamerule);
     }
@@ -46,7 +46,7 @@ public class CommonClass {
      *
      * @returns Whether a gamerule is registered with the given ID.
      */
-    public boolean hasGamerule(@Nonnull ResourceLocation id) {
+    public static boolean hasGamerule(@Nonnull ResourceLocation id) {
         return Services.PLATFORM.hasGamerule(id);
     }
 
@@ -57,7 +57,7 @@ public class CommonClass {
      *
      * @returns The gamerule registered with the given ID.
      */
-    public IGamerule getGamerule(@Nonnull ResourceLocation id) {
+    public static IGamerule getGamerule(@Nonnull ResourceLocation id) {
         return Services.PLATFORM.getGamerule(id);
     }
 }
