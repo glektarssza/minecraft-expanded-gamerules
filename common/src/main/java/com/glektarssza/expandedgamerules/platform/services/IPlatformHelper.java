@@ -1,9 +1,7 @@
 package com.glektarssza.expandedgamerules.platform.services;
 
-import java.util.function.Consumer;
-
 import com.glektarssza.expandedgamerules.api.IGamerule;
-import com.glektarssza.expandedgamerules.platform.ICallback;
+import com.glektarssza.expandedgamerules.api.ICallback;
 
 import net.minecraft.resources.ResourceLocation;
 
