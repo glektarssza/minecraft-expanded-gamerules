@@ -1,5 +1,6 @@
 package com.glektarssza.expandedgamerules.platform;
 
+import com.glektarssza.expandedgamerules.api.ICallback;
 import com.glektarssza.expandedgamerules.api.IGamerule;
 import com.glektarssza.expandedgamerules.platform.services.IPlatformHelper;
 
