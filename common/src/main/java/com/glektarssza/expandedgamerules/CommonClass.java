@@ -51,7 +51,7 @@ public class CommonClass {
      *
      * @param id The ID of the gamerule to check.
      *
-     * @returns Whether a gamerule is registered with the given ID.
+     * @return Whether a gamerule is registered with the given ID.
      */
     public static boolean hasGamerule(@Nonnull ResourceLocation id) {
         return Services.PLATFORM.hasGamerule(id);
@@ -62,7 +62,7 @@ public class CommonClass {
      *
      * @param id The ID of the gamerule to get.
      *
-     * @returns The gamerule registered with the given ID.
+     * @return The gamerule registered with the given ID.
      */
     public static IGamerule getGamerule(@Nonnull ResourceLocation id) {
         return Services.PLATFORM.getGamerule(id);

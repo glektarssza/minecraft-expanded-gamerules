@@ -9,7 +9,7 @@ public interface IStringGamerule {
     /**
      * Get the value of the instance.
      *
-     * @returns The value of the instance.
+     * @return The value of the instance.
      */
     @Nonnull
     public String getValue();
@@ -17,7 +17,7 @@ public interface IStringGamerule {
     /**
      * Get the default value of the instance.
      *
-     * @returns The default value of the instance.
+     * @return The default value of the instance.
      */
     @Nonnull
     public default String getDefaultValue() {

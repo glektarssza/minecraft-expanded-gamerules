@@ -9,7 +9,7 @@ public interface IGamerule {
     /**
      * Get the human-readable, unlocalized name of the instance.
      *
-     * @returns The human-readable, unlocalized name of the instance.
+     * @return The human-readable, unlocalized name of the instance.
      */
     @Nonnull
     public String getName();
@@ -18,8 +18,8 @@ public interface IGamerule {
      * Get the human-readable name of the instance, localized to the client's
      * language.
      *
-     * @returns The human-readable name of the instance, localized to the
-     *          client's language if possible, otherwise the unlocalized name.
+     * @return The human-readable name of the instance, localized to the
+     *         client's language if possible, otherwise the unlocalized name.
      */
     @Nonnull
     public default String getLocalizedName() {
@@ -29,7 +29,7 @@ public interface IGamerule {
     /**
      * Get the human-readable, unlocalized description of the instance.
      *
-     * @returns The human-readable, unlocalized description of the instance.
+     * @return The human-readable, unlocalized description of the instance.
      */
     @Nonnull
     public String getDescription();
@@ -38,9 +38,9 @@ public interface IGamerule {
      * Get the human-readable description of the instance, localized to the
      * client's language.
      *
-     * @returns The human-readable description of the instance, localized to
-     *          the client's language if possible, otherwise the unlocalized
-     *          description.
+     * @return The human-readable description of the instance, localized to
+     *         the client's language if possible, otherwise the unlocalized
+     *         description.
      */
     @Nonnull
     public default String getLocalizedDescription() {
