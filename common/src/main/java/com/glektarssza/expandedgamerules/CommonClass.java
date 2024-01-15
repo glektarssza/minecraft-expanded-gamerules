@@ -4,6 +4,7 @@ import javax.annotation.Nonnull;
 
 import com.glektarssza.expandedgamerules.api.IGamerule;
 import com.glektarssza.expandedgamerules.platform.Services;
+import com.glektarssza.expandedgamerules.rules.DisableTargetingPlayersRule;
 
 import net.minecraft.resources.ResourceLocation;
 
@@ -29,7 +30,8 @@ public class CommonClass {
      * Register the built-in gamerules.
      */
     public static void registerBuiltinRules() {
-        // TODO
+        registerGamerule(new ResourceLocation("expandedgamerules", "disableTargetingPlayers"),
+                new DisableTargetingPlayersRule());
     }
 
     /**
