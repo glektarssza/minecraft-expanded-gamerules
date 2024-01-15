@@ -2,6 +2,7 @@ package com.glektarssza.expandedgamerules.platform;
 
 import javax.annotation.Nonnull;
 
+import com.glektarssza.expandedgamerules.Constants;
 import com.glektarssza.expandedgamerules.api.ICallback;
 import com.glektarssza.expandedgamerules.api.IGamerule;
 import com.glektarssza.expandedgamerules.platform.services.IPlatformHelper;
@@ -60,17 +61,20 @@ public class FabricPlatformHelper implements IPlatformHelper {
      */
     @Override
     public void initializeGameruleRegistry(@Nonnull ICallback callback) {
+        Constants.LOG.info("Initializing expanded gamerule registry...");
         gameruleRegistry = FabricRegistryBuilder
                 .<IGamerule>createSimple(
                         ResourceKey.createRegistryKey(new ResourceLocation("expandedgamerules", "gamerules")))
                 .attribute(RegistryAttribute.SYNCED)
                 .buildAndRegister();
+        Constants.LOG.info("Expanded gamerule registry created and registered");
         callback.apply();
     }
 
     @Override
     public void registerGamerule(@Nonnull ResourceLocation id,
             @Nonnull IGamerule gamerule) throws IllegalArgumentException {
+        Constants.LOG.debug("Registering new expanded gamerule with ID {}", id);
         if (gameruleRegistry.containsKey(id)) {
             throw new IllegalArgumentException("A gamerule is already registered with the given ID");
         }
@@ -87,6 +91,7 @@ public class FabricPlatformHelper implements IPlatformHelper {
             throw new NullPointerException();
         }
         gameruleRegistry.register(key, gamerule, lc);
+        Constants.LOG.debug("New expanded gamerule registered", id);
     }
 
     @Override

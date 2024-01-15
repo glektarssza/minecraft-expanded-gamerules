@@ -2,6 +2,7 @@ package com.glektarssza.expandedgamerules.platform;
 
 import javax.annotation.Nonnull;
 
+import com.glektarssza.expandedgamerules.Constants;
 import com.glektarssza.expandedgamerules.api.ICallback;
 import com.glektarssza.expandedgamerules.api.IGamerule;
 import com.glektarssza.expandedgamerules.platform.services.IPlatformHelper;
@@ -60,10 +61,13 @@ public class ForgePlatformHelper implements IPlatformHelper {
      */
     @Override
     public void initializeGameruleRegistry(@Nonnull ICallback callback) {
+        Constants.LOG.info("Initializing expanded gamerule registry...");
         var builder = RegistryBuilder.<IGamerule>of(new ResourceLocation("expandedgamerules", "gamerules"));
         MinecraftForge.EVENT_BUS.addListener((NewRegistryEvent event) -> {
+            Constants.LOG.info("Creating expanded gamerule registry...");
             event.create(builder, (registry) -> {
                 gameruleRegistry = registry;
+                Constants.LOG.info("Expanded gamerule registry created and registered");
                 callback.apply();
             });
         });
@@ -72,10 +76,12 @@ public class ForgePlatformHelper implements IPlatformHelper {
     @Override
     public void registerGamerule(@Nonnull ResourceLocation id,
             @Nonnull IGamerule gamerule) throws IllegalArgumentException {
+        Constants.LOG.debug("Registering new expanded gamerule with ID {}", id);
         if (gameruleRegistry.containsKey(id)) {
             throw new IllegalArgumentException("A gamerule is already registered with the given ID");
         }
         gameruleRegistry.register(id, gamerule);
+        Constants.LOG.debug("New expanded gamerule registered", id);
     }
 
     @Override
