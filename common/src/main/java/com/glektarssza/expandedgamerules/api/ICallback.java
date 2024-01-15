@@ -1,7 +1,7 @@
-package com.glektarssza.expandedgamerules.platform;
+package com.glektarssza.expandedgamerules.api;
 
 /**
- * An interface that represents a callback.
+ * An interface for callbacks.
  */
 public interface ICallback {
     /**
