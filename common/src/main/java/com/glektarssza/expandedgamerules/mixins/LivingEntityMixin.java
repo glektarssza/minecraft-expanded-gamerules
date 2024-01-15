@@ -11,8 +11,17 @@ import com.glektarssza.expandedgamerules.platform.Services;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.LivingEntity;;
 
+/**
+ * Mixins for living entities.
+ */
 @Mixin(LivingEntity.class)
 public class LivingEntityMixin {
+    /**
+     * Mixin for the `canAttack` method.
+     *
+     * @param entity The entity being checked.
+     * @param ci     The callback information.
+     */
     @Inject(at = @At("HEAD"), method = "canAttack(Lnet/minecraft/world/entity/LivingEntity;)Z", cancellable = true)
     public void canAttack(LivingEntity entity, CallbackInfoReturnable<Boolean> ci) {
         if (!Services.PLATFORM.hasGamerule(new ResourceLocation("expandedgamerules", "disableTargetingPlayers"))) {
