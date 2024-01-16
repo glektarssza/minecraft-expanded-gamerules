@@ -37,3 +37,6 @@ tags
 ## Gradle ##
 build/
 .gradle/
+
+## Debugging ##
+run/
