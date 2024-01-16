@@ -3,7 +3,7 @@
     "configurations": [
         {
             "type": "java",
-            "name": "runClient",
+            "name": "runClient (Fabric)",
             "request": "launch",
             "mainClass": "cpw.mods.bootstraplauncher.BootstrapLauncher",
             "projectName": "minecraft-expanded-gamerules",
@@ -17,7 +17,7 @@
         },
         {
             "type": "java",
-            "name": "runData",
+            "name": "runData (Fabric)",
             "request": "launch",
             "mainClass": "cpw.mods.bootstraplauncher.BootstrapLauncher",
             "projectName": "minecraft-expanded-gamerules",
@@ -31,7 +31,7 @@
         },
         {
             "type": "java",
-            "name": "runServer",
+            "name": "runServer (Fabric)",
             "request": "launch",
             "mainClass": "cpw.mods.bootstraplauncher.BootstrapLauncher",
             "projectName": "minecraft-expanded-gamerules",
@@ -45,7 +45,7 @@
         },
         {
             "type": "java",
-            "name": "Fabric Client (:fabric)",
+            "name": "Client (Fabric)",
             "request": "launch",
             "cwd": "${workspaceFolder}/fabric/run",
             "console": "integratedTerminal",
@@ -58,7 +58,7 @@
         },
         {
             "type": "java",
-            "name": "Fabric Server (:fabric)",
+            "name": "Server (Fabric)",
             "request": "launch",
             "cwd": "${workspaceFolder}/fabric/run",
             "console": "integratedTerminal",
@@ -68,6 +68,51 @@
             "args": "nogui nogui",
             "env": {},
             "projectName": "fabric"
+        },
+        {
+            "type": "java",
+            "name": "Client (Forge)",
+            "request": "launch",
+            "mainClass": "net.minecraftforge.bootstrap.BootstrapLauncher",
+            "projectName": "forge",
+            "cwd": "${workspaceFolder}\\forge\\run",
+            "vmArgs": "-DlegacyClassPath.file\u003dC:\\Users\\roblo\\repositories\\github\\glektarssza\\minecraft-expanded-gamerules\\forge\\build\\classpath\\forge_Client_minecraftClasspath.txt -Dmixin.env.remapRefMap\u003dtrue -Dmixin.env.refMapRemappingFile\u003dC:\\Users\\roblo\\repositories\\github\\glektarssza\\minecraft-expanded-gamerules\\forge/build/createSrgToMcp/output.srg -Dnet.minecraftforge.gradle.GradleStart.srg.srg-mcp\u003dC:\\Users\\roblo\\repositories\\github\\glektarssza\\minecraft-expanded-gamerules\\forge\\build\\createSrgToMcp\\output.srg -DignoreList\u003dJarJarFileSystems-,asm-,asm-analysis-,asm-commons-,asm-tree-,asm-util-,bootstrap-,client-extra-,failureaccess-,fmlcore-,forge-,guava-,javafmllanguage-,lowcodelanguage-,mclanguage-,securemodules-,unsafe- -DmergeModules\u003djna-5.10.0.jar,jna-platform-5.10.0.jar -Dforge.enableGameTest\u003dtrue -Djava.net.preferIPv6Addresses\u003dsystem -p C:\\Users\\roblo\\scoop\\apps\\gradle\\current\\.gradle\\caches\\modules-2\\files-2.1\\net.minecraftforge\\bootstrap\\1.2.0\\ef7d81393a75915531d76e4f51743b65859e82f6\\bootstrap-1.2.0.jar;C:\\Users\\roblo\\scoop\\apps\\gradle\\current\\.gradle\\caches\\modules-2\\files-2.1\\net.minecraftforge\\securemodules\\2.2.3\\5a784c87cf99b4b6db15d576f5110b00af25ced0\\securemodules-2.2.3.jar;C:\\Users\\roblo\\scoop\\apps\\gradle\\current\\.gradle\\caches\\modules-2\\files-2.1\\net.minecraftforge\\unsafe\\0.9.2\\33bad02861cabd77c54a8c9d1205e8638bbbbb4f\\unsafe-0.9.2.jar;C:\\Users\\roblo\\scoop\\apps\\gradle\\current\\.gradle\\caches\\modules-2\\files-2.1\\org.ow2.asm\\asm\\9.6\\aa205cf0a06dbd8e04ece91c0b37c3f5d567546a\\asm-9.6.jar;C:\\Users\\roblo\\scoop\\apps\\gradle\\current\\.gradle\\caches\\modules-2\\files-2.1\\org.ow2.asm\\asm-tree\\9.6\\c0cdda9d211e965d2a4448aa3fd86110f2f8c2de\\asm-tree-9.6.jar;C:\\Users\\roblo\\scoop\\apps\\gradle\\current\\.gradle\\caches\\modules-2\\files-2.1\\org.ow2.asm\\asm-util\\9.6\\f77caf84eb93786a749b2baa40865b9613e3eaee\\asm-util-9.6.jar;C:\\Users\\roblo\\scoop\\apps\\gradle\\current\\.gradle\\caches\\modules-2\\files-2.1\\org.ow2.asm\\asm-commons\\9.6\\f1a9e5508eff490744144565c47326c8648be309\\asm-commons-9.6.jar;C:\\Users\\roblo\\scoop\\apps\\gradle\\current\\.gradle\\caches\\modules-2\\files-2.1\\org.ow2.asm\\asm-analysis\\9.6\\9ce6c7b174bd997fc2552dff47964546bd7a5ec3\\asm-analysis-9.6.jar;C:\\Users\\roblo\\scoop\\apps\\gradle\\current\\.gradle\\caches\\modules-2\\files-2.1\\net.minecraftforge\\JarJarFileSystems\\0.3.19\\2464eb7d6b9ddb9db36a82cf8a95193e5c6fe020\\JarJarFileSystems-0.3.19.jar;C:\\Users\\roblo\\scoop\\apps\\gradle\\current\\.gradle\\caches\\modules-2\\files-2.1\\com.google.guava\\guava\\32.1.2-jre\\5e64ec7e056456bef3a4bc4c6fdaef71e8ab6318\\guava-32.1.2-jre.jar;C:\\Users\\roblo\\scoop\\apps\\gradle\\current\\.gradle\\caches\\modules-2\\files-2.1\\com.google.guava\\failureaccess\\1.0.1\\1dcf1de382a0bf95a3d8b0849546c88bac1292c9\\failureaccess-1.0.1.jar --add-modules ALL-MODULE-PATH --add-exports jdk.naming.dns/com.sun.jndi.dns\u003djava.naming -XX:HeapDumpPath\u003dMojangTricksIntelDriversForPerformance_javaw.exe_minecraft.exe.heapdump",
+            "args": "--launchTarget forge_userdev_client --version MOD_DEV --assetIndex 8 --assetsDir C:\\Users\\roblo\\scoop\\apps\\gradle\\current\\.gradle\\caches\\forge_gradle\\assets --gameDir . --fml.forgeVersion 48.0.49 --fml.mcVersion 1.20.2 --fml.forgeGroup net.minecraftforge --fml.mcpVersion 20230921.100330 --mixin.config expandedgamerules.mixins.json --mixin.config expandedgamerules.forge.mixins.json",
+            "env": {
+                "MOD_CLASSES": "modClientRun%%${workspaceFolder}\\forge\\build\\resources\\main;modClientRun%%${workspaceFolder}\\forge\\build\\classes\\java\\main;modClientRun%%${workspaceFolder}\\common\\build\\resources\\main;modClientRun%%${workspaceFolder}\\common\\build\\classes\\java\\main",
+                "MCP_MAPPINGS": "official_1.20.2"
+            },
+            "preLaunchTask": "prepareClientCompile"
+        },
+        {
+            "type": "java",
+            "name": "Data (Forge)",
+            "request": "launch",
+            "mainClass": "net.minecraftforge.bootstrap.BootstrapLauncher",
+            "projectName": "forge",
+            "cwd": "${workspaceFolder}\\forge\\run",
+            "vmArgs": "-DlegacyClassPath.file\u003dC:\\Users\\roblo\\repositories\\github\\glektarssza\\minecraft-expanded-gamerules\\forge\\build\\classpath\\forge_Data_minecraftClasspath.txt -Dmixin.env.remapRefMap\u003dtrue -Dmixin.env.refMapRemappingFile\u003dC:\\Users\\roblo\\repositories\\github\\glektarssza\\minecraft-expanded-gamerules\\forge/build/createSrgToMcp/output.srg -Dnet.minecraftforge.gradle.GradleStart.srg.srg-mcp\u003dC:\\Users\\roblo\\repositories\\github\\glektarssza\\minecraft-expanded-gamerules\\forge\\build\\createSrgToMcp\\output.srg -DignoreList\u003dJarJarFileSystems-,asm-,asm-analysis-,asm-commons-,asm-tree-,asm-util-,bootstrap-,client-extra-,failureaccess-,fmlcore-,forge-,guava-,javafmllanguage-,lowcodelanguage-,mclanguage-,securemodules-,unsafe- -DmergeModules\u003djna-5.10.0.jar,jna-platform-5.10.0.jar -Djava.net.preferIPv6Addresses\u003dsystem -p C:\\Users\\roblo\\scoop\\apps\\gradle\\current\\.gradle\\caches\\modules-2\\files-2.1\\net.minecraftforge\\bootstrap\\1.2.0\\ef7d81393a75915531d76e4f51743b65859e82f6\\bootstrap-1.2.0.jar;C:\\Users\\roblo\\scoop\\apps\\gradle\\current\\.gradle\\caches\\modules-2\\files-2.1\\net.minecraftforge\\securemodules\\2.2.3\\5a784c87cf99b4b6db15d576f5110b00af25ced0\\securemodules-2.2.3.jar;C:\\Users\\roblo\\scoop\\apps\\gradle\\current\\.gradle\\caches\\modules-2\\files-2.1\\net.minecraftforge\\unsafe\\0.9.2\\33bad02861cabd77c54a8c9d1205e8638bbbbb4f\\unsafe-0.9.2.jar;C:\\Users\\roblo\\scoop\\apps\\gradle\\current\\.gradle\\caches\\modules-2\\files-2.1\\org.ow2.asm\\asm\\9.6\\aa205cf0a06dbd8e04ece91c0b37c3f5d567546a\\asm-9.6.jar;C:\\Users\\roblo\\scoop\\apps\\gradle\\current\\.gradle\\caches\\modules-2\\files-2.1\\org.ow2.asm\\asm-tree\\9.6\\c0cdda9d211e965d2a4448aa3fd86110f2f8c2de\\asm-tree-9.6.jar;C:\\Users\\roblo\\scoop\\apps\\gradle\\current\\.gradle\\caches\\modules-2\\files-2.1\\org.ow2.asm\\asm-util\\9.6\\f77caf84eb93786a749b2baa40865b9613e3eaee\\asm-util-9.6.jar;C:\\Users\\roblo\\scoop\\apps\\gradle\\current\\.gradle\\caches\\modules-2\\files-2.1\\org.ow2.asm\\asm-commons\\9.6\\f1a9e5508eff490744144565c47326c8648be309\\asm-commons-9.6.jar;C:\\Users\\roblo\\scoop\\apps\\gradle\\current\\.gradle\\caches\\modules-2\\files-2.1\\org.ow2.asm\\asm-analysis\\9.6\\9ce6c7b174bd997fc2552dff47964546bd7a5ec3\\asm-analysis-9.6.jar;C:\\Users\\roblo\\scoop\\apps\\gradle\\current\\.gradle\\caches\\modules-2\\files-2.1\\net.minecraftforge\\JarJarFileSystems\\0.3.19\\2464eb7d6b9ddb9db36a82cf8a95193e5c6fe020\\JarJarFileSystems-0.3.19.jar;C:\\Users\\roblo\\scoop\\apps\\gradle\\current\\.gradle\\caches\\modules-2\\files-2.1\\com.google.guava\\guava\\32.1.2-jre\\5e64ec7e056456bef3a4bc4c6fdaef71e8ab6318\\guava-32.1.2-jre.jar;C:\\Users\\roblo\\scoop\\apps\\gradle\\current\\.gradle\\caches\\modules-2\\files-2.1\\com.google.guava\\failureaccess\\1.0.1\\1dcf1de382a0bf95a3d8b0849546c88bac1292c9\\failureaccess-1.0.1.jar --add-modules ALL-MODULE-PATH --add-exports jdk.naming.dns/com.sun.jndi.dns\u003djava.naming",
+            "args": "--launchTarget forge_userdev_data --assetIndex 8 --assetsDir C:\\Users\\roblo\\scoop\\apps\\gradle\\current\\.gradle\\caches\\forge_gradle\\assets --gameDir . --fml.forgeVersion 48.0.49 --fml.mcVersion 1.20.2 --fml.forgeGroup net.minecraftforge --fml.mcpVersion 20230921.100330 --mod expandedgamerules --all --output C:\\Users\\roblo\\repositories\\github\\glektarssza\\minecraft-expanded-gamerules\\forge\\src\\generated\\resources --existing C:\\Users\\roblo\\repositories\\github\\glektarssza\\minecraft-expanded-gamerules\\forge\\src\\main\\resources --mixin.config expandedgamerules.mixins.json --mixin.config expandedgamerules.forge.mixins.json",
+            "env": {
+                "MOD_CLASSES": "modDataRun%%${workspaceFolder}\\forge\\build\\resources\\main;modDataRun%%${workspaceFolder}\\forge\\build\\classes\\java\\main;modDataRun%%${workspaceFolder}\\common\\build\\resources\\main;modDataRun%%${workspaceFolder}\\common\\build\\classes\\java\\main",
+                "MCP_MAPPINGS": "official_1.20.2"
+            },
+            "preLaunchTask": "prepareDataCompile"
+        },
+        {
+            "type": "java",
+            "name": "Server (Froge)",
+            "request": "launch",
+            "mainClass": "net.minecraftforge.bootstrap.BootstrapLauncher",
+            "projectName": "forge",
+            "cwd": "${workspaceFolder}\\forge\\run",
+            "vmArgs": "-DlegacyClassPath.file\u003dC:\\Users\\roblo\\repositories\\github\\glektarssza\\minecraft-expanded-gamerules\\forge\\build\\classpath\\forge_Server_minecraftClasspath.txt -Dmixin.env.remapRefMap\u003dtrue -Dmixin.env.refMapRemappingFile\u003dC:\\Users\\roblo\\repositories\\github\\glektarssza\\minecraft-expanded-gamerules\\forge/build/createSrgToMcp/output.srg -Dnet.minecraftforge.gradle.GradleStart.srg.srg-mcp\u003dC:\\Users\\roblo\\repositories\\github\\glektarssza\\minecraft-expanded-gamerules\\forge\\build\\createSrgToMcp\\output.srg -DignoreList\u003dJarJarFileSystems-,asm-,asm-analysis-,asm-commons-,asm-tree-,asm-util-,bootstrap-,client-extra-,failureaccess-,fmlcore-,forge-,guava-,javafmllanguage-,lowcodelanguage-,mclanguage-,securemodules-,unsafe- -DmergeModules\u003djna-5.10.0.jar,jna-platform-5.10.0.jar -Dforge.enableGameTest\u003dtrue -Djava.net.preferIPv6Addresses\u003dsystem -p C:\\Users\\roblo\\scoop\\apps\\gradle\\current\\.gradle\\caches\\modules-2\\files-2.1\\net.minecraftforge\\bootstrap\\1.2.0\\ef7d81393a75915531d76e4f51743b65859e82f6\\bootstrap-1.2.0.jar;C:\\Users\\roblo\\scoop\\apps\\gradle\\current\\.gradle\\caches\\modules-2\\files-2.1\\net.minecraftforge\\securemodules\\2.2.3\\5a784c87cf99b4b6db15d576f5110b00af25ced0\\securemodules-2.2.3.jar;C:\\Users\\roblo\\scoop\\apps\\gradle\\current\\.gradle\\caches\\modules-2\\files-2.1\\net.minecraftforge\\unsafe\\0.9.2\\33bad02861cabd77c54a8c9d1205e8638bbbbb4f\\unsafe-0.9.2.jar;C:\\Users\\roblo\\scoop\\apps\\gradle\\current\\.gradle\\caches\\modules-2\\files-2.1\\org.ow2.asm\\asm\\9.6\\aa205cf0a06dbd8e04ece91c0b37c3f5d567546a\\asm-9.6.jar;C:\\Users\\roblo\\scoop\\apps\\gradle\\current\\.gradle\\caches\\modules-2\\files-2.1\\org.ow2.asm\\asm-tree\\9.6\\c0cdda9d211e965d2a4448aa3fd86110f2f8c2de\\asm-tree-9.6.jar;C:\\Users\\roblo\\scoop\\apps\\gradle\\current\\.gradle\\caches\\modules-2\\files-2.1\\org.ow2.asm\\asm-util\\9.6\\f77caf84eb93786a749b2baa40865b9613e3eaee\\asm-util-9.6.jar;C:\\Users\\roblo\\scoop\\apps\\gradle\\current\\.gradle\\caches\\modules-2\\files-2.1\\org.ow2.asm\\asm-commons\\9.6\\f1a9e5508eff490744144565c47326c8648be309\\asm-commons-9.6.jar;C:\\Users\\roblo\\scoop\\apps\\gradle\\current\\.gradle\\caches\\modules-2\\files-2.1\\org.ow2.asm\\asm-analysis\\9.6\\9ce6c7b174bd997fc2552dff47964546bd7a5ec3\\asm-analysis-9.6.jar;C:\\Users\\roblo\\scoop\\apps\\gradle\\current\\.gradle\\caches\\modules-2\\files-2.1\\net.minecraftforge\\JarJarFileSystems\\0.3.19\\2464eb7d6b9ddb9db36a82cf8a95193e5c6fe020\\JarJarFileSystems-0.3.19.jar;C:\\Users\\roblo\\scoop\\apps\\gradle\\current\\.gradle\\caches\\modules-2\\files-2.1\\com.google.guava\\guava\\32.1.2-jre\\5e64ec7e056456bef3a4bc4c6fdaef71e8ab6318\\guava-32.1.2-jre.jar;C:\\Users\\roblo\\scoop\\apps\\gradle\\current\\.gradle\\caches\\modules-2\\files-2.1\\com.google.guava\\failureaccess\\1.0.1\\1dcf1de382a0bf95a3d8b0849546c88bac1292c9\\failureaccess-1.0.1.jar --add-modules ALL-MODULE-PATH --add-exports jdk.naming.dns/com.sun.jndi.dns\u003djava.naming",
+            "args": "--launchTarget forge_userdev_server --gameDir . --fml.forgeVersion 48.0.49 --fml.mcVersion 1.20.2 --fml.forgeGroup net.minecraftforge --fml.mcpVersion 20230921.100330 --mixin.config expandedgamerules.mixins.json --mixin.config expandedgamerules.forge.mixins.json",
+            "env": {
+                "MOD_CLASSES": "modServerRun%%${workspaceFolder}\\forge\\build\\resources\\main;modServerRun%%${workspaceFolder}\\forge\\build\\classes\\java\\main;modServerRun%%${workspaceFolder}\\common\\build\\resources\\main;modServerRun%%${workspaceFolder}\\common\\build\\classes\\java\\main",
+                "MCP_MAPPINGS": "official_1.20.2"
+            },
+            "preLaunchTask": "prepareServerCompile"
         }
     ]
 }
