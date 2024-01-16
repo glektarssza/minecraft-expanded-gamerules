@@ -1,0 +1,29 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "prepareClientCompile",
+            "type": "shell",
+            "command": "./gradlew prepareClientCompile",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            }
+        },
+        {
+            "label": "prepareDataCompile",
+            "type": "shell",
+            "command": "./gradlew prepareDataCompile",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            }
+        },
+        {
+            "label": "prepareServerCompile",
+            "type": "shell",
+            "command": "./gradlew prepareServerCompile",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            }
+        }
+    ]
+}
