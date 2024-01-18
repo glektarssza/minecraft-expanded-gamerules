@@ -6,10 +6,6 @@ pluginManagement {
             url = "https://maven.minecraftforge.net/"
         }
         maven {
-            name = "NeoForge"
-            url = "https://maven.neoforge.net/releases/"
-        }
-        maven {
             name = "Fabric"
             url = "https://maven.fabricmc.net/"
         }
