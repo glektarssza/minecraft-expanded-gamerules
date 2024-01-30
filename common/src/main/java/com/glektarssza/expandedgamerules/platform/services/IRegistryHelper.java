@@ -1,9 +1,10 @@
 package com.glektarssza.expandedgamerules.platform.services;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.management.openmbean.KeyAlreadyExistsException;
+import java.util.Optional;
 
+import javax.annotation.Nonnull;
+
+import com.glektarssza.expandedgamerules.Constants;
 import com.glektarssza.expandedgamerules.api.IGamerule;
 
 import net.minecraft.resources.ResourceLocation;
@@ -46,8 +47,10 @@ public interface IRegistryHelper {
      *                 will be prefixed with the mod ID.
      * @param gamerule The gamerule to register.
      */
-    public void registerGamerule(@Nonnull String key, @Nonnull IGamerule gamerule)
-            throws NullPointerException, KeyAlreadyExistsException;
+    public default void registerGamerule(@Nonnull String key, @Nonnull IGamerule gamerule)
+            throws IllegalStateException, IllegalArgumentException {
+        this.registerGamerule(new ResourceLocation(Constants.MOD_ID, key), gamerule);
+    }
 
     /**
      * Register a new gamerule.
@@ -56,7 +59,7 @@ public interface IRegistryHelper {
      * @param gamerule The gamerule to register.
      */
     public void registerGamerule(@Nonnull ResourceLocation key, @Nonnull IGamerule gamerule)
-            throws NullPointerException, KeyAlreadyExistsException;
+            throws IllegalStateException, IllegalArgumentException;
 
     /**
      * Get a gamerule from the registry with the given identifier.
@@ -66,8 +69,9 @@ public interface IRegistryHelper {
      *
      * @return The gamerule that has the given identifier.
      */
-    @Nullable
-    public IGamerule getGamerule(@Nonnull String key) throws NullPointerException;
+    public default Optional<IGamerule> getGamerule(@Nonnull String key) throws IllegalStateException {
+        return this.getGamerule(new ResourceLocation(Constants.MOD_ID, key));
+    }
 
     /**
      * Get a gamerule from the registry with the given identifier.
@@ -76,6 +80,5 @@ public interface IRegistryHelper {
      *
      * @return The gamerule that has the given identifier.
      */
-    @Nullable
-    public IGamerule getGamerule(@Nonnull ResourceLocation key) throws NullPointerException;
+    public Optional<IGamerule> getGamerule(@Nonnull ResourceLocation key) throws IllegalStateException;
 }

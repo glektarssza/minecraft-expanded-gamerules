@@ -1,8 +1,8 @@
 package com.glektarssza.expandedgamerules;
 
+import java.util.Optional;
+
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.management.openmbean.KeyAlreadyExistsException;
 
 import com.glektarssza.expandedgamerules.api.IGamerule;
 import com.glektarssza.expandedgamerules.platform.Services;
@@ -46,7 +46,7 @@ public class CommonClass {
      *                                  the given ID.
      */
     public static void registerGamerule(@Nonnull ResourceLocation id,
-            @Nonnull IGamerule gamerule) throws NullPointerException, KeyAlreadyExistsException {
+            @Nonnull IGamerule gamerule) throws IllegalStateException, IllegalArgumentException {
         Services.REGISTRY.registerGamerule(id, gamerule);
     }
 
@@ -57,9 +57,7 @@ public class CommonClass {
      *
      * @return The gamerule registered with the given ID.
      */
-    @Nullable
-    public static IGamerule getGamerule(@Nonnull ResourceLocation id)
-            throws NullPointerException {
+    public static Optional<IGamerule> getGamerule(@Nonnull ResourceLocation id) throws IllegalStateException {
         return Services.REGISTRY.getGamerule(id);
     }
 }

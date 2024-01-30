@@ -1,8 +1,8 @@
 package com.glektarssza.expandedgamerules.platform;
 
+import java.util.Optional;
+
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.management.openmbean.KeyAlreadyExistsException;
 
 import com.glektarssza.expandedgamerules.Constants;
 import com.glektarssza.expandedgamerules.api.IGamerule;
@@ -21,7 +21,6 @@ public class ForgeRegistryHelper implements IRegistryHelper {
     /**
      * The gamerule registry.
      */
-    @Nullable
     private IForgeRegistry<IGamerule> registry = null;
 
     /**
@@ -56,8 +55,8 @@ public class ForgeRegistryHelper implements IRegistryHelper {
      *                 will be prefixed with the mod ID.
      * @param gamerule The gamerule to register.
      */
-    public void registerGamerule(@Nonnull String key, @Nonnull IGamerule gamerule) throws NullPointerException,
-            KeyAlreadyExistsException {
+    public void registerGamerule(@Nonnull String key, @Nonnull IGamerule gamerule) throws IllegalStateException,
+            IllegalArgumentException {
         this.registerGamerule(new ResourceLocation(Constants.MOD_ID, key), gamerule);
     }
 
@@ -68,27 +67,14 @@ public class ForgeRegistryHelper implements IRegistryHelper {
      * @param gamerule The gamerule to register.
      */
     public void registerGamerule(@Nonnull ResourceLocation key, @Nonnull IGamerule gamerule)
-            throws NullPointerException, KeyAlreadyExistsException {
+            throws IllegalStateException, IllegalArgumentException {
         if (this.registry == null) {
-            throw new NullPointerException();
+            throw new IllegalStateException("Gamerule registry is not initialized");
         }
         if (this.registry.containsKey(key)) {
-            throw new KeyAlreadyExistsException();
+            throw new IllegalArgumentException(String.format("Gamerule \"%1$s\" already exists", key));
         }
         this.registry.register(key, gamerule);
-    }
-
-    /**
-     * Get a gamerule from the registry with the given identifier.
-     *
-     * @param key The identifier to get a gamerule for. This parameter will be
-     *            prefixed with the mod ID.
-     *
-     * @return The gamerule that has the given identifier.
-     */
-    @Nullable
-    public IGamerule getGamerule(@Nonnull String key) throws NullPointerException {
-        return this.getGamerule(new ResourceLocation(Constants.MOD_ID, key));
     }
 
     /**
@@ -98,11 +84,10 @@ public class ForgeRegistryHelper implements IRegistryHelper {
      *
      * @return The gamerule that has the given identifier.
      */
-    @Nullable
-    public IGamerule getGamerule(@Nonnull ResourceLocation key) throws NullPointerException {
+    public Optional<IGamerule> getGamerule(@Nonnull ResourceLocation key) throws NullPointerException {
         if (this.registry == null) {
-            throw new NullPointerException();
+            throw new IllegalStateException("Gamerule registry is not initialized");
         }
-        return this.registry.getValue(key);
+        return Optional.ofNullable(this.registry.getValue(key));
     }
 }
