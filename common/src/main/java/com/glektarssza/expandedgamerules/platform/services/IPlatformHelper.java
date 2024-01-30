@@ -1,12 +1,6 @@
 package com.glektarssza.expandedgamerules.platform.services;
 
-import com.glektarssza.expandedgamerules.api.IGamerule;
-
 import javax.annotation.Nonnull;
-
-import com.glektarssza.expandedgamerules.api.ICallback;
-
-import net.minecraft.resources.ResourceLocation;
 
 /**
  * An interface for platform-specific helper service classes.
@@ -17,6 +11,7 @@ public interface IPlatformHelper {
      *
      * @return The name of the platform.
      */
+    @Nonnull
     public String getPlatformName();
 
     /**
@@ -40,44 +35,8 @@ public interface IPlatformHelper {
      *
      * @return The name of the current environment.
      */
+    @Nonnull
     public default String getEnvironmentName() {
         return isDevelopmentEnvironment() ? "development" : "production";
     }
-
-    /**
-     * Initialize the gamerule registry.
-     *
-     * @param callback The method to call once the registry is initialized.
-     */
-    public void initializeGameruleRegistry(@Nonnull ICallback callback);
-
-    /**
-     * Register a gamerule into the gamerule registry.
-     *
-     * @param id       The ID of the gamerule to register.
-     * @param gamerule The gamerule to register.
-     *
-     * @throws IllegalArgumentException If a gamerule is already registered with
-     *                                  the given ID.
-     */
-    public void registerGamerule(@Nonnull ResourceLocation id, @Nonnull IGamerule gamerule)
-            throws IllegalArgumentException;
-
-    /**
-     * Check if a gamerule is registered with the given ID.
-     *
-     * @param id The ID of the gamerule to check.
-     *
-     * @return Whether a gamerule is registered with the given ID.
-     */
-    public boolean hasGamerule(@Nonnull ResourceLocation id);
-
-    /**
-     * Get the gamerule registered with the given ID.
-     *
-     * @param id The ID of the gamerule to get.
-     *
-     * @return The gamerule registered with the given ID.
-     */
-    public IGamerule getGamerule(@Nonnull ResourceLocation id);
 }

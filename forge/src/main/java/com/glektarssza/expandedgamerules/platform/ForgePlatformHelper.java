@@ -2,18 +2,12 @@ package com.glektarssza.expandedgamerules.platform;
 
 import javax.annotation.Nonnull;
 
-import com.glektarssza.expandedgamerules.Constants;
-import com.glektarssza.expandedgamerules.api.ICallback;
 import com.glektarssza.expandedgamerules.api.IGamerule;
 import com.glektarssza.expandedgamerules.platform.services.IPlatformHelper;
 
-import net.minecraft.resources.ResourceLocation;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.loading.FMLLoader;
 import net.minecraftforge.registries.IForgeRegistry;
-import net.minecraftforge.registries.NewRegistryEvent;
-import net.minecraftforge.registries.RegistryBuilder;
 
 /**
  * The Forge-specific platform helper.
@@ -30,6 +24,7 @@ public class ForgePlatformHelper implements IPlatformHelper {
      * @return The name of the platform.
      */
     @Override
+    @Nonnull
     public String getPlatformName() {
         return "Forge";
     }
@@ -54,43 +49,5 @@ public class ForgePlatformHelper implements IPlatformHelper {
     @Override
     public boolean isDevelopmentEnvironment() {
         return !FMLLoader.isProduction();
-    }
-
-    /**
-     * Initialize the gamerule registry.
-     */
-    @Override
-    public void initializeGameruleRegistry(@Nonnull ICallback callback) {
-        Constants.LOG.info("Initializing expanded gamerule registry...");
-        var builder = RegistryBuilder.<IGamerule>of(new ResourceLocation("expandedgamerules", "gamerules"));
-        MinecraftForge.EVENT_BUS.addListener((NewRegistryEvent event) -> {
-            Constants.LOG.info("Creating expanded gamerule registry...");
-            event.create(builder, (registry) -> {
-                gameruleRegistry = registry;
-                Constants.LOG.info("Expanded gamerule registry created and registered");
-                callback.apply();
-            });
-        });
-    }
-
-    @Override
-    public void registerGamerule(@Nonnull ResourceLocation id,
-            @Nonnull IGamerule gamerule) throws IllegalArgumentException {
-        Constants.LOG.debug("Registering new expanded gamerule with ID {}", id);
-        if (gameruleRegistry.containsKey(id)) {
-            throw new IllegalArgumentException("A gamerule is already registered with the given ID");
-        }
-        gameruleRegistry.register(id, gamerule);
-        Constants.LOG.debug("New expanded gamerule registered", id);
-    }
-
-    @Override
-    public boolean hasGamerule(@Nonnull ResourceLocation id) {
-        return gameruleRegistry.containsKey(id);
-    }
-
-    @Override
-    public IGamerule getGamerule(@Nonnull ResourceLocation id) {
-        return gameruleRegistry.getValue(id);
     }
 }

@@ -1,6 +1,8 @@
 package com.glektarssza.expandedgamerules;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import javax.management.openmbean.KeyAlreadyExistsException;
 
 import com.glektarssza.expandedgamerules.api.IGamerule;
 import com.glektarssza.expandedgamerules.platform.Services;
@@ -19,7 +21,7 @@ public class CommonClass {
         Constants.LOG.info("Initializing common mod code for {}...", Constants.MOD_ID);
         Constants.LOG.info("Currently running on {} in a {} environment",
                 Services.PLATFORM.getPlatformName(), Services.PLATFORM.getEnvironmentName());
-        Services.PLATFORM.initializeGameruleRegistry(() -> {
+        Services.REGISTRY.initializeGameruleRegistry(() -> {
             Constants.LOG.info("Adding built-in rules...");
             registerBuiltinRules();
             Constants.LOG.info("Common mod code for {} has been initialized", Constants.MOD_ID);
@@ -44,19 +46,8 @@ public class CommonClass {
      *                                  the given ID.
      */
     public static void registerGamerule(@Nonnull ResourceLocation id,
-            @Nonnull IGamerule gamerule) throws IllegalArgumentException {
-        Services.PLATFORM.registerGamerule(id, gamerule);
-    }
-
-    /**
-     * Check if a gamerule is registered with the given ID.
-     *
-     * @param id The ID of the gamerule to check.
-     *
-     * @return Whether a gamerule is registered with the given ID.
-     */
-    public static boolean hasGamerule(@Nonnull ResourceLocation id) {
-        return Services.PLATFORM.hasGamerule(id);
+            @Nonnull IGamerule gamerule) throws NullPointerException, KeyAlreadyExistsException {
+        Services.REGISTRY.registerGamerule(id, gamerule);
     }
 
     /**
@@ -66,7 +57,9 @@ public class CommonClass {
      *
      * @return The gamerule registered with the given ID.
      */
-    public static IGamerule getGamerule(@Nonnull ResourceLocation id) {
-        return Services.PLATFORM.getGamerule(id);
+    @Nullable
+    public static IGamerule getGamerule(@Nonnull ResourceLocation id)
+            throws NullPointerException {
+        return Services.REGISTRY.getGamerule(id);
     }
 }
