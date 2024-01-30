@@ -24,10 +24,7 @@ public class LivingEntityMixin {
      */
     @Inject(at = @At("HEAD"), method = "canAttack(Lnet/minecraft/world/entity/LivingEntity;)Z", cancellable = true)
     public void canAttack(LivingEntity entity, CallbackInfoReturnable<Boolean> ci) {
-        if (!Services.PLATFORM.hasGamerule(new ResourceLocation("expandedgamerules", "disableTargetingPlayers"))) {
-            return;
-        }
-        var rule = Services.PLATFORM.getGamerule(new ResourceLocation("expandedgamerules", "disableTargetingPlayers"));
+        var rule = Services.REGISTRY.getGamerule(new ResourceLocation("expandedgamerules", "disableTargetingPlayers"));
         if (!(rule instanceof IBooleanGamerule)) {
             return;
         }
