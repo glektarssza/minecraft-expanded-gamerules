@@ -24,13 +24,15 @@ public class LivingEntityMixin {
      */
     @Inject(at = @At("HEAD"), method = "canAttack(Lnet/minecraft/world/entity/LivingEntity;)Z", cancellable = true)
     public void canAttack(LivingEntity entity, CallbackInfoReturnable<Boolean> ci) {
-        var rule = Services.REGISTRY.getGamerule(new ResourceLocation("expandedgamerules", "disableTargetingPlayers"));
-        if (!(rule instanceof IBooleanGamerule)) {
-            return;
-        }
-        if (!((IBooleanGamerule) rule).getValue()) {
-            return;
-        }
-        ci.setReturnValue(false);
+        Services.REGISTRY.getGamerule(new ResourceLocation("expandedgamerules", "disableTargetingPlayers"))
+                .ifPresent((rule) -> {
+                    if (!(rule instanceof IBooleanGamerule)) {
+                        return;
+                    }
+                    if (!((IBooleanGamerule) rule).getValue()) {
+                        return;
+                    }
+                    ci.setReturnValue(false);
+                });
     }
 }
