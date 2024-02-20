@@ -33,6 +33,10 @@ tags
 # Logs #
 *.log*
 
+# User Configs #
+## Gradle ##
+user.properties
+
 # Artifacts #
 ## Gradle ##
 build/
