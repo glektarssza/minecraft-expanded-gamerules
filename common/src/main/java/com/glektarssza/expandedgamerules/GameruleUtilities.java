@@ -82,7 +82,7 @@ public final class GameruleUtilities {
      *
      * @param <T>   The type of the value held in the gamerule.
      * @param level The level to retrieve the gamerule value from.
-     * @param key   The key to retrieve the gamerule for.
+     * @param id    The id to retrieve the gamerule for.
      *
      * @return The value wrapper object for the gamerule.
      */
@@ -109,7 +109,7 @@ public final class GameruleUtilities {
      * Get the boolean value associated with a gamerule.
      *
      * @param level The level to retrieve the gamerule value from.
-     * @param key   The key to retrieve the gamerule for.
+     * @param id    The id to retrieve the gamerule for.
      *
      * @return The boolean value for the gamerule.
      */
@@ -133,7 +133,7 @@ public final class GameruleUtilities {
      * Get the integer value associated with a gamerule.
      *
      * @param level The level to retrieve the gamerule value from.
-     * @param key   The key to retrieve the gamerule for.
+     * @param id    The id to retrieve the gamerule for.
      *
      * @return The integer value for the gamerule.
      */
