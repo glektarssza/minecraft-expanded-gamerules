@@ -10,3 +10,6 @@ accessible method net/minecraft/world/level/GameRules$IntegerValue create (I)Lne
 # Used to create and listen for gamerule value changes
 accessible method net/minecraft/world/level/GameRules$BooleanValue create (ZLjava/util/function/BiConsumer;)Lnet/minecraft/world/level/GameRules$Type;
 accessible method net/minecraft/world/level/GameRules$IntegerValue create (ILjava/util/function/BiConsumer;)Lnet/minecraft/world/level/GameRules$Type;
+
+# Used to disable Enderman teleports
+accessible method net/minecraft/world/entity/monster/EnderMan teleport (DDD)Z
