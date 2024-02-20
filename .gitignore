@@ -34,6 +34,9 @@ tags
 *.log*
 
 # User Configs #
+## Environment ##
+.envrc
+
 ## Gradle ##
 user.properties
 
