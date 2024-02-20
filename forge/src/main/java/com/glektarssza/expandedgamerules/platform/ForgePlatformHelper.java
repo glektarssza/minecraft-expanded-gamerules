@@ -2,22 +2,15 @@ package com.glektarssza.expandedgamerules.platform;
 
 import javax.annotation.Nonnull;
 
-import com.glektarssza.expandedgamerules.api.IGamerule;
 import com.glektarssza.expandedgamerules.platform.services.IPlatformHelper;
 
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.loading.FMLLoader;
-import net.minecraftforge.registries.IForgeRegistry;
 
 /**
  * The Forge-specific platform helper.
  */
 public class ForgePlatformHelper implements IPlatformHelper {
-    /**
-     * The gamerule registry.
-     */
-    private IForgeRegistry<IGamerule> gameruleRegistry;
-
     /**
      * Get the name of the platform.
      *

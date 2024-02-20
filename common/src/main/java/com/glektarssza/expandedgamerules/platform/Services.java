@@ -2,7 +2,6 @@ package com.glektarssza.expandedgamerules.platform;
 
 import com.glektarssza.expandedgamerules.Constants;
 import com.glektarssza.expandedgamerules.platform.services.IPlatformHelper;
-import com.glektarssza.expandedgamerules.platform.services.IRegistryHelper;
 
 import java.util.ServiceLoader;
 
@@ -14,11 +13,6 @@ public class Services {
      * The platform helper.
      */
     public static final IPlatformHelper PLATFORM = load(IPlatformHelper.class);
-
-    /**
-     * The registry helper.
-     */
-    public static final IRegistryHelper REGISTRY = load(IRegistryHelper.class);
 
     /**
      * Load a platform-specific service implementation.
