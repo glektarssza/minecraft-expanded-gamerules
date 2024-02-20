@@ -3,6 +3,7 @@ on:
   pull_request:
     branches:
       - main
+      - mc-*/main
 jobs:
   build:
     name: Build
