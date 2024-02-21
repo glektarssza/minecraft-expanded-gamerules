@@ -11,6 +11,9 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.boss.enderdragon.EnderDragon;
 import net.minecraft.world.entity.player.Player;
 
+/**
+ * Mixins relating to Ender Dragons.
+ */
 @Mixin(EnderDragon.class)
 public abstract class EnderDragonMixins {
     /**
