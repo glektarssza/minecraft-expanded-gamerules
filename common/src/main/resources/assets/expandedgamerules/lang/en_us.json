@@ -1,0 +1,5 @@
+{
+    "gamerule.disableTargetingPlayers": "Prevent mobs from targeting players",
+    "gamerule.disableEndermanTeleport": "Prevent Endermen from teleporting",
+    "gamerule.disableShulkerTeleport": "Prevent Shulkers from teleporting"
+}

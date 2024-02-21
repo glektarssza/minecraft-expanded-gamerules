@@ -2,7 +2,7 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "prepareClientCompile",
+            "label": "forge:prepareClientCompile",
             "type": "shell",
             "command": "./gradlew prepareClientCompile",
             "options": {
@@ -10,7 +10,7 @@
             }
         },
         {
-            "label": "prepareDataCompile",
+            "label": "forge:prepareDataCompile",
             "type": "shell",
             "command": "./gradlew prepareDataCompile",
             "options": {
@@ -18,7 +18,7 @@
             }
         },
         {
-            "label": "prepareServerCompile",
+            "label": "forge:prepareServerCompile",
             "type": "shell",
             "command": "./gradlew prepareServerCompile",
             "options": {

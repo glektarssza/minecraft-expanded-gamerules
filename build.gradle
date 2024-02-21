@@ -44,10 +44,11 @@ subprojects {
         it.options.encoding = "UTF-8"
         it.options.getRelease().set(17)
     }
+    group = "${mod_group}.${mod_id}"
     processResources {
         def expandProps = [
             "mod_version": version,
-            "mod_group": project.group,
+            "mod_group": mod_group,
             "minecraft_version": minecraft_version,
             "forge_version": forge_version,
             "forge_loader_version_range": forge_loader_version_range,
