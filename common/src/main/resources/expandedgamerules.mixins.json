@@ -8,7 +8,8 @@
         "EnderDragonMixins",
         "EndermanMixins",
         "LivingEntityMixins",
-        "ShulkerMixins"
+        "ShulkerMixins",
+        "WardenMixins"
     ],
     "client": [],
     "server": [],
