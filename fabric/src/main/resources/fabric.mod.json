@@ -16,7 +16,7 @@
     "environment": "*",
     "entrypoints": {
         "main": [
-            "${mod_group}.{mod_id}.ExpandedGamerulesMod"
+            "${mod_group}.${mod_id}.ExpandedGamerulesMod"
         ]
     },
     "mixins": [
