@@ -11,6 +11,9 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.monster.Shulker;
 import net.minecraft.world.level.Level;
 
+/**
+ * Mixins relating to Shulkers.
+ */
 @Mixin(Shulker.class)
 public class ShulkerMixins extends Shulker {
     /**
