@@ -13,8 +13,17 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.monster.warden.Warden;
 import net.minecraft.world.entity.player.Player;
 
+/**
+ * Mixins relating to the Warden.
+ */
 @Mixin(Warden.class)
 public abstract class WardenMixins {
+    /**
+     * Check whether the entity can target another entity.
+     *
+     * @param entity The entity to check against.
+     * @param ci     The callback information.
+     */
     @Inject(at = @At("HEAD"), method = "canTargetEntity(Lnet/minecraft/world/entity/Entity;)Z", cancellable = true)
     public void canTargetEntity(@Nullable Entity entity, CallbackInfoReturnable<Boolean> ci) {
         var self = (Warden) (Object) this;
