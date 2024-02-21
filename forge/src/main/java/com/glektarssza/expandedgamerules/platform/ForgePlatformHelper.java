@@ -1,6 +1,9 @@
 package com.glektarssza.expandedgamerules.platform;
 
+import javax.annotation.Nonnull;
+
 import com.glektarssza.expandedgamerules.platform.services.IPlatformHelper;
+
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.loading.FMLLoader;
 
@@ -14,6 +17,7 @@ public class ForgePlatformHelper implements IPlatformHelper {
      * @return The name of the platform.
      */
     @Override
+    @Nonnull
     public String getPlatformName() {
         return "Forge";
     }
@@ -26,7 +30,7 @@ public class ForgePlatformHelper implements IPlatformHelper {
      * @return Whether the named mod is loaded.
      */
     @Override
-    public boolean isModLoaded(String modId) {
+    public boolean isModLoaded(@Nonnull String modId) {
         return ModList.get().isLoaded(modId);
     }
 

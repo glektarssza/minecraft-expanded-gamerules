@@ -16,9 +16,10 @@
     "environment": "*",
     "entrypoints": {
         "main": [
-            "${mod_group}.{mod_id}.ExpandedGamerulesMod"
+            "${mod_group}.${mod_id}.ExpandedGamerulesMod"
         ]
     },
+    "accessWidener": "${mod_id}.accesswidener",
     "mixins": [
         "${mod_id}.mixins.json",
         "${mod_id}.fabric.mixins.json"
@@ -26,7 +27,7 @@
     "depends": {
         "fabricloader": ">=0.14",
         "fabric-api": "*",
-        "minecraft": "1.20.2",
+        "minecraft": "${minecraft_version}",
         "java": ">=17"
     },
     "suggests": {}

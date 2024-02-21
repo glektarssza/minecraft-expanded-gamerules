@@ -1,5 +1,7 @@
 package com.glektarssza.expandedgamerules.platform;
 
+import javax.annotation.Nonnull;
+
 import com.glektarssza.expandedgamerules.platform.services.IPlatformHelper;
 
 import net.fabricmc.loader.api.FabricLoader;
@@ -14,6 +16,7 @@ public class FabricPlatformHelper implements IPlatformHelper {
      * @return The name of the platform.
      */
     @Override
+    @Nonnull
     public String getPlatformName() {
         return "Fabric";
     }
@@ -26,7 +29,7 @@ public class FabricPlatformHelper implements IPlatformHelper {
      * @return Whether the named mod is loaded.
      */
     @Override
-    public boolean isModLoaded(String modId) {
+    public boolean isModLoaded(@Nonnull String modId) {
         return FabricLoader.getInstance().isModLoaded(modId);
     }
 

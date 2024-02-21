@@ -33,7 +33,17 @@ tags
 # Logs #
 *.log*
 
+# User Configs #
+## Environment ##
+.envrc
+
+## Gradle ##
+user.properties
+
 # Artifacts #
 ## Gradle ##
 build/
 .gradle/
+
+## Debugging ##
+run/

@@ -1,5 +1,7 @@
 package com.glektarssza.expandedgamerules.platform.services;
 
+import javax.annotation.Nonnull;
+
 /**
  * An interface for platform-specific helper service classes.
  */
@@ -9,7 +11,8 @@ public interface IPlatformHelper {
      *
      * @return The name of the platform.
      */
-    String getPlatformName();
+    @Nonnull
+    public String getPlatformName();
 
     /**
      * Check whether the named mod is loaded.
@@ -18,21 +21,22 @@ public interface IPlatformHelper {
      *
      * @return Whether the named mod is loaded.
      */
-    boolean isModLoaded(String modId);
+    public boolean isModLoaded(@Nonnull String modId);
 
     /**
      * Check whether the current environment is a development environment.
      *
      * @return Whether the current environment is a development environment.
      */
-    boolean isDevelopmentEnvironment();
+    public boolean isDevelopmentEnvironment();
 
     /**
      * Get the name of the current environment.
      *
      * @return The name of the current environment.
      */
-    default String getEnvironmentName() {
+    @Nonnull
+    public default String getEnvironmentName() {
         return isDevelopmentEnvironment() ? "development" : "production";
     }
 }

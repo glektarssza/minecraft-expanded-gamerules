@@ -3,6 +3,9 @@ on:
   push:
     branches:
       - main
+      - dev
+      - mc-*/main
+      - mc-*/dev
     tags-ignore:
       - '*'
 jobs:
