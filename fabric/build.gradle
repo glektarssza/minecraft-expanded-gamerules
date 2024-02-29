@@ -21,7 +21,7 @@ loom {
         accessWidenerPath.set(project(":common").file("src/main/resources/${mod_id}.accesswidener"))
     }
     mixin {
-        add(sourceSets.main, "${mod_id}.refmap.json")
+        add(sourceSets.main, "${mod_id}.fabric.refmap.json")
         add(project(":common").sourceSets.main, "${mod_id}.refmap.json")
 
         defaultRefmapName.set("${mod_id}.refmap.json")
