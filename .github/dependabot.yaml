@@ -1,9 +1,12 @@
+# yaml-language-server: $schema=https://json.schemastore.org/dependabot-2.0.json
 version: 2
 updates:
   - directory: /
     package-ecosystem: gradle
+    target-branch: dev
     labels:
       - Dependency
+      - Chore
     schedule:
       interval: weekly
       day: wednesday
