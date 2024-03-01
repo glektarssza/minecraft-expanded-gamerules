@@ -39,6 +39,10 @@ subprojects {
             name = "Sponge / Mixin"
             url = "https://repo.spongepowered.org/repository/maven-public/"
         }
+        maven {
+            name = "Team Resourceful"
+            url = "https://maven.teamresourceful.com/repository/maven-public/"
+        }
     }
     tasks.withType(JavaCompile).configureEach {
         it.options.encoding = "UTF-8"

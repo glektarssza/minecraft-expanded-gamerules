@@ -8,6 +8,7 @@
         "EnderDragonMixins",
         "EndermanMixins",
         "LivingEntityMixins",
+        "MobMixins",
         "ShulkerMixins",
         "WardenMixins"
     ],
