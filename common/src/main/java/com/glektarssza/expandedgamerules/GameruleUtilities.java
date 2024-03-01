@@ -30,7 +30,6 @@ public final class GameruleUtilities {
      *
      * @return A key that can be used to access the gamerule.
      */
-    @SuppressWarnings("null")
     private static final <T extends Value<T>> Key<T> register(String name, Category category, Type<T> defaultValue) {
         var key = GameRules.register(name, category, defaultValue);
         ruleIDMap.put(name, key);
@@ -72,7 +71,6 @@ public final class GameruleUtilities {
      *
      * @return The value wrapper object for the gamerule.
      */
-    @SuppressWarnings("null")
     public static final <T extends Value<T>> T getGamerule(Level level, Key<T> key) {
         return level.getGameRules().getRule(key);
     }
@@ -86,7 +84,6 @@ public final class GameruleUtilities {
      *
      * @return The value wrapper object for the gamerule.
      */
-    @SuppressWarnings("null")
     public static final <T extends Value<T>> T getGamerule(Level level, String id) {
         @SuppressWarnings("unchecked")
         var key = (Key<T>) ruleIDMap.get(id);
