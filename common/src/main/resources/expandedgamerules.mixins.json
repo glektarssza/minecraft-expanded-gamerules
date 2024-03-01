@@ -10,7 +10,8 @@
         "LivingEntityMixins",
         "MobMixins",
         "ShulkerMixins",
-        "WardenMixins"
+        "WardenMixins",
+        "WitherMixins"
     ],
     "client": [],
     "server": [],
