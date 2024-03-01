@@ -2,10 +2,10 @@ plugins {
     id "java"
     id "idea"
     id "maven-publish"
-    id "fabric-loom" version "1.5.7"
+    id "fabric-loom" version "1.5.8"
 }
 base {
-    archivesName = "${mod_name}-fabric-${minecraft_version}"
+    archivesName = "${archive_base_name}-fabric-${archive_version_name}"
 }
 dependencies {
     minecraft "com.mojang:minecraft:${minecraft_version}"
@@ -21,7 +21,7 @@ loom {
         accessWidenerPath.set(project(":common").file("src/main/resources/${mod_id}.accesswidener"))
     }
     mixin {
-        defaultRefmapName.set("${mod_id}.refmap.json")
+        add(sourceSets.main, "${mod_id}.refmap.json")
     }
     runs {
         client {
