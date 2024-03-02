@@ -43,6 +43,10 @@ subprojects {
             name = "Team Resourceful"
             url = "https://maven.teamresourceful.com/repository/maven-public/"
         }
+        maven {
+            name = "Enderman Overhaul"
+            url = "https://maven.resourcefulbees.com/repository/alexnijjar/"
+        }
     }
     tasks.withType(JavaCompile).configureEach {
         it.options.encoding = "UTF-8"
