@@ -1,5 +1,5 @@
 {
-    "required": true,
+    "required": false,
     "minVersion": "0.8",
     "package": "${mod_group}.${mod_id}.mixins",
     "refmap": "${mod_id}.refmap.json",
@@ -11,7 +11,9 @@
         "MobMixins",
         "ShulkerMixins",
         "WardenMixins",
-        "WitherMixins"
+        "WitherMixins",
+        "compat.endermanoverhaul.BaseEndermanMixins",
+        "compat.endermanoverhaul.PassiveEndermanMixins"
     ],
     "client": [],
     "server": [],
