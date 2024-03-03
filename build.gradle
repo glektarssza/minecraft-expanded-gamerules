@@ -43,6 +43,10 @@ subprojects {
             name = "Team Resourceful"
             url = "https://maven.teamresourceful.com/repository/maven-public/"
         }
+        maven {
+            name = "Enderman Overhaul"
+            url = "https://maven.resourcefulbees.com/repository/alexnijjar/"
+        }
     }
     tasks.withType(JavaCompile).configureEach {
         it.options.encoding = "UTF-8"
@@ -68,7 +72,11 @@ subprojects {
             "mod_description": project.mod_description,
             "neoforge_version": neoforge_version,
             "neoforge_loader_version_range": neoforge_loader_version_range,
-            "mod_credits": mod_credits
+            "mod_credits": mod_credits,
+            "apotheosis_version_range": apotheosis_version_range,
+            "apotheosis_version_semver": apotheosis_version_semver,
+            "enderman_overhaul_version_range": enderman_overhaul_version_range,
+            "enderman_overhaul_version_semver": enderman_overhaul_version_semver,
         ]
         filesMatching(["pack.mcmeta", "fabric.mod.json", "META-INF/mods.toml", "*.mixins.json"]) {
             expand expandProps

@@ -30,5 +30,8 @@
         "minecraft": "${minecraft_version_semver}",
         "java": ">=17"
     },
-    "suggests": {}
+    "recommends": {
+        "apotheosis": "${apotheosis_version_semver}",
+        "endermanoverhaul": "${enderman_overhaul_version_semver}"
+    }
 }
