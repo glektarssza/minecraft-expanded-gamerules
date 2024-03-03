@@ -10,14 +10,14 @@ import com.glektarssza.expandedgamerules.GameruleUtilities;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.monster.EnderMan;
 import net.minecraft.world.level.Level;
-
+import software.bernie.geckolib.animatable.GeoEntity;
 import tech.alexnijjar.endermanoverhaul.common.entities.base.BaseEnderman;
 
 /**
  * Mixins for the base Enderman class from Enderman Overhaul.
  */
 @Mixin(value = BaseEnderman.class, remap = false)
-public abstract class BaseEndermanMixins extends EnderMan {
+public abstract class BaseEndermanMixins extends EnderMan implements GeoEntity {
     /**
      * Make Java Happy™.
      *

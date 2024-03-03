@@ -10,14 +10,14 @@ import com.glektarssza.expandedgamerules.GameruleUtilities;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.monster.EnderMan;
 import net.minecraft.world.level.Level;
-
+import tech.alexnijjar.endermanoverhaul.common.entities.base.BaseEnderman;
 import tech.alexnijjar.endermanoverhaul.common.entities.base.PassiveEnderman;
 
 /**
- * Mixins for the base Enderman class from Enderman Overhaul.
+ * Mixins for the base passive Enderman class from Enderman Overhaul.
  */
 @Mixin(value = PassiveEnderman.class, remap = false)
-public abstract class PassiveEndermanMixins extends EnderMan {
+public abstract class PassiveEndermanMixins extends BaseEnderman {
     /**
      * Make Java Happy™.
      *
