@@ -38,7 +38,7 @@ public abstract class MobMixins extends LivingEntity implements Targeting {
     @Inject(at = @At("HEAD"), method = "setTarget(Lnet/minecraft/world/entity/LivingEntity;)V", cancellable = true)
     public void setTarget(LivingEntity entity, CallbackInfo ci) {
         if (entity instanceof Player
-                && GameruleUtilities.getBooleanGamerule(this.level(), "disableTargetingPlayers")) {
+                && GameruleUtilities.getBooleanGamerule(this.getLevel(), "disableTargetingPlayers")) {
             ci.cancel();
             return;
         }
