@@ -38,7 +38,8 @@ public abstract class EnderDragonMixins extends Mob implements Enemy {
      */
     @Inject(at = @At("HEAD"), method = "canAttack(Lnet/minecraft/world/entity/LivingEntity;)Z", cancellable = true)
     public void canAttack(LivingEntity entity, CallbackInfoReturnable<Boolean> ci) {
-        if (entity instanceof Player && GameruleUtilities.getBooleanGamerule(this.level(), "disableTargetingPlayers")) {
+        if (entity instanceof Player
+                && GameruleUtilities.getBooleanGamerule(this.getLevel(), "disableTargetingPlayers")) {
             ci.setReturnValue(false);
             return;
         }

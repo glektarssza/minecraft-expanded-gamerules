@@ -41,7 +41,7 @@ public abstract class WitherMixins extends Monster implements PowerableMob, Rang
      */
     @Inject(at = @At("HEAD"), method = "performRangedAttack(IDDDZ)V", cancellable = true)
     public void performRangedAttack(int headIndex, double x, double y, double z, boolean dangerous, CallbackInfo ci) {
-        if (GameruleUtilities.getBooleanGamerule(this.level(), "disableTargetingPlayers")) {
+        if (GameruleUtilities.getBooleanGamerule(this.getLevel(), "disableTargetingPlayers")) {
             ci.cancel();
             return;
         }

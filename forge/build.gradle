@@ -69,8 +69,6 @@ dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
     compileOnly project(":common")
     annotationProcessor("org.spongepowered:mixin:0.8.5-SNAPSHOT:processor")
-    implementation group: "tech.alexnijjar.endermanoverhaul", name: "endermanoverhaul-forge-${enderman_overhaul_minecraft_version}", version: enderman_overhaul_version
-    implementation group: "software.bernie.geckolib", name: "geckolib-forge-$geckolib_minecraft_version", version: geckolib_version
 }
 tasks.withType(JavaCompile).configureEach {
     source(project(":common").sourceSets.main.allSource)
