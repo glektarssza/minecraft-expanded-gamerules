@@ -10,7 +10,6 @@ import com.glektarssza.expandedgamerules.GameruleUtilities;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
-import net.minecraft.world.entity.Targeting;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 
@@ -18,7 +17,7 @@ import net.minecraft.world.level.Level;
  * Mixins relating to mobs.
  */
 @Mixin(Mob.class)
-public abstract class MobMixins extends LivingEntity implements Targeting {
+public abstract class MobMixins extends LivingEntity {
     /**
      * Make Java Happy™.
      *
