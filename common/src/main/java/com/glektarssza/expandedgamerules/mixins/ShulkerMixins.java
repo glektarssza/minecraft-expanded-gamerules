@@ -40,7 +40,7 @@ public abstract class ShulkerMixins extends AbstractGolem implements VariantHold
     @Inject(at = @At("HEAD"), method = "teleportSomewhere()Z", cancellable = true)
     public void teleportSomewhere(CallbackInfoReturnable<Boolean> ci) {
         var self = (Shulker) (Object) this;
-        if (GameruleUtilities.getBooleanGamerule(self.level(), "disableEndermanTeleport")) {
+        if (GameruleUtilities.getBooleanGamerule(self.getLevel(), "disableEndermanTeleport")) {
             ci.setReturnValue(false);
         }
     }
