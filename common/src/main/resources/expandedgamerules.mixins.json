@@ -10,10 +10,7 @@
         "LivingEntityMixins",
         "MobMixins",
         "ShulkerMixins",
-        "WardenMixins",
-        "WitherMixins",
-        "compat.endermanoverhaul.BaseEndermanMixins",
-        "compat.endermanoverhaul.PassiveEndermanMixins"
+        "WitherMixins"
     ],
     "client": [],
     "server": [],
