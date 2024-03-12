@@ -75,8 +75,6 @@ subprojects {
             "mod_credits": mod_credits,
             "apotheosis_version_range": apotheosis_version_range,
             "apotheosis_version_semver": apotheosis_version_semver,
-            "enderman_overhaul_version_range": enderman_overhaul_version_range,
-            "enderman_overhaul_version_semver": enderman_overhaul_version_semver,
         ]
         filesMatching(["pack.mcmeta", "fabric.mod.json", "META-INF/mods.toml", "*.mixins.json"]) {
             expand expandProps

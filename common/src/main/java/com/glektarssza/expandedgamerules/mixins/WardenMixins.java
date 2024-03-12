@@ -17,14 +17,13 @@ import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.monster.warden.Warden;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.gameevent.vibrations.VibrationSystem;
 import net.minecraft.world.phys.Vec3;
 
 /**
  * Mixins relating to the Warden.
  */
 @Mixin(Warden.class)
-public abstract class WardenMixins extends Monster implements VibrationSystem {
+public abstract class WardenMixins extends Monster {
     /**
      * Apply darkness around the Warden.
      *
@@ -61,7 +60,8 @@ public abstract class WardenMixins extends Monster implements VibrationSystem {
      */
     @Inject(at = @At("HEAD"), method = "canTargetEntity(Lnet/minecraft/world/entity/Entity;)Z", cancellable = true)
     public void canTargetEntity(@Nullable Entity entity, CallbackInfoReturnable<Boolean> ci) {
-        if (entity instanceof Player && GameruleUtilities.getBooleanGamerule(this.level(), "disableTargetingPlayers")) {
+        if (entity instanceof Player
+                && GameruleUtilities.getBooleanGamerule(this.getLevel(), "disableTargetingPlayers")) {
             ci.setReturnValue(false);
             return;
         }
