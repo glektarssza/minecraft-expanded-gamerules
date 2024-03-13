@@ -38,7 +38,7 @@ public abstract class EndermanMixins extends Monster implements NeutralMob {
      */
     @Inject(at = @At("HEAD"), method = "teleport(DDD)Z", cancellable = true)
     public void teleport(double x, double y, double z, CallbackInfoReturnable<Boolean> ci) {
-        if (GameruleUtilities.getBooleanGamerule(this.level(), "disableShulkerTeleport")) {
+        if (GameruleUtilities.getBooleanGamerule(this.level, "disableShulkerTeleport")) {
             ci.setReturnValue(false);
             return;
         }

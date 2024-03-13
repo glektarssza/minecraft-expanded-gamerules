@@ -10,7 +10,6 @@ import com.glektarssza.expandedgamerules.GameruleUtilities;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
-import net.minecraft.world.entity.Targeting;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 
@@ -18,7 +17,7 @@ import net.minecraft.world.level.Level;
  * Mixins relating to mobs.
  */
 @Mixin(Mob.class)
-public abstract class MobMixins extends LivingEntity implements Targeting {
+public abstract class MobMixins extends LivingEntity {
     /**
      * Make Java Happy™.
      *
@@ -38,7 +37,7 @@ public abstract class MobMixins extends LivingEntity implements Targeting {
     @Inject(at = @At("HEAD"), method = "setTarget(Lnet/minecraft/world/entity/LivingEntity;)V", cancellable = true)
     public void setTarget(LivingEntity entity, CallbackInfo ci) {
         if (entity instanceof Player
-                && GameruleUtilities.getBooleanGamerule(this.level(), "disableTargetingPlayers")) {
+                && GameruleUtilities.getBooleanGamerule(this.level, "disableTargetingPlayers")) {
             ci.cancel();
             return;
         }
