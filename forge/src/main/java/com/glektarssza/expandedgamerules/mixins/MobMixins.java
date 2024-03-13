@@ -7,16 +7,16 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import com.glektarssza.expandedgamerules.GameruleUtilities;
 
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.Mob;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.level.Level;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.MobEntity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.world.World;
 
 /**
  * Mixins relating to mobs.
  */
-@Mixin(Mob.class)
+@Mixin(MobEntity.class)
 public abstract class MobMixins extends LivingEntity {
     /**
      * Make Java Happy™.
@@ -24,7 +24,7 @@ public abstract class MobMixins extends LivingEntity {
      * @param entityType The type of the entity being created.
      * @param level      The game level.
      */
-    public MobMixins(EntityType<? extends LivingEntity> entityType, Level level) {
+    public MobMixins(EntityType<? extends LivingEntity> entityType, World level) {
         super(entityType, level);
     }
 
@@ -34,9 +34,9 @@ public abstract class MobMixins extends LivingEntity {
      * @param entity The entity to set as the target.
      * @param ci     The callback information.
      */
-    @Inject(at = @At("HEAD"), method = "setTarget(Lnet/minecraft/world/entity/LivingEntity;)V", cancellable = true)
+    @Inject(at = @At("HEAD"), method = "setTarget(Lnet/minecraft/entity/LivingEntity;)V", cancellable = true)
     public void setTarget(LivingEntity entity, CallbackInfo ci) {
-        if (entity instanceof Player
+        if (entity instanceof PlayerEntity
                 && GameruleUtilities.getBooleanGamerule(this.level, "disableTargetingPlayers")) {
             ci.cancel();
             return;
