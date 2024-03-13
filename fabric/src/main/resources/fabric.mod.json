@@ -28,7 +28,7 @@
         "fabricloader": ">=0.14",
         "fabric-api": "*",
         "minecraft": "${minecraft_version_semver}",
-        "java": ">=17"
+        "java": ">=8"
     },
     "recommends": {
         "apotheosis": "${apotheosis_version_semver}"
