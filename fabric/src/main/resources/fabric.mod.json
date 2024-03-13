@@ -31,7 +31,6 @@
         "java": ">=17"
     },
     "recommends": {
-        "apotheosis": "${apotheosis_version_semver}",
-        "endermanoverhaul": "${enderman_overhaul_version_semver}"
+        "apotheosis": "${apotheosis_version_semver}"
     }
 }
