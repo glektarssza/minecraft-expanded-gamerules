@@ -1,10 +1,16 @@
 {
-    "required": true,
+    "required": false,
     "minVersion": "0.8",
     "package": "${mod_group}.${mod_id}.mixins",
     "refmap": "${mod_id}.refmap.json",
     "compatibilityLevel": "JAVA_8",
-    "mixins": [],
+    "mixins": [
+        "EndermanMixins",
+        "LivingEntityMixins",
+        "MobMixins",
+        "ShulkerMixins",
+        "WitherMixins"
+    ],
     "client": [],
     "server": [],
     "injectors": {
