@@ -7,24 +7,23 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import com.glektarssza.expandedgamerules.GameruleUtilities;
 
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.animal.AbstractGolem;
-import net.minecraft.world.entity.monster.Enemy;
-import net.minecraft.world.entity.monster.Shulker;
-import net.minecraft.world.level.Level;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.monster.ShulkerEntity;
+import net.minecraft.entity.passive.GolemEntity;
+import net.minecraft.world.World;
 
 /**
  * Mixins relating to Shulkers.
  */
-@Mixin(Shulker.class)
-public abstract class ShulkerMixins extends AbstractGolem implements Enemy {
+@Mixin(ShulkerEntity.class)
+public abstract class ShulkerMixins extends GolemEntity {
     /**
      * Make Java Happy™.
      *
      * @param entityType The type of the entity being created.
      * @param level      The game level.
      */
-    protected ShulkerMixins(EntityType<? extends AbstractGolem> entityType, Level level) {
+    protected ShulkerMixins(EntityType<? extends GolemEntity> entityType, World level) {
         super(entityType, level);
     }
 
@@ -35,7 +34,7 @@ public abstract class ShulkerMixins extends AbstractGolem implements Enemy {
      */
     @Inject(at = @At("HEAD"), method = "teleportSomewhere()Z", cancellable = true)
     public void teleportSomewhere(CallbackInfoReturnable<Boolean> ci) {
-        Shulker self = (Shulker) (Object) this;
+        ShulkerEntity self = (ShulkerEntity) (Object) this;
         if (GameruleUtilities.getBooleanGamerule(self.level, "disableEndermanTeleport")) {
             ci.setReturnValue(false);
         }
