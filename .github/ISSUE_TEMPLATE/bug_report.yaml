@@ -1,10 +1,8 @@
 name: Bug Report
 description: Report a bug in the project.
-title: '[Bug] '
+title: '[bug] '
 labels:
   - Bug
-assignees:
-  - glektarssza
 body:
   - id: description
     type: textarea
