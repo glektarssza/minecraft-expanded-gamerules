@@ -7,23 +7,23 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import com.glektarssza.expandedgamerules.GameruleUtilities;
 
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.boss.wither.WitherBoss;
-import net.minecraft.world.entity.monster.Monster;
-import net.minecraft.world.level.Level;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.boss.WitherEntity;
+import net.minecraft.entity.monster.MonsterEntity;
+import net.minecraft.world.World;
 
 /**
  * Mixins relating to Withers.
  */
-@Mixin(WitherBoss.class)
-public abstract class WitherMixins extends Monster {
+@Mixin(WitherEntity.class)
+public abstract class WitherMixins extends MonsterEntity {
     /**
      * Make Java Happy™.
      *
      * @param entityType The type of the entity being created.
      * @param level      The game level.
      */
-    protected WitherMixins(EntityType<? extends WitherBoss> entityType, Level level) {
+    protected WitherMixins(EntityType<? extends WitherEntity> entityType, World level) {
         super(entityType, level);
     }
 
