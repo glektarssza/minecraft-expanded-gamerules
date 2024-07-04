@@ -24,15 +24,3 @@ mandatory = true
 versionRange = "${minecraft_version_range}"
 ordering = "NONE"
 side = "BOTH"
-[[dependencies.${mod_id}]]
-modId = "apotheosis"
-mandatory = false
-versionRange = "${apotheosis_version_range}"
-ordering = "NONE"
-side = "BOTH"
-[[dependencies.${mod_id}]]
-modId = "endermanoverhaul"
-mandatory = false
-versionRange = "${enderman_overhaul_version_range}"
-ordering = "NONE"
-side = "BOTH"
