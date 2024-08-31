@@ -4,7 +4,10 @@
     "package": "${mod_group}.${mod_id}.mixins",
     "refmap": "${mod_id}.refmap.json",
     "compatibilityLevel": "JAVA_17",
-    "mixins": [],
+    "mixins": [
+        "compat.endermanoverhaul.BaseEndermanMixins",
+        "compat.endermanoverhaul.PassiveEndermanMixins"
+    ],
     "client": [],
     "server": [],
     "injectors": {
