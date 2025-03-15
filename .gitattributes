@@ -1,6 +1,44 @@
-/gradlew        text eol=lf
-*.bat           text eol=crlf
-*.jar filter=lfs diff=lfs merge=lfs -text
+# All files are treated as text files with Unix-style line endings by default
+* text eol=lf
+
+# All .bat files are treated as text files with Windows-style line endings by default
+*.bat text eol=crlf
+
+# All .cmd files are treated as text files with Windows-style line endings by default
+*.cmd text eol=crlf
+
+# All .png files are treated as binary files
+*.png binary
+
+# Run all .png files through Git LFS
 *.png filter=lfs diff=lfs merge=lfs -text
+
+# All .jpg files are treated as binary files
+*.jpg binary
+
+# Run all .jpg files through Git LFS
 *.jpg filter=lfs diff=lfs merge=lfs -text
+
+# All .jpeg files are treated as binary files
+*.jpeg binary
+
+# Run all .jpeg files through Git LFS
 *.jpeg filter=lfs diff=lfs merge=lfs -text
+
+# All .bmp files are treated as binary files
+*.bmp binary
+
+# Run all .bmp files through Git LFS
+*.bmp filter=lfs diff=lfs merge=lfs -text
+
+# All .gif files are treated as binary files
+*.gif binary
+
+# Run all .gif files through Git LFS
+*.gif filter=lfs diff=lfs merge=lfs -text
+
+# All .jar files are treated as binary files
+*.jar binary
+
+# Run all .jar files through Git LFS
+*.jar filter=lfs diff=lfs merge=lfs -text
