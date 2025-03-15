@@ -13,3 +13,6 @@ accessible method net/minecraft/world/level/GameRules$IntegerValue create (ILjav
 
 # Used to disable Enderman teleports
 accessible method net/minecraft/world/entity/monster/EnderMan teleport (DDD)Z
+
+# Used to disable Elder Guardian proximity debuffs
+accessible method net/minecraft/world/entity/monster/ElderGuardian customServerAiStep ()V
