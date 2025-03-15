@@ -14,6 +14,12 @@ import com.glektarssza.expandedgamerules.GameruleUtilities;
 
 @Mixin(ElderGuardian.class)
 public class ElderGuardianMixins extends Guardian {
+    /**
+     * Make Java Happy™.
+     *
+     * @param entityType The type of the entity being created.
+     * @param level The game level.
+     */
     public ElderGuardianMixins(EntityType<? extends ElderGuardian> entityType,
         Level level) {
         super(entityType, level);
@@ -21,7 +27,7 @@ public class ElderGuardianMixins extends Guardian {
 
     @Inject(at = @At("HEAD"), method = "customServerAiStep()V", cancellable = true)
     public void customServerAiStep(CallbackInfo ci) {
-        if (GameruleUtilities.getBooleanGamerule(this.level,
+        if (GameruleUtilities.getBooleanGamerule(this.level(),
             "disableTargetingPlayers")) {
             // -- Ensure this code still gets run before we abort the rest
             if (!this.hasRestriction()) {
