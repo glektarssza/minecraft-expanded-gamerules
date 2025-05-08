@@ -1,4 +1,4 @@
-package com.glektarssza.expandedgamerules.mixins.compat.endermanoverhaul;
+package com.glektarssza.expandedgamerules.mixins.mods.endermanoverhaul.mobs;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -23,9 +23,10 @@ public abstract class CaveEndermanMixins extends BaseEnderman {
      * Make Java Happy™.
      *
      * @param entityType The type of the entity being created.
-     * @param level      The game level.
+     * @param level The game level.
      */
-    public CaveEndermanMixins(EntityType<? extends EnderMan> entityType, Level level) {
+    public CaveEndermanMixins(EntityType<? extends EnderMan> entityType,
+        Level level) {
         super(entityType, level);
     }
 
@@ -36,7 +37,8 @@ public abstract class CaveEndermanMixins extends BaseEnderman {
      */
     @Inject(at = @At("HEAD"), method = "teleportUnderBlock()V", cancellable = true, remap = false)
     public void teleportUnderBlock(CallbackInfo ci) {
-        if (GameruleUtilities.getBooleanGamerule(this.level(), "disableEndermanTeleport")) {
+        if (GameruleUtilities.getBooleanGamerule(this.level(),
+            "disableEndermanTeleport")) {
             ci.cancel();
             return;
         }
