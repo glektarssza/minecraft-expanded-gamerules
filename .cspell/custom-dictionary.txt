@@ -17,6 +17,7 @@ dfml
 divinerpg
 dmixin
 enderman
+endermanoverhaul
 expandedgamerules
 factorypath
 fmlat
@@ -42,5 +43,6 @@ reobf
 reobfuscated
 retrofuturagradle
 rong
+Shulker
 srgify
 temurin
