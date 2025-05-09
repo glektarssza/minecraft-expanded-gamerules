@@ -1,44 +1,45 @@
-package com.glektarssza.expandedgamerules.mixins.compat.endermanoverhaul.mobs;
+package com.glektarssza.expandedgamerules.mixins.mods.endermanoverhaul.mobs;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import com.glektarssza.expandedgamerules.GameruleUtilities;
 
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.monster.EnderMan;
 import net.minecraft.world.level.Level;
-import software.bernie.geckolib.animatable.GeoEntity;
+
+import tech.alexnijjar.endermanoverhaul.common.entities.CaveEnderman;
 import tech.alexnijjar.endermanoverhaul.common.entities.base.BaseEnderman;
 
 /**
- * Mixins for the base Enderman class from Enderman Overhaul.
+ * Mixins for the Cave Enderman class from Enderman Overhaul.
  */
-@Mixin(value = BaseEnderman.class, remap = false)
-public abstract class BaseEndermanMixins extends EnderMan implements GeoEntity {
+@Mixin(CaveEnderman.class)
+public abstract class CaveEndermanMixins extends BaseEnderman {
     /**
      * Make Java Happy™.
      *
      * @param entityType The type of the entity being created.
      * @param level The game level.
      */
-    public BaseEndermanMixins(EntityType<? extends EnderMan> entityType,
+    public CaveEndermanMixins(EntityType<? extends EnderMan> entityType,
         Level level) {
         super(entityType, level);
     }
 
     /**
-     * Check whether the Enderman can teleport.
+     * Teleport the Enderman under a block.
      *
      * @param ci The callback information.
      */
-    @Inject(at = @At("HEAD"), method = "canTeleport()Z", cancellable = true, remap = false)
-    public void canTeleport(CallbackInfoReturnable<Boolean> ci) {
+    @Inject(at = @At("HEAD"), method = "teleportUnderBlock()V", cancellable = true, remap = false)
+    public void teleportUnderBlock(CallbackInfo ci) {
         if (GameruleUtilities.getBooleanGamerule(this.level(),
             "disableEndermanTeleport")) {
-            ci.setReturnValue(false);
+            ci.cancel();
             return;
         }
     }
