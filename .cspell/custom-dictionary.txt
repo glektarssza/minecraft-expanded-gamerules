@@ -23,6 +23,7 @@ fmlat
 futura
 gamerule
 gamerules
+gradlew
 gson
 gtnewhorizons
 invincibles
