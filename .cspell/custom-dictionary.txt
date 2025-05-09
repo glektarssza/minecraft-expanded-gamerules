@@ -52,6 +52,7 @@ reobf
 reobfuscated
 retrofuturagradle
 rong
+shulker
 spongepowered
 srgify
 temurin
