@@ -1,4 +1,4 @@
-package com.glektarssza.expandedgamerules.mixins;
+package com.glektarssza.expandedgamerules.mixins.vanilla.mobs;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -23,9 +23,10 @@ public abstract class MobMixins extends LivingEntity implements Targeting {
      * Make Java Happy™.
      *
      * @param entityType The type of the entity being created.
-     * @param level      The game level.
+     * @param level The game level.
      */
-    public MobMixins(EntityType<? extends LivingEntity> entityType, Level level) {
+    public MobMixins(EntityType<? extends LivingEntity> entityType,
+        Level level) {
         super(entityType, level);
     }
 
@@ -33,12 +34,13 @@ public abstract class MobMixins extends LivingEntity implements Targeting {
      * Set the target of this entity.
      *
      * @param entity The entity to set as the target.
-     * @param ci     The callback information.
+     * @param ci The callback information.
      */
     @Inject(at = @At("HEAD"), method = "setTarget(Lnet/minecraft/world/entity/LivingEntity;)V", cancellable = true)
     public void setTarget(LivingEntity entity, CallbackInfo ci) {
         if (entity instanceof Player
-                && GameruleUtilities.getBooleanGamerule(this.level(), "disableTargetingPlayers")) {
+            && GameruleUtilities.getBooleanGamerule(this.level(),
+                "disableTargetingPlayers")) {
             ci.cancel();
             return;
         }

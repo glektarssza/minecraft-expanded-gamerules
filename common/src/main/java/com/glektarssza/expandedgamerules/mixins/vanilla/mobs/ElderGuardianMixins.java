@@ -1,4 +1,4 @@
-package com.glektarssza.expandedgamerules.mixins;
+package com.glektarssza.expandedgamerules.mixins.vanilla.mobs;
 
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.monster.ElderGuardian;
