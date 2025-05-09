@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+name: Manual Build
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    name: Build
+    permissions:
+      #-- Write artifacts
+      actions: write
+      #-- Read repository contents
+      contents: read
+    uses: ./.github/workflows/build.yaml
+    secrets:
+      github-token: ${{secrets.GITHUB_TOKEN}}
