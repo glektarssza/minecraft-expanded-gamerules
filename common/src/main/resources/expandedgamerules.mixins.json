@@ -13,8 +13,9 @@
         "vanilla.mobs.ShulkerMixins",
         "vanilla.mobs.WardenMixins",
         "vanilla.mobs.WitherMixins",
-        "mods.endermanoverhaul.mobs.BaseEndermanMixins",
-        "mods.endermanoverhaul.mobs.PassiveEndermanMixins"
+        "compat.endermanoverhaul.mobs.BaseEndermanMixins",
+        "compat.endermanoverhaul.mobs.CaveEndermanMixins",
+        "compat.endermanoverhaul.mobs.PassiveEndermanMixins"
     ],
     "client": [],
     "server": [],
