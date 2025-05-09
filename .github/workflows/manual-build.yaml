@@ -1,6 +1,7 @@
-name: Push
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+name: Manual Build
 on:
-  push:
+  workflow_dispatch:
 jobs:
   build:
     name: Build
