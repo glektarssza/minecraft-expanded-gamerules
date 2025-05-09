@@ -1,0 +1,66 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+name: Build
+on:
+  workflow_call:
+    secrets:
+      github-token:
+        description: |
+          The authentication token to use for calling the GitHub APIs.
+        required: false
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    permissions:
+      #-- To upload artifacts
+      actions: write
+      #-- To clone repository
+      contents: read
+    steps:
+      - id: checkout-repository
+        name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+          lfs: true
+          token: ${{secrets.github-token || secrets.GITHUB_TOKEN}}
+      - id: setup-java
+        name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version-file: ${{github.workspace}}/.java-version
+          token: ${{secrets.github-token || secrets.GITHUB_TOKEN}}
+      - id: setup-gradle
+        name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: wrapper
+          github-token: ${{secrets.github-token || secrets.GITHUB_TOKEN}}
+      - id: build
+        name: Build
+        run: ./gradlew build
+      - id: upload-common-artifacts
+        name: Upload common artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: common
+          path: ${{github.workspace}}/common/build/libs/
+          compression-level: 0
+          if-no-files-found: warn
+      - id: upload-forge-artifacts
+        name: Upload Forge artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: forge
+          path: ${{github.workspace}}/forge/build/libs/
+          compression-level: 0
+          if-no-files-found: warn
+      - id: upload-fabric-artifacts
+        name: Upload Fabric artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: fabric
+          path: ${{github.workspace}}/fabric/build/libs/
+          compression-level: 0
+          if-no-files-found: warn
