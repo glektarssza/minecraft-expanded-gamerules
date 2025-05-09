@@ -1,0 +1,32 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+name: CodeQL
+on:
+  push:
+  pull_request:
+jobs:
+  codeql-analyze:
+    name: CodeQL Analyze
+    runs-on: ubuntu-latest
+    permissions:
+      #-- Read repository contents
+      contents: read
+      #-- Write security events
+      security-events: write
+    steps:
+      - id: checkout-repository
+        name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+      - id: initialize-codeql
+        name: Initialize CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: typescript
+          queries: security-and-quality
+      - id: autobuild
+        name: Autobuild
+        uses: github/codeql-action/autobuild@v3
+      - id: analyze
+        name: Analyze
+        uses: github/codeql-action/analyze@v3
