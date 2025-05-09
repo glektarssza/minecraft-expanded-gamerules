@@ -27,6 +27,7 @@ findbugs
 fmlat
 foojay
 futura
+gamerule
 gamerules
 geckolib
 getenv
