@@ -1,5 +1,7 @@
 # Custom Dictionary Words
+accesswidener
 adoptium
+alexnijjar
 aout
 areobf
 assetmover
@@ -17,10 +19,17 @@ dfml
 divinerpg
 dmixin
 enderman
+endermanoverhaul
 expandedgamerules
+fabricmc
 factorypath
+findbugs
 fmlat
+foojay
 futura
+gamerules
+geckolib
+getenv
 gradlew
 gson
 gtnewhorizons
@@ -35,11 +44,14 @@ mcversion
 mixinbooter
 mkdirs
 modid
+mojang
+neoforge
 nevermine
 refmap
 reobf
 reobfuscated
 retrofuturagradle
 rong
+spongepowered
 srgify
 temurin
