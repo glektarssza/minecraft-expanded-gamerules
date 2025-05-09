@@ -5,6 +5,9 @@ jobs:
   build:
     name: Build
     permissions:
+      #-- To upload artifacts
+      actions: write
+      #-- To clone repository
       contents: read
     uses: ./.github/workflows/build.yaml
     secrets:
