@@ -19,6 +19,7 @@ enderman
 factorypath
 fmlat
 futura
+gradlew
 gson
 gtnewhorizons
 invincibles
