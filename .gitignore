@@ -7,13 +7,20 @@
 !.vscode/extensions.json
 !.vscode/launch.json
 !.vscode/tasks.json
+!.vscode/*.code-snippets
+
+## Eclipse ##
+.project
+.classpath
+.settings/
+
 
 ## Vim ##
-### Swap Files ###
+### Swap ###
 [._]*.s[a-v][a-z]
 [._]*.sw[a-p]
-[._]s[a-rt-v][a-z]
-[._]ss[a-gi-z]
+[._]*.s[a-rt-v][a-z]
+[._]*.ss[a-gi-z]
 [._]sw[a-p]
 
 ### Session ###
@@ -24,17 +31,24 @@ Sessionx.vim
 .netrwhist
 *~
 
-### Auto-generated tag files ###
+### Auto-generated Tag Files ###
 tags
 
-### Persistent undo ###
+### Undo Persistence ###
 [._]*.un~
+
+## Eclipse ##
+### Core ###
+.classpath
+.factorypath
+.project
+.settings/
 
 # Logs #
 *.log*
 
-# User Configs #
-## Environment ##
+# Environment #
+## General ##
 .envrc
 
 ## Gradle ##
@@ -42,8 +56,11 @@ user.properties
 
 # Artifacts #
 ## Gradle ##
+bin/
 build/
 .gradle/
 
-## Debugging ##
+# Debugging #
+## Gradle ##
 run/
+bin/
