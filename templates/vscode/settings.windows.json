@@ -1,0 +1,65 @@
+{
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[jsonl]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[java]": {
+        "editor.defaultFormatter": "redhat.java"
+    },
+    "java.autobuild.enabled": false,
+    "java.jdt.ls.java.home": "C:/Users/USERNAME/scoop/apps/temurin21-jdk/current/",
+    "java.jdt.ls.vmargs": "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx4G -Xms100m -Xlog:disable",
+    "java.import.gradle.java.home": "C:/Users/USERNAME/scoop/apps/temurin8-jdk/current/",
+    "java.completion.enabled": true,
+    "java.completion.importOrder": [
+        "#",
+        "java",
+        "javax",
+        "org",
+        "com",
+        "net",
+        "com.mojang",
+        "net.minecraft",
+        "net.minecraftforge",
+        "org.spongepowered",
+        "com.glektarssza"
+    ],
+    "java.completion.matchCase": "firstLetter",
+    "java.codeGeneration.generateComments": false,
+    "java.codeGeneration.hashCodeEquals.useInstanceof": true,
+    "java.codeGeneration.hashCodeEquals.useJava7Objects": true,
+    "java.codeGeneration.toString.codeStyle": "STRING_FORMAT",
+    "java.codeGeneration.useBlocks": true,
+    "java.compile.nullAnalysis.mode": "automatic",
+    "java.format.enabled": true,
+    "java.format.comments.enabled": true,
+    "java.format.onType.enabled": false,
+    "java.format.settings.profile": "Custom",
+    "java.format.settings.url": "https://github.com/glektarssza/minecraft-expanded-gamerules/raw/refs/heads/main/formatter.xml",
+    "java.import.generatesMetadataFilesAtProjectRoot": true,
+    "java.inlayHints.parameterNames.enabled": "none",
+    "java.saveActions.cleanup": true,
+    "java.saveActions.organizeImports": true,
+    "java.silentNotification": true,
+    "java.server.launchMode": "Standard",
+    "java.diagnostic.filter": [
+        "**/build/**"
+    ],
+    "terminal.integrated.env.windows": {
+        "JAVA_HOME": "C:/Users/USERNAME/scoop/apps/temurin8-jdk/current/"
+    },
+    "cSpell.ignorePaths": [
+        "vscode-extension",
+        ".git/{info,lfs,logs,refs,objects}/**",
+        ".git/{index,*refs,*HEAD}",
+        ".vscode",
+        ".vscode-insiders",
+        "build",
+        "templates/vscode"
+    ]
+}
