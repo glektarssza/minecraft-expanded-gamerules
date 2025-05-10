@@ -60,3 +60,4 @@ spongepowered
 srgify
 teleporting
 temurin
+worldselection
