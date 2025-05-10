@@ -13,8 +13,8 @@ public final class CommonClass {
      * The custom category for environmental-related gamerules.
      */
     public static final CustomCategory CATEGORY_ENVIRONMENT = new CustomCategory(
-        String.format("%s:envrion", Constants.MOD_ID),
-        String.format("%s.gamerules.category.envrion", Constants.MOD_ID));
+        String.format("%s:environ", Constants.MOD_ID),
+        String.format("%s.gamerules.category.environ", Constants.MOD_ID));
 
     /**
      * Initialize the common mod code.
