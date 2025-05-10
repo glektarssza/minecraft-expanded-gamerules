@@ -20,6 +20,7 @@ divinerpg
 dmixin
 enderman
 endermanoverhaul
+endermen
 expandedgamerules
 fabricmc
 factorypath
@@ -54,6 +55,8 @@ reobfuscated
 retrofuturagradle
 rong
 shulker
+shulkers
 spongepowered
 srgify
+teleporting
 temurin
