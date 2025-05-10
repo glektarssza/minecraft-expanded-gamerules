@@ -15,6 +15,15 @@ import org.spongepowered.asm.mixin.gen.Invoker;
  */
 @Mixin(BooleanValue.class)
 public interface BooleanValueMixins {
+    /**
+     * Invoke the {@link create} method of the
+     * {@link net.minecraft.world.level.GameRules.BooleanValue} class.
+     *
+     * @param initialValue The initial value to create the new gamerule with.
+     * @param changeListener The callback to trigger when the gamerule changes.
+     *
+     * @return The newly created gamerule.
+     */
     @Invoker("create")
     static Type<BooleanValue> invokeCreate(boolean initialValue,
         BiConsumer<MinecraftServer, BooleanValue> changeListener) {
