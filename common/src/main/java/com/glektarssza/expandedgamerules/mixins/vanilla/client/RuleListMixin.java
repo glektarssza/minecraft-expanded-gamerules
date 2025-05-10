@@ -54,7 +54,13 @@ public abstract class RuleListMixin
     }
 
     /**
-     * Initialize custom category
+     * Mixin to the
+     * {@link net.minecraft.client.gui.screens.worldselection.EditGameRulesScreen.RuleList}
+     * constructor to inject custom categories into the list.
+     *
+     * @param screen The screen being initialized.
+     * @param gameRules The gamerules being loaded.
+     * @param ci The callback information.
      */
     @Inject(method = "<init>", at = @At("TAIL"))
     public void initCustomCategories(EditGameRulesScreen screen,
@@ -68,6 +74,17 @@ public abstract class RuleListMixin
         });
     }
 
+    /**
+     * Mixin to the lambda used in the
+     * {@link net.minecraft.client.gui.screens.worldselection.EditGameRulesScreen.RuleList}
+     * constructor to process gamerule entries being loaded.
+     *
+     * Filters out gamerule entries that have custom categories so they can be
+     * loaded later on by the {@link #initCustomCategories} injection.
+     *
+     * @param entry The entry being processed.
+     * @param ci The callback information.
+     */
     @Inject(method = "lambda$new$1(Ljava/util/Map$Entry;)V", at = @At("HEAD"), cancellable = true)
     public void ignoreKeysWithCustomCategories(
         Map.Entry<Key<?>, RuleEntry> entry, CallbackInfo ci) {
