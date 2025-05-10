@@ -2,6 +2,11 @@ package com.glektarssza.expandedgamerules.api.v1.gamerule;
 
 import javax.annotation.Nullable;
 
+import net.minecraft.world.level.GameRules.Key;
+
+/**
+ * Extensions for {@link Key gamerules}.
+ */
 public interface IGameruleKeyExtensions {
     /**
      * Get the custom category this instance is registered to.

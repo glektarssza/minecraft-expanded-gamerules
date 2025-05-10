@@ -22,6 +22,8 @@ public interface GamerulesMixins {
      * Invoke the {@code register} method of the
      * {@link net.minecraft.world.level.GameRules} class.
      *
+     * @param <T> The type of gamerule being registered.
+     *
      * @param key The key to register the new gamerule under. This must be
      *        unique.
      * @param category The category to register the new gamerule under.

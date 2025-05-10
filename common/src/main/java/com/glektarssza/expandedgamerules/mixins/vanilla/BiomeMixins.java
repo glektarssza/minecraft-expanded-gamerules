@@ -14,6 +14,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import com.glektarssza.expandedgamerules.Constants;
 import com.glektarssza.expandedgamerules.GameruleUtilities;
 
+/**
+ * Mixins for the {@link Biome} class which adds custom gamerule support.
+ */
 @Mixin(Biome.class)
 public class BiomeMixins {
     @Inject(method = "shouldFreeze(Lnet/minecraft/world/level/LevelReader;Lnet/minecraft/core/BlockPos;Z)Z", at = @At("RETURN"), cancellable = true)
