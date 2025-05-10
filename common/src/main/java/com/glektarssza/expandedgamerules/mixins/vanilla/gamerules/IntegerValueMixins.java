@@ -16,7 +16,7 @@ import org.spongepowered.asm.mixin.gen.Invoker;
 @Mixin(IntegerValue.class)
 public interface IntegerValueMixins {
     /**
-     * Invoke the {@link create} method of the
+     * Invoke the {@code create} method of the
      * {@link net.minecraft.world.level.GameRules.IntegerValue} class.
      *
      * @param initialValue The initial value to create the new gamerule with.
@@ -25,7 +25,7 @@ public interface IntegerValueMixins {
      * @return The newly created gamerule.
      */
     @Invoker("create")
-    static Type<IntegerValue> invokeCreate(boolean initialValue,
+    static Type<IntegerValue> invokeCreate(int initialValue,
         BiConsumer<MinecraftServer, IntegerValue> changeListener) {
         throw new AssertionError(String.format(
             "Failed to apply mixin to invoke method 'create' of class '%s'!",
