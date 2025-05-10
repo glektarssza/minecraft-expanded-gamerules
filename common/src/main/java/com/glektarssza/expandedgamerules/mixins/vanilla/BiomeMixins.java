@@ -16,7 +16,7 @@ import com.glektarssza.expandedgamerules.GameruleUtilities;
 
 @Mixin(Biome.class)
 public class BiomeMixins {
-    @Inject(method = "shouldFreeze", at = @At("RETURN"), cancellable = true)
+    @Inject(method = "shouldFreeze(Lnet/minecraft/world/level/LevelReader;Lnet/minecraft/core/BlockPos;Z)Z", at = @At("RETURN"), cancellable = true)
     public void injectShouldFreeze(LevelReader levelReader, BlockPos blockPos,
         boolean blocked, CallbackInfoReturnable<Boolean> cir) {
         Level level = null;
