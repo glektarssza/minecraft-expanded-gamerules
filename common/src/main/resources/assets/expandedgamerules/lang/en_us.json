@@ -1,5 +1,7 @@
 {
-    "gamerule.disableTargetingPlayers": "Prevent mobs from targeting players",
+    "expandedgamerules.gamerules.category.environ": "Environment",
     "gamerule.disableEndermanTeleport": "Prevent Endermen from teleporting",
-    "gamerule.disableShulkerTeleport": "Prevent Shulkers from teleporting"
+    "gamerule.disableShulkerTeleport": "Prevent Shulkers from teleporting",
+    "gamerule.disableTargetingPlayers": "Prevent mobs from targeting players",
+    "gamerule.doColdBiomesFreezeWater": "Prevent water from freezing in cold biomes"
 }
