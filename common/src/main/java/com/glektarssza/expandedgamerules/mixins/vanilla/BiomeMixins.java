@@ -36,7 +36,7 @@ public class BiomeMixins {
             Constants.LOG.warn(
                 "That's not supposed to happen?!");
             Constants.LOG.warn(
-                "Pleae consider filing a bug report at https://github.com/glektarssza/minecraft-expanded-gamerules/issues");
+                "Please consider filing a bug report at https://github.com/glektarssza/minecraft-expanded-gamerules/issues");
         }
         if (level == null) {
             return;
