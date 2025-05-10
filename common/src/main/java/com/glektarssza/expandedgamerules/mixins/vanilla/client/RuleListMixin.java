@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.components.AbstractSelectionList;
 import net.minecraft.client.gui.screens.worldselection.EditGameRulesScreen;
@@ -64,7 +65,10 @@ public abstract class RuleListMixin
         GameRules gameRules, CallbackInfo ci) {
         this.customCategories.forEach((category, entryList) -> {
             this.addEntry(screen.new CategoryRuleEntry(
-                Component.translatable(category.getLocalizationKey())));
+                Component.translatable(category.getLocalizationKey())
+                    .withStyle(new ChatFormatting[] {
+                        ChatFormatting.BOLD, ChatFormatting.YELLOW
+            })));
             for (RuleEntry entry : entryList) {
                 this.addEntry(entry);
             }
