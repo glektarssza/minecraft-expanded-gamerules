@@ -22,7 +22,9 @@
         "mods.endermanoverhaul.mobs.CaveEndermanMixins",
         "mods.endermanoverhaul.mobs.PassiveEndermanMixins"
     ],
-    "client": [],
+    "client": [
+        "vanilla.client.RuleListMixin"
+    ],
     "server": [],
     "injectors": {
         "defaultRequire": 1
