@@ -25,9 +25,7 @@ import com.glektarssza.expandedgamerules.api.v1.gamerule.CustomCategory;
 import com.glektarssza.expandedgamerules.api.v1.gamerule.IGameruleKeyExtensions;
 
 /**
- * A mixin into the
- * {@link net.minecraft.client.gui.screens.worldselection.EditGameRulesScreen.RuleEntry}
- * class which augments its functionality.
+ * A mixin into the {@link RuleEntry} class which augments its functionality.
  */
 @Mixin(RuleList.class)
 public abstract class RuleListMixin
@@ -54,9 +52,8 @@ public abstract class RuleListMixin
     }
 
     /**
-     * Mixin to the
-     * {@link net.minecraft.client.gui.screens.worldselection.EditGameRulesScreen.RuleList}
-     * constructor to inject custom categories into the list.
+     * Mixin to the {@link RuleList} constructor to inject custom categories
+     * into the list.
      *
      * @param screen The screen being initialized.
      * @param gameRules The gamerules being loaded.
@@ -75,9 +72,8 @@ public abstract class RuleListMixin
     }
 
     /**
-     * Mixin to the lambda used in the
-     * {@link net.minecraft.client.gui.screens.worldselection.EditGameRulesScreen.RuleList}
-     * constructor to process gamerule entries being loaded.
+     * Mixin to the lambda used in the {@link RuleList} constructor to process
+     * gamerule entries being loaded.
      *
      * Filters out gamerule entries that have custom categories so they can be
      * loaded later on by the {@link #initCustomCategories} injection.
@@ -85,7 +81,7 @@ public abstract class RuleListMixin
      * @param entry The entry being processed.
      * @param ci The callback information.
      */
-    @Inject(method = "lambda$new$1(Ljava/util/Map$Entry;)V", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "lambda$new$0(Ljava/util/Map$Entry;)V", at = @At("HEAD"), cancellable = true)
     public void ignoreKeysWithCustomCategories(
         Map.Entry<Key<?>, RuleEntry> entry, CallbackInfo ci) {
         Optional
