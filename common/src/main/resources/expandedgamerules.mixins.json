@@ -5,6 +5,11 @@
     "refmap": "${mod_id}.refmap.json",
     "compatibilityLevel": "JAVA_17",
     "mixins": [
+        "vanilla.BiomeMixins",
+        "vanilla.gamerules.BooleanValueMixins",
+        "vanilla.gamerules.GamerulesMixins",
+        "vanilla.gamerules.IntegerValueMixins",
+        "vanilla.gamerules.KeyMixins",
         "vanilla.mobs.ElderGuardianMixins",
         "vanilla.mobs.EnderDragonMixins",
         "vanilla.mobs.EndermanMixins",
@@ -12,12 +17,11 @@
         "vanilla.mobs.MobMixins",
         "vanilla.mobs.ShulkerMixins",
         "vanilla.mobs.WardenMixins",
-        "vanilla.mobs.WitherMixins",
-        "compat.endermanoverhaul.mobs.BaseEndermanMixins",
-        "compat.endermanoverhaul.mobs.CaveEndermanMixins",
-        "compat.endermanoverhaul.mobs.PassiveEndermanMixins"
+        "vanilla.mobs.WitherMixins"
     ],
-    "client": [],
+    "client": [
+        "vanilla.client.RuleListMixin"
+    ],
     "server": [],
     "injectors": {
         "defaultRequire": 1

@@ -20,6 +20,7 @@ divinerpg
 dmixin
 enderman
 endermanoverhaul
+endermen
 expandedgamerules
 fabricmc
 factorypath
@@ -27,6 +28,7 @@ findbugs
 fmlat
 foojay
 futura
+gamerule
 gamerules
 geckolib
 getenv
@@ -52,6 +54,10 @@ reobf
 reobfuscated
 retrofuturagradle
 rong
+shulker
+shulkers
 spongepowered
 srgify
+teleporting
 temurin
+worldselection
