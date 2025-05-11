@@ -1,4 +1,4 @@
-package com.glektarssza.expandedgamerules.mixins;
+package com.glektarssza.expandedgamerules.mixins.vanilla.mobs;
 
 import javax.annotation.Nullable;
 
@@ -29,15 +29,17 @@ public abstract class WardenMixins extends Monster implements VibrationSystem {
      * Apply darkness around the Warden.
      *
      * @param serverLevel The server level.
-     * @param vec3        The vector.
-     * @param entity      The entity.
-     * @param i           The integer.
-     * @param ci          The callback information.
+     * @param vec3 The vector.
+     * @param entity The entity.
+     * @param i The integer.
+     * @param ci The callback information.
      */
     @Inject(at = @At("HEAD"), method = "applyDarknessAround(Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/world/phys/Vec3;Lnet/minecraft/world/entity/Entity;I)V", cancellable = true)
-    private static void applyDarknessAround(ServerLevel serverLevel, Vec3 vec3, @Nullable Entity entity, int i,
-            CallbackInfo ci) {
-        if (GameruleUtilities.getBooleanGamerule(serverLevel, "disableTargetingPlayers")) {
+    private static void applyDarknessAround(ServerLevel serverLevel, Vec3 vec3,
+        @Nullable Entity entity, int i,
+        CallbackInfo ci) {
+        if (GameruleUtilities.getBooleanGamerule(serverLevel,
+            "disableTargetingPlayers")) {
             ci.cancel();
             return;
         }
@@ -47,9 +49,10 @@ public abstract class WardenMixins extends Monster implements VibrationSystem {
      * Make Java Happy™.
      *
      * @param entityType The type of the entity being created.
-     * @param level      The game level.
+     * @param level The game level.
      */
-    protected WardenMixins(EntityType<? extends Monster> entityType, Level level) {
+    protected WardenMixins(EntityType<? extends Monster> entityType,
+        Level level) {
         super(entityType, level);
     }
 
@@ -57,11 +60,13 @@ public abstract class WardenMixins extends Monster implements VibrationSystem {
      * Check whether the entity can target another entity.
      *
      * @param entity The entity to check against.
-     * @param ci     The callback information.
+     * @param ci The callback information.
      */
     @Inject(at = @At("HEAD"), method = "canTargetEntity(Lnet/minecraft/world/entity/Entity;)Z", cancellable = true)
-    public void canTargetEntity(@Nullable Entity entity, CallbackInfoReturnable<Boolean> ci) {
-        if (entity instanceof Player && GameruleUtilities.getBooleanGamerule(this.level(), "disableTargetingPlayers")) {
+    public void canTargetEntity(@Nullable Entity entity,
+        CallbackInfoReturnable<Boolean> ci) {
+        if (entity instanceof Player && GameruleUtilities
+            .getBooleanGamerule(this.level(), "disableTargetingPlayers")) {
             ci.setReturnValue(false);
             return;
         }

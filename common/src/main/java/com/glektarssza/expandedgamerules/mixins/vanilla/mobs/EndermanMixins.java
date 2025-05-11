@@ -1,4 +1,4 @@
-package com.glektarssza.expandedgamerules.mixins;
+package com.glektarssza.expandedgamerules.mixins.vanilla.mobs;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -22,23 +22,26 @@ public abstract class EndermanMixins extends Monster implements NeutralMob {
      * Make Java Happy™.
      *
      * @param entityType The type of the entity being created.
-     * @param level      The game level.
+     * @param level The game level.
      */
-    protected EndermanMixins(EntityType<? extends Monster> entityType, Level level) {
+    protected EndermanMixins(EntityType<? extends Monster> entityType,
+        Level level) {
         super(entityType, level);
     }
 
     /**
      * Attempt to teleport the Enderman.
      *
-     * @param x  The x coordinate.
-     * @param y  The y coordinate.
-     * @param z  The z coordinate.
+     * @param x The x coordinate.
+     * @param y The y coordinate.
+     * @param z The z coordinate.
      * @param ci The callback information.
      */
     @Inject(at = @At("HEAD"), method = "teleport(DDD)Z", cancellable = true)
-    public void teleport(double x, double y, double z, CallbackInfoReturnable<Boolean> ci) {
-        if (GameruleUtilities.getBooleanGamerule(this.level(), "disableShulkerTeleport")) {
+    public void teleport(double x, double y, double z,
+        CallbackInfoReturnable<Boolean> ci) {
+        if (GameruleUtilities.getBooleanGamerule(this.level(),
+            "disableShulkerTeleport")) {
             ci.setReturnValue(false);
             return;
         }

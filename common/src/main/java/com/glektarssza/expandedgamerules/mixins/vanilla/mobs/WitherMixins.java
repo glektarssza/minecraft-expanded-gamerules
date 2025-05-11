@@ -1,4 +1,4 @@
-package com.glektarssza.expandedgamerules.mixins;
+package com.glektarssza.expandedgamerules.mixins.vanilla.mobs;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -18,14 +18,16 @@ import net.minecraft.world.level.Level;
  * Mixins relating to Withers.
  */
 @Mixin(WitherBoss.class)
-public abstract class WitherMixins extends Monster implements PowerableMob, RangedAttackMob {
+public abstract class WitherMixins extends Monster
+    implements PowerableMob, RangedAttackMob {
     /**
      * Make Java Happy™.
      *
      * @param entityType The type of the entity being created.
-     * @param level      The game level.
+     * @param level The game level.
      */
-    protected WitherMixins(EntityType<? extends Monster> entityType, Level level) {
+    protected WitherMixins(EntityType<? extends Monster> entityType,
+        Level level) {
         super(entityType, level);
     }
 
@@ -33,15 +35,17 @@ public abstract class WitherMixins extends Monster implements PowerableMob, Rang
      * Perform a ranged attack.
      *
      * @param headIndex The index of the head performing the attack.
-     * @param x         The X coordinate of the target.
-     * @param y         The Y coordinate of the target.
-     * @param z         The Z coordinate of the target.
+     * @param x The X coordinate of the target.
+     * @param y The Y coordinate of the target.
+     * @param z The Z coordinate of the target.
      * @param dangerous Whether to fire a blue Wither skull.
-     * @param ci        The callback information.
+     * @param ci The callback information.
      */
     @Inject(at = @At("HEAD"), method = "performRangedAttack(IDDDZ)V", cancellable = true)
-    public void performRangedAttack(int headIndex, double x, double y, double z, boolean dangerous, CallbackInfo ci) {
-        if (GameruleUtilities.getBooleanGamerule(this.level(), "disableTargetingPlayers")) {
+    public void performRangedAttack(int headIndex, double x, double y, double z,
+        boolean dangerous, CallbackInfo ci) {
+        if (GameruleUtilities.getBooleanGamerule(this.level(),
+            "disableTargetingPlayers")) {
             ci.cancel();
             return;
         }

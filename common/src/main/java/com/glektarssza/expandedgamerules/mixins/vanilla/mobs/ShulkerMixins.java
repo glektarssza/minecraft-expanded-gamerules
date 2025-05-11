@@ -1,4 +1,4 @@
-package com.glektarssza.expandedgamerules.mixins;
+package com.glektarssza.expandedgamerules.mixins.vanilla.mobs;
 
 import java.util.Optional;
 
@@ -21,14 +21,16 @@ import net.minecraft.world.level.Level;
  * Mixins relating to Shulkers.
  */
 @Mixin(Shulker.class)
-public abstract class ShulkerMixins extends AbstractGolem implements VariantHolder<Optional<DyeColor>>, Enemy {
+public abstract class ShulkerMixins extends AbstractGolem
+    implements VariantHolder<Optional<DyeColor>>, Enemy {
     /**
      * Make Java Happy™.
      *
      * @param entityType The type of the entity being created.
-     * @param level      The game level.
+     * @param level The game level.
      */
-    protected ShulkerMixins(EntityType<? extends AbstractGolem> entityType, Level level) {
+    protected ShulkerMixins(EntityType<? extends AbstractGolem> entityType,
+        Level level) {
         super(entityType, level);
     }
 
@@ -40,7 +42,8 @@ public abstract class ShulkerMixins extends AbstractGolem implements VariantHold
     @Inject(at = @At("HEAD"), method = "teleportSomewhere()Z", cancellable = true)
     public void teleportSomewhere(CallbackInfoReturnable<Boolean> ci) {
         var self = (Shulker) (Object) this;
-        if (GameruleUtilities.getBooleanGamerule(self.level(), "disableEndermanTeleport")) {
+        if (GameruleUtilities.getBooleanGamerule(self.level(),
+            "disableEndermanTeleport")) {
             ci.setReturnValue(false);
         }
     }
