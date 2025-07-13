@@ -22,7 +22,7 @@ public class BiomeMixins {
         boolean blocked, CallbackInfoReturnable<Boolean> cir) {
         if (levelReader instanceof Level level) {
             if (!GameruleUtilities.getBooleanGamerule(level,
-                "preventColdBiomesFreezeWater")) {
+                "preventColdBiomesFreezingWater")) {
                 cir.setReturnValue(false);
             }
         }

@@ -38,7 +38,7 @@ public final class CommonClass {
             false);
         GameruleUtilities.register("disableEndermanTeleport", Category.MOBS,
             false);
-        GameruleUtilities.register("preventColdBiomesFreezeWater",
+        GameruleUtilities.register("preventColdBiomesFreezingWater",
             CATEGORY_ENVIRONMENT, true);
     }
 }
