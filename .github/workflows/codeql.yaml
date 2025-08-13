@@ -15,7 +15,7 @@ jobs:
     steps:
       - id: checkout-repository
         name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           lfs: true
       - id: initialize-codeql
