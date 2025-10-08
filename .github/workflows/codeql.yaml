@@ -20,13 +20,13 @@ jobs:
           lfs: true
       - id: initialize-codeql
         name: Initialize CodeQL
-        uses: github/codeql-action/init@v3
+        uses: github/codeql-action/init@v4
         with:
           languages: typescript
           queries: security-and-quality
       - id: autobuild
         name: Autobuild
-        uses: github/codeql-action/autobuild@v3
+        uses: github/codeql-action/autobuild@v4
       - id: analyze
         name: Analyze
-        uses: github/codeql-action/analyze@v3
+        uses: github/codeql-action/analyze@v4
