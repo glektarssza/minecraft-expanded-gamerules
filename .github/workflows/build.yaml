@@ -42,7 +42,7 @@ jobs:
         run: ./gradlew build
       - id: upload-common-artifacts
         name: Upload common artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: common
           path: ${{github.workspace}}/common/build/libs/
@@ -50,7 +50,7 @@ jobs:
           if-no-files-found: warn
       - id: upload-forge-artifacts
         name: Upload Forge artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: forge
           path: ${{github.workspace}}/forge/build/libs/
@@ -58,7 +58,7 @@ jobs:
           if-no-files-found: warn
       - id: upload-fabric-artifacts
         name: Upload Fabric artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: fabric
           path: ${{github.workspace}}/fabric/build/libs/
