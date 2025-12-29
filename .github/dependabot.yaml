@@ -5,6 +5,8 @@ updates:
     package-ecosystem: gradle
     labels:
       - Dependency
+    ignore:
+      - dependency-name: org.spongepowered.gradle.vanilla
     schedule:
       interval: weekly
       day: wednesday
