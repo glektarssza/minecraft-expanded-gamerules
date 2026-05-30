@@ -1,5 +1,6 @@
 {
     "gamerule.disableTargetingPlayers": "Отключение прицельности на игроков",
     "gamerule.disableEndermanTeleport": "Предотвращение телепортирование Эндермена",
-    "gamerule.disableShulkerTeleport": "Предотвращение телепортирование Шалкеров"
+    "gamerule.disableShulkerTeleport": "Предотвращение телепортирование Шалкеров",
+    "gamerule.preventColdBiomesFromFreezingWater": "Предотвратите замерзание воды в холодных биомах"
 }
