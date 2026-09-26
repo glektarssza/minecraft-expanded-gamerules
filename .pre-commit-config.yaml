@@ -24,3 +24,24 @@ repos:
         args: [--fix=crlf]
         types: [batch]
       - id: trailing-whitespace
+  - repo: local
+    hooks:
+      - id: gradle-spotless
+        name: gradle-spotless
+        types_or: [java]
+        language: unsupported
+        entry: ./gradlew spotlessCheck
+        pass_filenames: false
+        verbose: true
+        stages:
+          - pre-commit
+          - pre-push
+      - id: gradle-test
+        name: gradle-test
+        types_or: [java]
+        language: unsupported
+        entry: ./gradlew test
+        pass_filenames: false
+        verbose: true
+        stages:
+          - pre-push
