@@ -1,11 +1,15 @@
 {
     "recommendations": [
-        "vscjava.vscode-gradle",
+        "editorconfig.editorconfig",
+        "GitHub.remotehub",
+        "GitHub.vscode-pull-request-github",
+        "github.vscode-github-actions",
         "redhat.java",
         "vscjava.vscode-java-dependency",
         "vscjava.vscode-java-debug",
-        "github.remotehub",
-        "github.vscode-pull-request-github",
-        "github.vscode-github-actions"
-    ]
+        "vscjava.vscode-gradle",
+        "vscjava.vscode-java-test",
+        "shengchen.vscode-checkstyle"
+    ],
+    "unwantedRecommendations": ["vscjava.vscode-java-pack"]
 }
