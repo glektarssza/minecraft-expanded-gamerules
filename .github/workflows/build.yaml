@@ -37,6 +37,11 @@ jobs:
         with:
           gradle-version: wrapper
           github-token: ${{secrets.github-token || secrets.GITHUB_TOKEN}}
+      - id: setup-gradle-props
+        name: Setup Gradle Properties
+        run: |
+          # -- Build Minecraft mods needs a LOT of RAM...
+          echo "org.gradle.jvmargs=-Xmx3G" >> ${HOME}/.gradle/gradle.properties
       - id: build
         name: Build
         run: ./gradlew build
