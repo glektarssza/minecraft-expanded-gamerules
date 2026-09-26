@@ -1,34 +1,14 @@
 name: Pull Request
 on:
   pull_request:
-    branches:
-      - main
-      - dev
-      - mc-*/main
-      - mc-*/dev
 jobs:
   build:
     name: Build
-    runs-on: ubuntu-latest
     permissions:
+      #-- To upload artifacts
+      actions: write
+      #-- To clone repository
       contents: read
-    steps:
-      - id: checkout-repository
-        name: Checkout Reposiory
-        uses: actions/checkout@v4
-        with:
-          lfs: true
-      - id: setup-java
-        name: Setup Java
-        uses: actions/setup-java@v4
-        with:
-          distribution: temurin
-          java-version: 17
-      - id: setup-gradle
-        name: Setup Gradle
-        uses: gradle/gradle-build-action@v2
-        with:
-          gradle-version: wrapper
-      - id: build
-        name: Build
-        run: ./gradlew build
+    uses: ./.github/workflows/build.yaml
+    secrets:
+      github-token: ${{secrets.GITHUB_TOKEN}}
