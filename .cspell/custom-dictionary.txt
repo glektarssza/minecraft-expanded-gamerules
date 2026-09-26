@@ -5,6 +5,7 @@ areobf
 assetmover
 autobuild
 binpatched
+checkboxes
 cleanroom
 cleanroommc
 compiletime
@@ -19,6 +20,7 @@ enderman
 factorypath
 fmlat
 futura
+glektarssza
 gradlew
 gson
 gtnewhorizons
@@ -31,11 +33,13 @@ mcversion
 mixinbooter
 mkdirs
 modid
+modrinth
 nevermine
 refmap
 reobf
 reobfuscated
 retrofuturagradle
 rong
+spongepowered
 srgify
 temurin

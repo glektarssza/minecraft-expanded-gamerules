@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://json.schemastore.org/github-issue-forms.json
 name: Bug Report
 description: Report a bug in the project.
-title: "[bug] "
+title: '[Bug] '
 labels:
   - Bug
 body:
@@ -19,14 +19,15 @@ body:
       description: Please provide a set of steps to reproduce the issue.
     validations:
       required: true
-  - id: expected
+  - id: expected-behavior
     type: textarea
     attributes:
       label: Expected Behavior
-      description: A clear and concise description of what you expected to happen.
+      description:
+        A clear and concise description of what you expected to happen.
     validations:
       required: true
-  - id: actual
+  - id: actual-behavior
     type: textarea
     attributes:
       label: Actual Behavior
@@ -42,6 +43,7 @@ body:
         - Windows
         - macOS
         - Linux
+        - Other (Please state in "Additional Details")
     validations:
       required: true
   - id: java-version
@@ -57,15 +59,16 @@ body:
       label: Mod Loader
       description: The mod loader you are using.
       options:
-        - Fabric
         - Forge
+      default: 0
     validations:
       required: true
-  - id: mc-version
+  - id: minecraft-version
     type: input
     attributes:
       label: Minecraft Version
       description: The version of Minecraft you are using.
+      placeholder: x.y.z
     validations:
       required: true
   - id: mod-version
@@ -73,15 +76,32 @@ body:
     attributes:
       label: Mod Version
       description: The version of the mod you are using.
+      placeholder: x.y.z
     validations:
       required: true
   - id: launcher
-    type: input
+    type: dropdown
     attributes:
       label: Launcher
       description: The launcher you are using.
+      options:
+        - Prism Launcher
+        - PolyMC
+        - MultiMC
+        - CurseForge
+        - ATLauncher
+        - Modrinth
+        - Other (Provide Below)
     validations:
       required: true
+  - id: launcher-other
+    type: input
+    attributes:
+      label: Launcher (Other)
+      description: The launcher you are using (if you picked "Other" above).
+      placeholder: Some launcher
+    validations:
+      required: false
   - id: mod-portal
     type: dropdown
     attributes:
@@ -91,22 +111,35 @@ body:
         - CurseForge
         - Modrinth
         - GitHub
+        - Other
     validations:
       required: true
-  - id: additional
-    type: textarea
+  - id: mod-portal-other
+    type: input
     attributes:
-      label: Additional Information
-      description: Any additional information that may be helpful in solving the issue.
+      label: Mod Portal (Other)
+      description:
+        The mod portal you downloaded the mod from (if you picked "Other"
+        above).
+      placeholder: Some mod portal
     validations:
       required: false
-  - id: disclaimer
+  - id: additional-details
+    type: textarea
+    attributes:
+      label: Additional Details
+      description:
+        Any additional information that may be helpful in solving the issue.
+    validations:
+      required: false
+  - id: disclaimers
     type: checkboxes
     attributes:
       label: Disclaimer
-      description: "By submitting this issue, you state the following:"
+      description: 'By submitting this issue, you state the following:'
       options:
-        - label: I have searched for existing issues and this is not a duplicate.
+        - label:
+            I have searched for existing issues and this is not a duplicate.
           required: true
         - label: I have read the project's contributing guidelines.
           required: true

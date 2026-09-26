@@ -3,21 +3,31 @@ version: 2
 updates:
   - directory: /
     package-ecosystem: gradle
-    labels:
-      - Dependency
     ignore:
       - dependency-name: org.spongepowered.gradle.vanilla
+    labels:
+      - Dependency
+    assignees:
+      - glektarssza
+    pull-request-branch-name:
+      separator: /
+    target-branch: dev
     schedule:
       interval: weekly
       day: wednesday
-      time: "12:00"
+      time: '12:00'
       timezone: Canada/Mountain
   - directory: /
     package-ecosystem: github-actions
     labels:
       - Dependency
+    assignees:
+      - glektarssza
+    pull-request-branch-name:
+      separator: /
+    target-branch: dev
     schedule:
       interval: weekly
       day: wednesday
-      time: "12:00"
+      time: '12:00'
       timezone: Canada/Mountain
