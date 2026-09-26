@@ -1,19 +1,49 @@
 {
+    "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
     "version": "0.2",
-    "ignorePaths": [
-        "build/**"
-    ],
-    "dictionaryDefinitions": [
-        {
-            "name": "custom-dictionary",
-            "path": "./.cspell/custom-dictionary.txt",
-            "addWords": true
-        }
-    ],
+    "id": "root",
+    "name": "Root Configuration",
+    "description": "Root configuration for the project.",
+    "enabled": true,
     "dictionaries": [
-        "custom-dictionary"
+        "en-ca",
+        "en-common-misspellings",
+        "public-licenses",
+        "computing-acronyms",
+        "game-development",
+        "gaming-terms",
+        "networking-terms",
+        "softwareTerms",
+        "coding-compound-terms",
+        "git",
+        "fonts",
+        "filetypes",
+        "java",
+        "shell",
+        "bash"
     ],
-    "words": [],
-    "ignoreWords": [],
-    "import": []
+    "import": ["./.cspell/configs/project-dictionary.json"],
+    "enableGlobDot": true,
+    "globRoot": ".",
+    "files": ["./**"],
+    "useGitignore": true,
+    "gitignoreRoot": ["."],
+    "caseSensitive": false,
+    "ignorePaths": [
+        "./.git/**",
+        "./gradle/**",
+        "./gradlew",
+        "./gradlew.bat",
+        "./spotless.importorder",
+        "./formatter.xml"
+    ],
+    "loadDefaultConfiguration": true,
+    "unknownWords": "report-all",
+    "readonly": true,
+    "cache": {
+        "useCache": true,
+        "cacheFormat": "universal",
+        "cacheStrategy": "content",
+        "cacheLocation": ".cspellcache"
+    }
 }

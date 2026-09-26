@@ -2,7 +2,7 @@ plugins {
     id "idea"
     id "java"
     id "maven-publish"
-    id "org.spongepowered.gradle.vanilla" version "0.2.1-SNAPSHOT"
+    id "org.spongepowered.gradle.vanilla" version "0.2.2-SNAPSHOT"
 }
 base {
     archivesName = "${archive_base_name}-common-${archive_version_name}"
@@ -15,7 +15,7 @@ minecraft {
 }
 dependencies {
     compileOnly group: "org.spongepowered", name: "mixin", version: "0.8.7"
-    compileOnly group: 'org.ow2.asm', name: 'asm-tree', version: '9.8'
+    compileOnly group: 'org.ow2.asm', name: 'asm-tree', version: '9.10.1'
     implementation group: "com.google.code.findbugs", name: "jsr305", version: "3.0.2"
     compileOnly group: "tech.alexnijjar.endermanoverhaul", name: "endermanoverhaul-forge-${enderman_overhaul_minecraft_version}", version: enderman_overhaul_version
     compileOnly group: "software.bernie.geckolib", name: "geckolib-forge-$geckolib_minecraft_version", version: geckolib_version
