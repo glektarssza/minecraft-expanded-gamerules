@@ -7,38 +7,26 @@
 # All .cmd files are treated as text files with Windows-style line endings by default
 *.cmd text eol=crlf
 
-# All .png files are treated as binary files
-*.png binary
+# All .ini files are treated as text files with Windows-style line endings by default
+*.ini text eol=crlf
 
-# Run all .png files through Git LFS
+# Run .png files through Git LFS
 *.png filter=lfs diff=lfs merge=lfs -text
 
-# All .jpg files are treated as binary files
-*.jpg binary
-
-# Run all .jpg files through Git LFS
-*.jpg filter=lfs diff=lfs merge=lfs -text
-
-# All .jpeg files are treated as binary files
-*.jpeg binary
-
-# Run all .jpeg files through Git LFS
+# Run .jpeg files through Git LFS
 *.jpeg filter=lfs diff=lfs merge=lfs -text
 
-# All .bmp files are treated as binary files
-*.bmp binary
+# Run .jpg files through Git LFS
+*.jpg filter=lfs diff=lfs merge=lfs -text
 
-# Run all .bmp files through Git LFS
+# Run .bmp files through Git LFS
 *.bmp filter=lfs diff=lfs merge=lfs -text
 
-# All .gif files are treated as binary files
-*.gif binary
-
-# Run all .gif files through Git LFS
+# Run .gif files through Git LFS
 *.gif filter=lfs diff=lfs merge=lfs -text
 
-# All .jar files are treated as binary files
-*.jar binary
+# Run .ttf files through Git LFS
+*.ttf filter=lfs diff=lfs merge=lfs -text
 
 # Run all .jar files through Git LFS
 *.jar filter=lfs diff=lfs merge=lfs -text

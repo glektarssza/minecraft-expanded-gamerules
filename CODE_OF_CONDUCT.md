@@ -1,144 +1,87 @@
-# Contributor Covenant Code of Conduct #
+# Code of Conduct #
+
+This code of conduct is an adapted form of the Debian Code of Conduct, version
+1.0, which was adopted/ratified on April 28th, 2014.
+
+Please see https://www.debian.org/code_of_conduct for the original version.
 
 <!-- omit in toc -->
 ## Table of Contents ##
 
-* [Contributor Covenant Code of Conduct](#contributor-covenant-code-of-conduct)
-    * [Our Pledge](#our-pledge)
-    * [Our Standards](#our-standards)
-    * [Enforcement Responsibilities](#enforcement-responsibilities)
-    * [Scope](#scope)
-    * [Enforcement](#enforcement)
-    * [Enforcement Guidelines](#enforcement-guidelines)
-        * [1. Correction](#1-correction)
-        * [2. Warning](#2-warning)
-        * [3. Temporary Ban](#3-temporary-ban)
-        * [4. Permanent Ban](#4-permanent-ban)
-    * [Attribution](#attribution)
+* [Code of Conduct](#code-of-conduct)
+    * [1. Be respectful](#1-be-respectful)
+    * [2. Assume good faith](#2-assume-good-faith)
+    * [3. Be collaborative](#3-be-collaborative)
+    * [4. Try to be concise](#4-try-to-be-concise)
+    * [5. Be open](#5-be-open)
+    * [6. In case of problems](#6-in-case-of-problems)
 
-## Our Pledge ##
 
-We as members, contributors, and leaders pledge to make participation in our
-community a harassment-free experience for everyone, regardless of age, body
-size, visible or invisible disability, ethnicity, sex characteristics, gender
-identity and expression, level of experience, education, socio-economic status,
-nationality, personal appearance, race, religion, or sexual identity
-and orientation.
+## 1. Be respectful ##
 
-We pledge to act and interact in ways that contribute to an open, welcoming,
-diverse, inclusive, and healthy community.
+Inevitably there will be people with whom you may disagree, or find it difficult
+to cooperate. Accept that, but even so, remain respectful. Disagreement is no
+excuse for poor behavior or personal attacks, and a community in which people
+feel threatened is not a healthy community.
 
-## Our Standards ##
+## 2. Assume good faith ##
 
-Examples of behavior that contributes to a positive environment for our
-community include:
+Contributors have many ways of reaching the common goal this is this project,
+some of which may differ from your ways. Assume that other people are working
+towards this common goal.
 
-* Demonstrating empathy and kindness toward other people
-* Being respectful of differing opinions, viewpoints, and experiences
-* Giving and gracefully accepting constructive feedback
-* Accepting responsibility and apologizing to those affected by our mistakes,
-  and learning from the experience
-* Focusing on what is best not just for us as individuals, but for the
-  overall community
+Note that some or many of our contributors may not be native English speakers or
+may have different cultural backgrounds.
 
-Examples of unacceptable behavior include:
+## 3. Be collaborative ##
 
-* The use of sexualized language or imagery, and sexual attention or
-  advances of any kind
-* Trolling, insulting or derogatory comments, and personal or political attacks
-* Public or private harassment
-* Publishing others' private information, such as a physical or email
-  address, without their explicit permission
-* Other conduct which could reasonably be considered inappropriate in a
-  professional setting
+There is always more to learn within this project. It's good to ask for help
+when you need it. Similarly, offers for help should be seen in the context of
+our shared goal of improving the project.
 
-## Enforcement Responsibilities ##
+When you make something for the benefit of the project, be willing to explain to
+others how it works, so that they can build on your work to make it even better.
 
-Community leaders are responsible for clarifying and enforcing our standards of
-acceptable behavior and will take appropriate and fair corrective action in
-response to any behavior that they deem inappropriate, threatening, offensive,
-or harmful.
+## 4. Try to be concise ##
 
-Community leaders have the right and responsibility to remove, edit, or reject
-comments, commits, code, wiki edits, issues, and other contributions that are
-not aligned to this Code of Conduct, and will communicate reasons for moderation
-decisions when appropriate.
+Keep in mind that what you write once could be read by hundreds of people.
+Writing a short email means people can understand the conversation as
+efficiently as possible. When a long explanation is necessary, consider adding a
+summary.
 
-## Scope ##
+Try to bring new arguments to a conversation so that each mail adds something
+unique to the thread, keeping in mind that the rest of the thread still contains
+the other messages with arguments that have already been made.
 
-This Code of Conduct applies within all community spaces, and also applies when
-an individual is officially representing the community in public spaces.
-Examples of representing our community include using an official e-mail address,
-posting via an official social media account, or acting as an appointed
-representative at an online or offline event.
+Try to stay on topic, especially in discussions that are already fairly large.
 
-## Enforcement ##
+## 5. Be open ##
 
-Instances of abusive, harassing, or otherwise unacceptable behavior may be
-reported to the community leaders responsible for enforcement at
-`glek@glektarssza.com`.
-All complaints will be reviewed and investigated promptly and fairly.
+Many ways of communication used within the project allow for public and private
+communication. You should preferably use public methods of communication for
+project-related messages, unless posting something sensitive.
 
-All community leaders are obligated to respect the privacy and security of the
-reporter of any incident.
+This applies to messages for help or project-related support, too; not only is a
+public support request much more likely to result in an answer to your question,
+it also makes sure that any inadvertent mistakes made by people answering your
+question will be more easily detected and corrected.
 
-## Enforcement Guidelines ##
+## 6. In case of problems ##
 
-Community leaders will follow these Community Impact Guidelines in determining
-the consequences for any action they deem in violation of this Code of Conduct:
+While this code of conduct should be adhered to by participants, we recognize
+that sometimes people may have a bad day, or be unaware of some of the
+guidelines in this code of conduct. When that happens, you may reply to them and
+point out this code of conduct. Such messages may be in public or in private,
+whatever is most appropriate. However, regardless of whether the message is
+public or not, it should still adhere to the relevant parts of this code of
+conduct; in particular, it should not be abusive or disrespectful. Assume good
+faith; it is more likely that participants are unaware of their bad behavior
+than that they intentionally try to degrade the quality of the discussion.
 
-### 1. Correction ##
+Serious or persistent offenders will be temporarily or permanently banned from
+communicating through the project's communication channels. Complaints should be
+made (in private) to the administrator(s) of the project. These are:
 
-**Community Impact**: Use of inappropriate language or other behavior deemed
-unprofessional or unwelcome in the community.
-
-**Consequence**: A private, written warning from community leaders, providing
-clarity around the nature of the violation and an explanation of why the
-behavior was inappropriate. A public apology may be requested.
-
-### 2. Warning ##
-
-**Community Impact**: A violation through a single incident or series
-of actions.
-
-**Consequence**: A warning with consequences for continued behavior. No
-interaction with the people involved, including unsolicited interaction with
-those enforcing the Code of Conduct, for a specified period of time. This
-includes avoiding interactions in community spaces as well as external channels
-like social media. Violating these terms may lead to a temporary or
-permanent ban.
-
-### 3. Temporary Ban ##
-
-**Community Impact**: A serious violation of community standards, including
-sustained inappropriate behavior.
-
-**Consequence**: A temporary ban from any sort of interaction or public
-communication with the community for a specified period of time. No public or
-private interaction with the people involved, including unsolicited interaction
-with those enforcing the Code of Conduct, is allowed during this period.
-Violating these terms may lead to a permanent ban.
-
-### 4. Permanent Ban ##
-
-**Community Impact**: Demonstrating a pattern of violation of community
-standards, including sustained inappropriate behavior,  harassment of an
-individual, or aggression toward or disparagement of classes of individuals.
-
-**Consequence**: A permanent ban from any sort of public interaction within
-the community.
-
-## Attribution ##
-
-This Code of Conduct is adapted from the [Contributor Covenant][homepage],
-version 2.0, available at
-https://www.contributor-covenant.org/version/2/0/code_of_conduct.html.
-
-Community Impact Guidelines were inspired by [Mozilla's code of conduct
-enforcement ladder](https://github.com/mozilla/diversity).
-
-[homepage]: https://www.contributor-covenant.org
-
-For answers to common questions about this code of conduct, see the FAQ at
-https://www.contributor-covenant.org/faq. Translations are available at
-https://www.contributor-covenant.org/translations.
+* G'lek Tarssza - Project Lead
+    * Webpage: https://github.com/glektarssza
+    * Email: [glek@glektarssza.com](mailto:glek@glektarssza.com)
