@@ -35,6 +35,11 @@ jobs:
         uses: gradle/actions/setup-gradle@v5
         with:
           gradle-version: wrapper
+      - id: setup-gradle-props
+        name: Setup Gradle Properties
+        run: |
+          # -- Build Minecraft mods needs a LOT of RAM...
+          echo "org.gradle.jvmargs=-Xmx3G" >> ${HOME}/.gradle/gradle.properties
       - id: initialize-codeql
         name: Initialize CodeQL
         uses: github/codeql-action/init@v4
