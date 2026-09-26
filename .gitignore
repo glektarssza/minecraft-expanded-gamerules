@@ -7,13 +7,19 @@
 !.vscode/extensions.json
 !.vscode/launch.json
 !.vscode/tasks.json
+!.vscode/*.code-workspace
 !.vscode/*.code-snippets
+
+### Local History ###
+.history/
+
+### Built Visual Studio Code Extensions ###
+*.vsix
 
 ## Eclipse ##
 .project
 .classpath
 .settings/
-
 
 ## Vim ##
 ### Swap ###
@@ -50,6 +56,10 @@ tags
 # Environment #
 ## General ##
 .envrc
+
+# Cache #
+## CSpell ##
+.cspellcache
 
 ## Gradle ##
 user.properties
