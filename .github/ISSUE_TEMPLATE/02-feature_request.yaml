@@ -1,9 +1,9 @@
 # yaml-language-server: $schema=https://json.schemastore.org/github-issue-forms.json
 name: Feature Request
 description: Request a new feature for the project.
-title: "[feature request] "
+title: '[Feature] '
 labels:
-  - Feature Request
+  - Feature
 body:
   - id: description
     type: textarea
@@ -16,9 +16,10 @@ body:
     type: checkboxes
     attributes:
       label: Disclaimer
-      description: "By submitting this issue, you state the following:"
+      description: 'By submitting this issue, you state the following:'
       options:
-        - label: I have searched for existing issues and this is not a duplicate.
+        - label:
+            I have searched for existing issues and this is not a duplicate.
           required: true
         - label: I have read the project's contributing guidelines.
           required: true

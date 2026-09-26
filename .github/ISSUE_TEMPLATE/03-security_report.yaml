@@ -1,0 +1,37 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-issue-forms.json
+name: Security Report
+description: Report a security vulnerability.
+title: '[Security] '
+labels:
+  - Security
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please do **NOT** abuse this issue template!
+
+        Abuse of this template **WILL** lead to you getting blocked from being
+        able to contribute to this repository/project and, potentially, future
+        projects too.
+
+        You have been warned!
+  - id: description
+    type: textarea
+    attributes:
+      label: Description
+      description: A short description of the new security issue being reported.
+    validations:
+      required: true
+  - id: disclaimer
+    type: checkboxes
+    attributes:
+      label: Disclaimer
+      description: 'By submitting this issue, you state the following:'
+      options:
+        - label:
+            I have searched for existing issues and this is not a duplicate.
+          required: true
+        - label: I have read the project's contributing guidelines.
+          required: true
+        - label: I have read and understood the project's code of conduct.
+          required: true
