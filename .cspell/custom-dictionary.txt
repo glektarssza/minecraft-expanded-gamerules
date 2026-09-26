@@ -5,6 +5,7 @@ areobf
 assetmover
 autobuild
 binpatched
+checkboxes
 cleanroom
 cleanroommc
 compiletime
@@ -32,11 +33,13 @@ mcversion
 mixinbooter
 mkdirs
 modid
+modrinth
 nevermine
 refmap
 reobf
 reobfuscated
 retrofuturagradle
 rong
+spongepowered
 srgify
 temurin
