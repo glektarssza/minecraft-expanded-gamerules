@@ -3,10 +3,19 @@ version: 2
 updates:
   - directory: /
     package-ecosystem: gradle
-    target-branch: dev
     labels:
       - Dependency
-      - Chore
+    ignore:
+      - dependency-name: org.spongepowered.gradle.vanilla
+    schedule:
+      interval: weekly
+      day: wednesday
+      time: "12:00"
+      timezone: Canada/Mountain
+  - directory: /
+    package-ecosystem: github-actions
+    labels:
+      - Dependency
     schedule:
       interval: weekly
       day: wednesday
